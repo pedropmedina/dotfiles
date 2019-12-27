@@ -53,4 +53,7 @@ tags
 .vim/plugged
 .vim/autoload
 
+# init.vim symlink
+.vim/init.vim
+
 # End of https://www.gitignore.io/api/vim,macos
