@@ -1,8 +1,7 @@
 " Transparent theme
-" Author: Ahmed Khatib
-" Discussed: on his blog http://www.akhatib.com/minimal-and-clean-vim-airline-theme/
-" Repo: https://github.com/khatiba/vim-airline-themes/blob/master/autoload/airline/themes/transparent.vim
-"
+" Borrow from https://github.com/khatiba/vim-airline-themes/blob/master/autoload/airline/themes/transparent.vim
+" Check the author's (Ahmed Khatib) blog for more info http://www.akhatib.com/minimal-and-clean-vim-airline-theme/
+
 " Colors
 let s:gray     = [245, '#3f4b59']
 let s:darkgray = [245, '#1d1f21']
