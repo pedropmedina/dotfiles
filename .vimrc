@@ -48,7 +48,7 @@ let g:python3_host_prog = "/Users/pedropmedina/nvimenvs/neovim3/bin/python"
 "   => Mapped keys ---------------------------------------------------------{{{1
 
 " === Set leader to , key ===
-let g:mapleader = ","       
+let g:mapleader = "\<Space>"       
 
 " === Toggle undo-tree with f5 ===
 noremap <f5> :UndotreeToggle<cr> 
@@ -82,7 +82,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 "   <leader>t - Browse list of files in current directory
 "   <leader>g - Search current directory for occurences of given term and close window if no results
 "   <leader>j - Search current directory for occurences of word under cursor
-nmap ; :Denite buffer<CR>
+nmap <leader>b :Denite buffer<CR>
 nmap <leader>t :DeniteProjectDir file/rec<CR>
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
@@ -169,6 +169,7 @@ Plug 'scrooloose/nerdtree'          " File explorer
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " NERDTree syntax highlight
 Plug 'sheerun/vim-polyglot'         " Syntax and indentation support
 Plug 'mbbill/undotree/'             " undo tree 
+Plug 'tpope/vim-fugitive'           " Git wrapper
 Plug 'mhinz/vim-signify'            " Track git changes on file
 Plug 'vim-airline/vim-airline'      " Status line
 Plug 'vim-airline/vim-airline-themes' "Airline themes collection
