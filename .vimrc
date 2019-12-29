@@ -167,10 +167,11 @@ Plug 'ayu-theme/ayu-vim'            " Theme plugin
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense
 Plug 'scrooloose/nerdtree'          " File explorer
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " NERDTree syntax highlight
-Plug 'sheerun/vim-polyglot'         " Syntax and indentation support
-Plug 'mbbill/undotree/'             " undo tree 
+Plug 'Xuyuanp/nerdtree-git-plugin'  " Visualize git changes on nerdtree
 Plug 'tpope/vim-fugitive'           " Git wrapper
-Plug 'mhinz/vim-signify'            " Track git changes on file
+Plug 'mhinz/vim-signify'            " Visualize git changes on gutter
+Plug 'mbbill/undotree/'             " undo tree 
+Plug 'sheerun/vim-polyglot'         " Syntax and indentation support
 Plug 'vim-airline/vim-airline'      " Status line
 Plug 'vim-airline/vim-airline-themes' "Airline themes collection
 Plug 'terryma/vim-multiple-cursors' " CTR-n to select matching text
@@ -233,7 +234,7 @@ let ayucolor = "mirage"     " Set ayu's version theme
 
 colorscheme ayu             " Color scheme to be used by Vim
 
-hi! clear SignColumn  " Remove gutter's background
+hi! clear SignColumn        " Remove gutter's background
 
 " coc.nvim color changes
 hi! link CocErrorSign WarningMsg
@@ -486,6 +487,21 @@ let g:NERDTreeDisableExactMatchHighlight = 1
 let g:NERDTreeDisablePatternMatchHighlight = 1
 let g:NERDTreeSyntaxEnabledExtesions = ['html', 'js', 'css', 'ts', 'jsx', 'tsx', 'json', 'py', 'yml' ]
 
+
+" => NERDTree-git ------------------------------------------------------{{{1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "ᴹ",
+    \ "Staged"    : "ᴬ",
+    \ "Untracked" : "ᵁ",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "ᴰ",
+    \ "Dirty"     : "•",
+    \ "Clean"     : "◦",
+    \ 'Ignored'   : "ⁱ",
+    \ "Unknown"   : "﹖"
+    \ }
+
 " => IndentLine ------------------------------------------------------{{{1
 let g:indentLine_char = '·'
 " => Airline ------------------------------------------------------{{{1
@@ -526,3 +542,4 @@ endtry
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
+
