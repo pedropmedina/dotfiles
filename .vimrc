@@ -310,7 +310,8 @@ let s:denite_options = {'default' : {
 \ 'highlight_window_background': 'Visual',
 \ 'highlight_filter_background': 'DiffAdd',
 \ 'winrow': 1,
-\ 'vertical_preview': 1
+\ 'vertical_preview': 1,
+\ 'winwidth': &columns
 \ }}
 
 " Loop through denite options and enable them
