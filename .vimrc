@@ -324,6 +324,10 @@ function! s:profile(opts) abort
 endfunction
 
 call s:profile(s:denite_options)
+
+" Adding the custom source to denite
+let g:webdevicons_enable_denite = 1
+
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
@@ -540,7 +544,7 @@ endtry
 
 " => Misc ------------------------------------------------------{{{1
 " Reload icons after init source
-if exists('g:loaded_webdevicons')
-  call webdevicons#refresh()
-endif
+" if exists('g:loaded_webdevicons')
+"   call webdevicons#refresh()
+" endif
 
