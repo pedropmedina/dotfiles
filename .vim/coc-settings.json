@@ -1,4 +1,5 @@
 {
+  "typescript.preferences.importModuleSpecifier": "auto",
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "coc.preferences.formatOnSaveFiletypes": ["html",  "css", "javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx"],
