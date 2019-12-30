@@ -83,7 +83,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 "   <leader>g - Search current directory for occurences of given term and close window if no results
 "   <leader>j - Search current directory for occurences of word under cursor
 nmap <leader>b :Denite buffer<CR>
-nmap <leader>t :DeniteProjectDir file/rec<CR>
+nmap <leader>t :DeniteProjectDir file/rec -path='.'<CR>
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
 
