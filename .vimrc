@@ -14,7 +14,7 @@ if !has('nvim')
                                   " files for completion
   set directory=$HOME/.vim/swap// " Place .swp files in this dir instead of working dir
   set display=lastline            " display more message text
-  set encoding=utf-8              " set default encoding
+  set encoding=UTF-8              " set default encoding
   set fillchars=vert:│,fold:·     " separator characters
   set formatoptions=tcqj          " more intuitive autoformatting
   set fsync                       " call fsync() for robust file saving
@@ -163,24 +163,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'ayu-theme/ayu-vim'            " Theme plugin
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense
-Plug 'scrooloose/nerdtree'          " File explorer
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " NERDTree syntax highlight
-Plug 'Xuyuanp/nerdtree-git-plugin'  " Visualize git changes on nerdtree
-Plug 'tpope/vim-fugitive'           " Git wrapper
-Plug 'mhinz/vim-signify'            " Visualize git changes on gutter
-Plug 'mbbill/undotree/'             " undo tree 
-Plug 'sheerun/vim-polyglot'         " Syntax and indentation support
-Plug 'vim-airline/vim-airline'      " Status line
-Plug 'vim-airline/vim-airline-themes' "Airline themes collection
-Plug 'terryma/vim-multiple-cursors' " CTR-n to select matching text
-Plug 'Yggdroot/indentLine'          " Indentation lines
-Plug 'jiangmiao/auto-pairs'         " Pair bracket
-Plug 'tpope/vim-commentary'         " Comment 
-Plug 'ryanoasis/vim-devicons'       " Icons
-Plug 'tpope/vim-surround'           " Handle surrounding pairs
-
 " Install plugins required to use denite on both vim and nvim
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' } " Fuzzy finding, buffer management
@@ -189,6 +171,24 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
+  Plug 'ayu-theme/ayu-vim'            " Theme plugin
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense
+  Plug 'scrooloose/nerdtree'          " File explorer
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " NERDTree syntax highlight
+  Plug 'Xuyuanp/nerdtree-git-plugin'  " Visualize git changes on nerdtree
+  Plug 'tpope/vim-fugitive'           " Git wrapper
+  Plug 'mhinz/vim-signify'            " Visualize git changes on gutter
+  Plug 'mbbill/undotree/'             " undo tree 
+  Plug 'sheerun/vim-polyglot'         " Syntax and indentation support
+  Plug 'vim-airline/vim-airline'      " Status line
+  Plug 'vim-airline/vim-airline-themes' "Airline themes collection
+  Plug 'terryma/vim-multiple-cursors' " CTR-n to select matching text
+  Plug 'Yggdroot/indentLine'          " Indentation lines
+  Plug 'jiangmiao/auto-pairs'         " Pair bracket
+  Plug 'tpope/vim-commentary'         " Comment 
+  Plug 'tpope/vim-surround'           " Handle surrounding pairs
+  Plug 'ryanoasis/vim-devicons'       " Icons
 
 call plug#end()
 
@@ -310,8 +310,7 @@ let s:denite_options = {'default' : {
 \ 'highlight_window_background': 'Visual',
 \ 'highlight_filter_background': 'DiffAdd',
 \ 'winrow': 1,
-\ 'vertical_preview': 1,
-\ 'winwidth': &columns
+\ 'vertical_preview': 1
 \ }}
 
 " Loop through denite options and enable them
@@ -325,8 +324,6 @@ endfunction
 
 call s:profile(s:denite_options)
 
-" Adding the custom source to denite
-let g:webdevicons_enable_denite = 1
 
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
@@ -544,7 +541,9 @@ endtry
 
 " => Misc ------------------------------------------------------{{{1
 " Reload icons after init source
-" if exists('g:loaded_webdevicons')
-"   call webdevicons#refresh()
-" endif
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
 
+" Adding the custom source to denite
+let g:webdevicons_enable_denite = 1
