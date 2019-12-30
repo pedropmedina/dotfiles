@@ -268,7 +268,7 @@ try
 "   --glob:  Include or exclues files for searching that match the given glob
 "            (aka ignore .git files)
 "
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+call denite#custom#var('file/rec', 'command', ['rg', '--hidden', '--files', '--glob', '!.git'])
 
 " Use ripgrep in place of "grep"
 call denite#custom#var('grep', 'command', ['rg'])
@@ -544,6 +544,3 @@ endtry
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
-
-" Adding the custom source to denite
-let g:webdevicons_enable_denite = 1
