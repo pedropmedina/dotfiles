@@ -188,6 +188,7 @@ endif
   Plug 'jiangmiao/auto-pairs'         " Pair bracket
   Plug 'tpope/vim-commentary'         " Comment 
   Plug 'tpope/vim-surround'           " Handle surrounding pairs
+  Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Support for css in js
   Plug 'ryanoasis/vim-devicons'       " Icons
 
 call plug#end()
@@ -206,6 +207,7 @@ silent! helptags ALL
 set clipboard=unnamed       " Yank and paste with the system clipboard
 set fillchars+=vert:.       " Change vertical split character to be a space (essentially hide it)
 set splitbelow              " Set preview window to appear at bottom
+set mouse=a                 " Enable mouse support in all modes
 set scrolloff=5             " Set scrolloff.
 set number                  " Turn on line numbering.
 set cursorline
