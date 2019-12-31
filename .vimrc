@@ -227,6 +227,9 @@ set tabstop=2               " Use 2 spaces to represent tab
 set softtabstop=2
 set shiftwidth=2            " Number of spaces to use for auto indent
 set noshowmode              " No need for it. Third party plugin handles this
+
+" Change indentation for python to 4 spaces 
+autocmd FileType *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 set foldmethod=marker       " Fold using marker {{{n, where n is fold level
 
 "   => UI --------------------------------------------------{{{1
