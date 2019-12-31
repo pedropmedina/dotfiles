@@ -7,6 +7,8 @@
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
   "prettier.tabWidth": 2,
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
