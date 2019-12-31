@@ -50,6 +50,9 @@ let g:python3_host_prog = "/Users/pedropmedina/nvimenvs/neovim3/bin/python"
 " === Set leader to , key ===
 let g:mapleader = "\<Space>"       
 
+" === toggle coc-explorer ===
+nmap ge :CocCommand explorer<CR>
+
 " === Toggle undo-tree with f5 ===
 noremap <f5> :UndotreeToggle<cr> 
 
@@ -145,11 +148,12 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'split')
 endfunction
 
-" === Nerdtree shorcuts === "
+" 🚨 Using coc-explorer instead
+" === Nerdtree shorcuts === 
 "  <leader>n - Toggle NERDTree on/off
 "  <leader>f - Opens current file location in NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
+" nmap <leader>n :NERDTreeToggle<CR>
+" nmap <leader>f :NERDTreeFind<CR>
 
 
 "   => vim-plug plugins ----------------------------------------------------{{{1
@@ -172,11 +176,11 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+  " Plug 'scrooloose/nerdtree'          " File explorer
+  " Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " NERDTree syntax highlight
+  " Plug 'Xuyuanp/nerdtree-git-plugin'  " Visualize git changes on nerdtree
   Plug 'ayu-theme/ayu-vim'            " Theme plugin
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense
-  Plug 'scrooloose/nerdtree'          " File explorer
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " NERDTree syntax highlight
-  Plug 'Xuyuanp/nerdtree-git-plugin'  " Visualize git changes on nerdtree
   Plug 'tpope/vim-fugitive'           " Git wrapper
   Plug 'mhinz/vim-signify'            " Visualize git changes on gutter
   Plug 'mbbill/undotree/'             " undo tree 
@@ -188,7 +192,6 @@ endif
   Plug 'jiangmiao/auto-pairs'         " Pair bracket
   Plug 'tpope/vim-commentary'         " Comment 
   Plug 'tpope/vim-surround'           " Handle surrounding pairs
-  Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Support for css in js
   Plug 'ryanoasis/vim-devicons'       " Icons
 
 call plug#end()
@@ -464,47 +467,49 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
 " => NERDTree ------------------------------------------------------{{{1
-" Show hidden files/directories
-let g:NERDTreeShowHidden = 1
+" 🚨 Using coc-explorer instead
+" " Show hidden files/directories
+" let g:NERDTreeShowHidden = 1
 
-" Remove bookmarks and help text from NERDTree
-let g:NERDTreeMinimalUI = 1
+" " Remove bookmarks and help text from NERDTree
+" let g:NERDTreeMinimalUI = 1
 
-" Custom icons for expandable/expanded directories
-let g:NERDTreeDirArrowExpandable = '⬏'
-let g:NERDTreeDirArrowCollapsible = '⬎'
+" " Custom icons for expandable/expanded directories
+" let g:NERDTreeDirArrowExpandable = '⬏'
+" let g:NERDTreeDirArrowCollapsible = '⬎'
 
-" Hide certain files and directories from NERDTree
-let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
+" " Hide certain files and directories from NERDTree
+" let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
 
-" Hide the Nerdtree status line to avoid clutter
-let g:NERDTreeStatusline = ''
+" " Hide the Nerdtree status line to avoid clutter
+" let g:NERDTreeStatusline = ''
 
-" Automaticaly close nvim if NERDTree is only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" " Automaticaly close nvim if NERDTree is only thing left open
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Disable highlight to improve performace
-let g:NERDTreeHighlightCursorline = 0
+" " Disable highlight to improve performace
+" let g:NERDTreeHighlightCursorline = 0
 
-" Tweak syntax highlighting to reduce lag
-let g:NERDTreeDisableExactMatchHighlight = 1
-let g:NERDTreeDisablePatternMatchHighlight = 1
-let g:NERDTreeSyntaxEnabledExtesions = ['html', 'js', 'css', 'ts', 'jsx', 'tsx', 'json', 'py', 'yml' ]
+" " Tweak syntax highlighting to reduce lag
+" let g:NERDTreeDisableExactMatchHighlight = 1
+" let g:NERDTreeDisablePatternMatchHighlight = 1
+" let g:NERDTreeSyntaxEnabledExtesions = ['html', 'js', 'css', 'ts', 'jsx', 'tsx', 'json', 'py', 'yml' ]
 
 
 " => NERDTree-git ------------------------------------------------------{{{1
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "ᴹ",
-    \ "Staged"    : "ᴬ",
-    \ "Untracked" : "ᵁ",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "ᴰ",
-    \ "Dirty"     : "•",
-    \ "Clean"     : "◦",
-    \ 'Ignored'   : "ⁱ",
-    \ "Unknown"   : "﹖"
-    \ }
+" 🚨 Using coc-explorer instead
+" let g:NERDTreeIndicatorMapCustom = {
+"     \ "Modified"  : "ᴹ",
+"     \ "Staged"    : "ᴬ",
+"     \ "Untracked" : "ᵁ",
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "ᴰ",
+"     \ "Dirty"     : "•",
+"     \ "Clean"     : "◦",
+"     \ 'Ignored'   : "ⁱ",
+"     \ "Unknown"   : "﹖"
+"     \ }
 
 " => IndentLine ------------------------------------------------------{{{1
 let g:indentLine_char = '·'
@@ -543,6 +548,6 @@ endtry
 
 " => Misc ------------------------------------------------------{{{1
 " Reload icons after init source
-if exists('g:loaded_webdevicons')
-  call webdevicons#refresh()
-endif
+" if exists('g:loaded_webdevicons')
+"   call webdevicons#refresh()
+" endif
