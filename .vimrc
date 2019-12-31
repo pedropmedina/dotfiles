@@ -189,7 +189,6 @@ endif
   Plug 'vim-airline/vim-airline-themes' "Airline themes collection
   Plug 'terryma/vim-multiple-cursors' " CTR-n to select matching text
   Plug 'Yggdroot/indentLine'          " Indentation lines
-  Plug 'jiangmiao/auto-pairs'         " Pair bracket
   Plug 'tpope/vim-commentary'         " Comment 
   Plug 'tpope/vim-surround'           " Handle surrounding pairs
   Plug 'ryanoasis/vim-devicons'       " Icons
