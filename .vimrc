@@ -51,7 +51,7 @@ let g:python3_host_prog = "/Users/pedropmedina/nvimenvs/neovim3/bin/python"
 let g:mapleader = "\<Space>"       
 
 " === toggle coc-explorer ===
-nmap ge :CocCommand explorer<CR>
+nmap <leader>e :CocCommand explorer<CR>
 
 " === Toggle undo-tree with f5 ===
 noremap <f5> :UndotreeToggle<cr> 
@@ -453,7 +453,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>x  :<C-u>CocList extensions<cr>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
