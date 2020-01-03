@@ -155,6 +155,8 @@ endfunction
 " nmap <leader>n :NERDTreeToggle<CR>
 " nmap <leader>f :NERDTreeFind<CR>
 
+" Save current buffer when leaving insert mode
+inoremap <Esc> <Esc>:w<CR>
 
 "   => vim-plug plugins ----------------------------------------------------{{{1
 
@@ -549,7 +551,5 @@ endtry
 
 
 " => Misc ------------------------------------------------------{{{1
-" Reload icons after init source
-" if exists('g:loaded_webdevicons')
-"   call webdevicons#refresh()
-" endif
+" Save all buffers when focus is lost
+autocmd FocusLost * :wa

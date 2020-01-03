@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["html",  "css", "json", "javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "coc.preferences.formatOnSaveFiletypes": ["html",  "css", "json", "javascript", "typescript", "typescriptreact", "javascriptreact", "vue"],
   "typescript.preferences.importModuleSpecifier": "auto",
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
@@ -12,7 +12,21 @@
   "prettier.tabWidth": 2,
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
-  "explorer.width": 40, 
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "singleQuote": true
+    },
+    "js-beautify-html": {
+      "wrap_attributes": "force-expand-multiline"
+    },
+    "prettyhtml": {
+      "printWidth": 100,
+      "singleQuote": true,
+      "wrapAttributes": false,
+      "sortAttributes": false
+    }
+  },
+  "explorer.width": 25, 
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevions": false,
   "explorer.file.showHiddenFiles": true,
