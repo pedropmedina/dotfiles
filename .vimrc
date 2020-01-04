@@ -155,8 +155,8 @@ endfunction
 " nmap <leader>n :NERDTreeToggle<CR>
 " nmap <leader>f :NERDTreeFind<CR>
 
-" Save current buffer when leaving insert mode
-inoremap <Esc> <Esc>:w<CR>
+" Save current buffer when leaving insert mode if buffer is modified
+inoremap <silent><expr><Esc> &modified ? "<Esc>:w<CR>" : "<Esc>"
 
 "   => vim-plug plugins ----------------------------------------------------{{{1
 
@@ -551,5 +551,5 @@ endtry
 
 
 " => Misc ------------------------------------------------------{{{1
-" Save all buffers when focus is lost
-autocmd FocusLost * :wa
+" Save modified buffer when focus is lost
+autocmd FocusLost * if &modified | :wa | endif
