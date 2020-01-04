@@ -148,16 +148,6 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'split')
 endfunction
 
-" 🚨 Using coc-explorer instead
-" === Nerdtree shorcuts === 
-"  <leader>n - Toggle NERDTree on/off
-"  <leader>f - Opens current file location in NERDTree
-" nmap <leader>n :NERDTreeToggle<CR>
-" nmap <leader>f :NERDTreeFind<CR>
-
-" Save current buffer when leaving insert mode if buffer is modified
-inoremap <silent><expr><Esc> &modified ? "<Esc>:w<CR>" : "<Esc>"
-
 "   => vim-plug plugins ----------------------------------------------------{{{1
 
 " Install vim-plug if it's not already installed.
@@ -178,17 +168,17 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-  " Plug 'scrooloose/nerdtree'          " File explorer
-  " Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " NERDTree syntax highlight
-  " Plug 'Xuyuanp/nerdtree-git-plugin'  " Visualize git changes on nerdtree
   Plug 'ayu-theme/ayu-vim'            " Theme plugin
+  Plug 'mhinz/vim-startify'           " Start screen
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense
+  Plug '907th/vim-auto-save'          " Autosave buffers
   Plug 'tpope/vim-fugitive'           " Git wrapper
   Plug 'mhinz/vim-signify'            " Visualize git changes on gutter
   Plug 'mbbill/undotree/'             " undo tree 
   Plug 'sheerun/vim-polyglot'         " Syntax and indentation support
   Plug 'vim-airline/vim-airline'      " Status line
   Plug 'vim-airline/vim-airline-themes' "Airline themes collection
+  Plug 'jiangmiao/auto-pairs'         " Auto pairs
   Plug 'terryma/vim-multiple-cursors' " CTR-n to select matching text
   Plug 'Yggdroot/indentLine'          " Indentation lines
   Plug 'tpope/vim-commentary'         " Comment 
@@ -228,10 +218,10 @@ set tabstop=2               " Use 2 spaces to represent tab
 set softtabstop=2
 set shiftwidth=2            " Number of spaces to use for auto indent
 set noshowmode              " No need for it. Third party plugin handles this
+set foldmethod=marker       " Fold using marker {{{n, where n is fold level
 
 " Change indentation for python to 4 spaces 
 autocmd FileType *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
-set foldmethod=marker       " Fold using marker {{{n, where n is fold level
 
 "   => UI --------------------------------------------------{{{1
 
@@ -408,10 +398,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -470,50 +456,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
-" => NERDTree ------------------------------------------------------{{{1
-" 🚨 Using coc-explorer instead
-" " Show hidden files/directories
-" let g:NERDTreeShowHidden = 1
-
-" " Remove bookmarks and help text from NERDTree
-" let g:NERDTreeMinimalUI = 1
-
-" " Custom icons for expandable/expanded directories
-" let g:NERDTreeDirArrowExpandable = '⬏'
-" let g:NERDTreeDirArrowCollapsible = '⬎'
-
-" " Hide certain files and directories from NERDTree
-" let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
-
-" " Hide the Nerdtree status line to avoid clutter
-" let g:NERDTreeStatusline = ''
-
-" " Automaticaly close nvim if NERDTree is only thing left open
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" " Disable highlight to improve performace
-" let g:NERDTreeHighlightCursorline = 0
-
-" " Tweak syntax highlighting to reduce lag
-" let g:NERDTreeDisableExactMatchHighlight = 1
-" let g:NERDTreeDisablePatternMatchHighlight = 1
-" let g:NERDTreeSyntaxEnabledExtesions = ['html', 'js', 'css', 'ts', 'jsx', 'tsx', 'json', 'py', 'yml' ]
-
-
-" => NERDTree-git ------------------------------------------------------{{{1
-" 🚨 Using coc-explorer instead
-" let g:NERDTreeIndicatorMapCustom = {
-"     \ "Modified"  : "ᴹ",
-"     \ "Staged"    : "ᴬ",
-"     \ "Untracked" : "ᵁ",
-"     \ "Renamed"   : "➜",
-"     \ "Unmerged"  : "═",
-"     \ "Deleted"   : "ᴰ",
-"     \ "Dirty"     : "•",
-"     \ "Clean"     : "◦",
-"     \ 'Ignored'   : "ⁱ",
-"     \ "Unknown"   : "﹖"
-"     \ }
 
 " => IndentLine ------------------------------------------------------{{{1
 let g:indentLine_char = '·'
@@ -550,6 +492,7 @@ catch
 endtry
 
 
-" => Misc ------------------------------------------------------{{{1
-" Save modified buffer when focus is lost
-autocmd FocusLost * if &modified | :wa | endif
+
+" => Vim Auto-Save ------------------------------------------------------{{{1
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
