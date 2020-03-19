@@ -64,12 +64,13 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  fzf 
   pyenv 
   node 
-  npm 
+  npm
+  yarn
   npx 
   nvm 
+  poetry
   fast-syntax-highlighting
   zsh-autosuggestions
 )
@@ -88,11 +89,7 @@ SPACESHIP_CHAR_SYMBOL_SECONDARY="❯ "
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='nvim'
- fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -121,3 +118,10 @@ function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# Add php composer package manager to PATH
+export PATH="$PATH:$HOME/.composer/vendor/bin"
