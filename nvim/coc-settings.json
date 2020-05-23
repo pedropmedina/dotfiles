@@ -1,0 +1,52 @@
+{
+  "diagnostic.infoSign": "•",
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "typescript",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "python",
+    "vue"
+  ],
+  "coc.preferences.colorSupport": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"],
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": false,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+  "explorer.file.column.indent.indentLine": false,
+  "explorer.file.column.indent.chars": " ",
+  "explorer.icon.enableVimDevicons": false,
+  "css.validate": false,
+  "css.colorDecorators.enable": true,
+  "stylelint.enable": true,
+  "html.filetypes": [
+    "html",
+    "handlebars",
+    "htmldjango",
+    "vue",
+    "js",
+    "jsx",
+    "tsx"
+  ],
+  "html.autoClosingTags": true,
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.js": "prettier",
+  "vetur.format.defaultFormatter.postcss": "prettier",
+  "vetur.format.defaultFormatter.css": "prettier",
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.bracketSpacing": true
+}

@@ -52,29 +52,3 @@
   set softtabstop=2
   set shiftwidth=2                " Number of spaces to use for auto indent
   set termguicolors              " Enable true colors support
-
-  
-  " vim-plug plugins
-  call plug#begin('~/.vim/plugged')
-    Plug 'tomasiser/vim-code-dark'
-  call plug#end()
-
-  colorscheme codedark
-
-  " Exit terminal mode with Esc ===
-  tnoremap <Esc> <C-\><C-n>
-  
-  " Use CTRL-{h,j,k,l} to navigate windows from any mode
-  tnoremap <C-h> <C-\><C-N><C-w><C-h>
-  tnoremap <C-j> <C-\><C-N><C-w><C-j> 
-  tnoremap <C-k> <C-\><C-N><C-w><C-k>
-  tnoremap <C-l> <C-\><C-N><C-w><C-l> 
-  inoremap <C-h> <C-\><C-N><C-w><C-h>
-  inoremap <C-j> <C-\><C-N><C-w><C-j> 
-  inoremap <C-k> <C-\><C-N><C-w><C-k> 
-  inoremap <C-l> <C-\><C-N><C-w><C-l> 
-  nnoremap <C-h> <C-w><C-h> 
-  nnoremap <C-j> <C-w><C-j> 
-  nnoremap <C-k> <C-w><C-k> 
-  nnoremap <C-l> <C-w><C-l>
-

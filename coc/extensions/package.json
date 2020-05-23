@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "JavaScriptSnippets": "https://github.com/nathanchapman/vscode-javascript-snippets",
+    "coc-css": ">=1.2.3",
+    "coc-emmet": ">=1.1.4",
+    "coc-explorer": ">=0.7.5",
+    "coc-highlight": ">=1.2.5",
+    "coc-html": ">=1.2.4",
+    "coc-json": ">=1.2.6",
+    "coc-lua": ">=0.2.0",
+    "coc-phpls": ">=2.1.8",
+    "coc-prettier": ">=1.1.12",
+    "coc-python": ">=1.2.12",
+    "coc-snippets": ">=2.1.26",
+    "coc-stylelint": ">=1.1.0",
+    "coc-tailwindcss": ">=0.6.0",
+    "coc-tsserver": ">=1.5.1",
+    "coc-ultisnips": ">=1.2.3",
+    "coc-vetur": ">=1.1.10",
+    "coc-vimlsp": ">=0.8.0",
+    "jest-snippets": "https://github.com/andys8/vscode-jest-snippets"
+  }
+}

@@ -49,9 +49,13 @@ tags
 # Persistent undo
 [._]*.un~
 
-# Vim plugins
-.vim/plugged
-.vim/autoload
+# plugins
+nvim/autoload/plugged
+
+# coc
+coc/extensions/node_modules
+coc/extensions/coc-*
+coc/extensions/db.json
 
 # init.vim symlink used by neovim
 .vim/init.vim
