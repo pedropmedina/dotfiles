@@ -70,7 +70,6 @@ plugins=(
   yarn
   npx 
   nvm 
-  poetry
   fast-syntax-highlighting
   zsh-autosuggestions
 )
