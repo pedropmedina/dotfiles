@@ -25,26 +25,28 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 " Single mappings
 let g:which_key_map['/'] = [ ':Commentary'  , 'comment' ]
+let g:which_key_map['_'] = [ '<C-W>s'                     , 'split below']
+let g:which_key_map['|'] = [ '<C-W>v'                     , 'split right']
+let g:which_key_map['='] = [ '<C-W>='                     , 'balance windows' ]
 let g:which_key_map['.'] = [ ':e $MYVIMRC'                , 'open init' ]
 let g:which_key_map[';'] = [ ':Commands'                  , 'commands' ]
-let g:which_key_map['='] = [ '<C-W>='                     , 'balance windows' ]
 let g:which_key_map[','] = [ 'Startify'                   , 'start screen' ]
 let g:which_key_map['d'] = [ ':bd'                        , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'       , 'explorer' ]
 let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
-let g:which_key_map['h'] = [ '<C-W>s'                     , 'split below']
-let g:which_key_map['q'] = [ 'q'                          , 'quit' ]
+let g:which_key_map['s'] = [ ':SSave'                     , 'save session' ]
+let g:which_key_map['t'] = [ ':Rg'                        , 'search text' ]
+let g:which_key_map['l'] = [ ':BLines'                    , 'search lines in current buffer' ]
+let g:which_key_map['b'] = [ ':Buffers'                   , 'search in buffers' ]
 let g:which_key_map['r'] = [ ':RnvimrToggle'              , 'ranger' ]
-let g:which_key_map['S'] = [ ':SSave'                     , 'save session' ]
-let g:which_key_map['T'] = [ ':Rg'                        , 'search text' ]
-let g:which_key_map['v'] = [ '<C-W>v'                     , 'split right']
-let g:which_key_map['W'] = [ 'w'                          , 'write' ]
+let g:which_key_map['w'] = [ 'w'                          , 'write' ]
+let g:which_key_map['q'] = [ 'q'                          , 'quit' ]
 let g:which_key_map['z'] = [ 'Goyo'                       , 'zen' ]
 
 " Group mappings
 
-" a is for actions
-let g:which_key_map.a = {
+" A is for actions
+let g:which_key_map.A = {
       \ 'name' : '+actions' ,
       \ 'c' : [':ColorizerToggle'        , 'colorizer'],
       \ 'e' : [':CocCommand explorer'    , 'explorer'],
@@ -55,8 +57,8 @@ let g:which_key_map.a = {
       \ 'v' : [':Vista!!'                , 'tag viewer'],
       \ }
 
-" b is for buffer
-let g:which_key_map.b = {
+" B is for buffer
+let g:which_key_map.B = {
       \ 'name' : '+buffer' ,
       \ '1' : ['b1'        , 'buffer 1']        ,
       \ '2' : ['b2'        , 'buffer 2']        ,
@@ -69,8 +71,8 @@ let g:which_key_map.b = {
       \ '?' : ['Buffers'   , 'fzf-buffer']      ,
       \ }
 
-" s is for search
-let g:which_key_map.s = {
+" S is for search
+let g:which_key_map.S = {
       \ 'name' : '+search' ,
       \ '/' : [':History/'     , 'history'],
       \ ';' : [':Commands'     , 'commands'],
@@ -98,8 +100,8 @@ let g:which_key_map.s = {
       \ 'z' : [':FZF'          , 'FZF'],
       \ }
 
-" g is for git
-let g:which_key_map.g = {
+" G is for git
+let g:which_key_map.G = {
       \ 'name' : '+git' ,
       \ 'a' : [':Git add .'                        , 'add all'],
       \ 'A' : [':Git add %'                        , 'add current'],
@@ -125,8 +127,8 @@ let g:which_key_map.g = {
       \ 'V' : [':GV!'                              , 'view buffer commits'],
       \ }
 
-" l is for language server protocol
-let g:which_key_map.l = {
+" L is for language server protocol
+let g:which_key_map.L = {
       \ 'name' : '+lsp' ,
       \ '.' : [':CocConfig'                          , 'config'],
       \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
@@ -164,7 +166,7 @@ let g:which_key_map.l = {
       \ }
 
 " t is for terminal
-let g:which_key_map.t = {
+let g:which_key_map.T = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
