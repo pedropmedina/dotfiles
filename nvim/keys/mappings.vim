@@ -41,7 +41,7 @@ inoremap <C-j> <Esc><C-w>j
 inoremap <C-k> <Esc><C-w>k
 inoremap <C-l> <Esc><C-w>l
 
-" Terminal window quit
+" Quit terminal with escape
 tnoremap <Esc> <C-\><C-n> :q<CR>
 
 " Terminal window navigation

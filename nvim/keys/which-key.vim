@@ -168,17 +168,17 @@ let g:which_key_map.L = {
 " t is for terminal
 let g:which_key_map.T = {
       \ 'name' : '+terminal' ,
-      \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
+      \ ';' : [':FloatermNew --wintype=popup --height=15'       , 'new popup terminal'],
+      \ '+' : [':FloatermNew'                                   , 'new terminal'],
+      \ '-' : [':FloatermKill'                                  , 'kill terminal'],
+      \ 't' : [':FloatermToggle'                                , 'toggle'],
+      \ 'k' : [':FloatermNext'                                  , 'next terminal'],
+      \ 'j' : [':FloatermPrev'                                  , 'prev terminal'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'N' : [':FloatermNew nnn'                               , 'nnn'],
       \ 'p' : [':FloatermNew python'                            , 'python'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
-      \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
-      \ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
       \ }
 
 " Register which key map
