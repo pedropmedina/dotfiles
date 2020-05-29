@@ -12,6 +12,9 @@
     ],
     "%2FUsers%2Fpedropmedina%2FDesktop": [
       "l"
+    ],
+    "%2FUsers%2Fpedropmedina%2Fdotfiles": [
+      "jj"
     ]
   },
   "explorerFiles": {
@@ -28,6 +31,9 @@
   "diagnostics": {
     "%2FUsers%2Fpedropmedina%2FDesktop": [
       ":Coc"
+    ],
+    "%2FUsers%2Fpedropmedina%2Fdotfiles": [
+      ":"
     ]
   }
 }

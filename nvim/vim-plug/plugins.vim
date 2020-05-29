@@ -53,7 +53,4 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Remember key bindings
     Plug 'liuchengxu/vim-which-key'
-
-    " Float term
-    Plug 'voldikss/vim-floaterm'
 call plug#end()

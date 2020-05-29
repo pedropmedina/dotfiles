@@ -41,7 +41,6 @@ let g:which_key_map['b'] = [ ':Buffers'                   , 'search in buffers' 
 let g:which_key_map['r'] = [ ':RnvimrToggle'              , 'ranger' ]
 let g:which_key_map['w'] = [ 'w'                          , 'write' ]
 let g:which_key_map['q'] = [ 'q'                          , 'quit' ]
-let g:which_key_map['z'] = [ 'Goyo'                       , 'zen' ]
 
 " Group mappings
 
@@ -53,7 +52,6 @@ let g:which_key_map.A = {
       \ 'n' : [':set nonumber!'          , 'line-numbers'],
       \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
       \ 's' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 't' : [':FloatermToggle'         , 'terminal'],
       \ 'v' : [':Vista!!'                , 'tag viewer'],
       \ }
 
@@ -163,22 +161,6 @@ let g:which_key_map.L = {
       \ 'v' : [':Vista!!'                            , 'tag viewer'],
       \ 'z' : [':CocDisable'                         , 'disable CoC'],
       \ 'Z' : [':CocEnable'                          , 'enable CoC'],
-      \ }
-
-" t is for terminal
-let g:which_key_map.T = {
-      \ 'name' : '+terminal' ,
-      \ ';' : [':FloatermNew --wintype=popup --height=15'       , 'new popup terminal'],
-      \ '+' : [':FloatermNew'                                   , 'new terminal'],
-      \ '-' : [':FloatermKill'                                  , 'kill terminal'],
-      \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'k' : [':FloatermNext'                                  , 'next terminal'],
-      \ 'j' : [':FloatermPrev'                                  , 'prev terminal'],
-      \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
-      \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-      \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'p' : [':FloatermNew python'                            , 'python'],
-      \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ }
 
 " Register which key map

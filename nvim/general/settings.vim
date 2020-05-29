@@ -35,8 +35,9 @@ set updatetime=300                      " Faster completion
 set timeoutlen=100                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
-set guifont=Hack\ Nerd\ Font
-set autowriteall                           " Save file on buffer change
+set guifont=Iosevka\ Nerd\ Font
+set autowriteall                        " Save file on buffer change
+set termguicolors                       " Enables 24-bit RGB color
 
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " set mmp=1300
@@ -45,7 +46,7 @@ set autowriteall                           " Save file on buffer change
 
 autocmd FocusLost * :wa                    " Save file on focus lost
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+autocmd! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
 " You can't stop me
 cmap w!! w !sudo tee %
