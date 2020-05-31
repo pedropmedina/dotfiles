@@ -11,6 +11,9 @@ vnoremap > >gv
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
+" Find and Replace word under the cursor
+nnoremap <Leader>fr :%s///g<Left><Left>
+
 " I hate escape more than anything else
 inoremap jk <Esc>
 inoremap kj <Esc>

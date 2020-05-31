@@ -24,35 +24,33 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
-let g:which_key_map['/'] = [ ':Commentary'  , 'comment' ]
-let g:which_key_map['_'] = [ '<C-W>s'                     , 'split below']
-let g:which_key_map['|'] = [ '<C-W>v'                     , 'split right']
-let g:which_key_map['='] = [ '<C-W>='                     , 'balance windows' ]
-let g:which_key_map['.'] = [ ':e $MYVIMRC'                , 'open init' ]
-let g:which_key_map[';'] = [ ':Commands'                  , 'commands' ]
-let g:which_key_map[','] = [ 'Startify'                   , 'start screen' ]
-let g:which_key_map['d'] = [ ':bd'                        , 'delete buffer']
-let g:which_key_map['e'] = [ ':CocCommand explorer'       , 'explorer' ]
-let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
-let g:which_key_map['s'] = [ ':SSave'                     , 'save session' ]
-let g:which_key_map['t'] = [ ':Rg'                        , 'search text' ]
-let g:which_key_map['l'] = [ ':BLines'                    , 'search lines in current buffer' ]
-let g:which_key_map['b'] = [ ':Buffers'                   , 'search in buffers' ]
-let g:which_key_map['r'] = [ ':RnvimrToggle'              , 'ranger' ]
-let g:which_key_map['w'] = [ 'w'                          , 'write' ]
-let g:which_key_map['q'] = [ 'q'                          , 'quit' ]
+let g:which_key_map['/']  =  [ ':Commentary'                , 'comment' ]
+let g:which_key_map['_']  =  [ '<C-W>s'                     , 'split below']
+let g:which_key_map['|']  =  [ '<C-W>v'                     , 'split right']
+let g:which_key_map['=']  =  [ '<C-W>='                     , 'balance windows' ]
+let g:which_key_map['.']  =  [ ':e $MYVIMRC'                , 'open init' ]
+let g:which_key_map[';']  =  [ ':Commands'                  , 'commands' ]
+let g:which_key_map[',']  =  [ 'Startify'                   , 'start screen' ]
+let g:which_key_map['b']  =  [ ':bd'                        , 'delete buffer']
+let g:which_key_map['e']  =  [ ':CocCommand explorer'       , 'explorer' ]
+let g:which_key_map['f']  =  [ ':Files'                     , 'search files' ]
+let g:which_key_map['t']  =  [ ':Rg'                        , 'search text' ]
+let g:which_key_map['l']  =  [ ':BLines'                    , 'search lines in current buffer' ]
+let g:which_key_map['b']  =  [ ':Buffers'                   , 'search in buffers' ]
+let g:which_key_map['r']  =  [ ':RnvimrToggle'              , 'ranger' ]
+let g:which_key_map['w']  =  [ ':w'                         , 'write' ]
+let g:which_key_map['q']  =  [ ':q'                         , 'quit' ]
+let g:which_key_map['wq'] =  [ ':wq'                        , 'write and quit' ]
 
 " Group mappings
 
 " A is for actions
 let g:which_key_map.A = {
       \ 'name' : '+actions' ,
-      \ 'c' : [':ColorizerToggle'        , 'colorizer'],
-      \ 'e' : [':CocCommand explorer'    , 'explorer'],
-      \ 'n' : [':set nonumber!'          , 'line-numbers'],
-      \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
-      \ 's' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 'v' : [':Vista!!'                , 'tag viewer'],
+      \ 'e' : [':CocCommand explorer'         , 'explorer'],
+      \ 'n' : [':set nonumber!'               , 'line-numbers'],
+      \ 'r' : [':set norelativenumber!'       , 'relative line nums'],
+      \ 'v' : [':Vista!!'                     , 'tag viewer'],
       \ }
 
 " B is for buffer
@@ -103,22 +101,21 @@ let g:which_key_map.G = {
       \ 'name' : '+git' ,
       \ 'a' : [':Git add .'                        , 'add all'],
       \ 'A' : [':Git add %'                        , 'add current'],
-      \ 'b' : [':Git blame'                        , 'blame'],
+      \ 'b' : [':Gblame'                           , 'blame'],
       \ 'B' : [':GBrowse'                          , 'browse'],
-      \ 'c' : [':Git commit'                       , 'commit'],
-      \ 'd' : [':Git diff'                         , 'diff'],
-      \ 'D' : [':Gdiffsplit'                       , 'diff split'],
-      \ 'g' : [':GGrep'                            , 'git grep'],
-      \ 'G' : [':Gstatus'                          , 'status'],
+      \ 'c' : [':Gcommit'                          , 'commit'],
+      \ 'd' : [':Gdiffsplit'                       , 'diff'],
+      \ 'D' : [':Gvdiffsplit'                      , 'vertical diff split'],
+      \ 'g' : [':Gstatus'                          , 'status'],
       \ 'h' : [':GitGutterLineHighlightsToggle'    , 'highlight hunks'],
       \ 'H' : ['<Plug>(GitGutterPreviewHunk)'      , 'preview hunk'],
       \ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'next hunk'],
       \ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'prev hunk'],
-      \ 'l' : [':Git log'                          , 'log'],
-      \ 'p' : [':Git push'                         , 'push'],
-      \ 'P' : [':Git pull'                         , 'pull'],
+      \ 'l' : [':Glog'                             , 'log'],
+      \ 'p' : [':Gpush'                            , 'push'],
+      \ 'P' : [':Gpull'                            , 'pull'],
       \ 'r' : [':GRemove'                          , 'remove'],
-      \ 's' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
+      \ 's' : ['Gstatus'                           , 'git status'],
       \ 't' : [':GitGutterSignsToggle'             , 'toggle signs'],
       \ 'u' : ['<Plug>(GitGutterUndoHunk)'         , 'undo hunk'],
       \ 'v' : [':GV'                               , 'view commits'],

@@ -39,10 +39,8 @@ set guifont=Iosevka\ Nerd\ Font
 set autowriteall                        " Save file on buffer change
 set termguicolors                       " Enables 24-bit RGB color
 
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" set mmp=1300
-" set autochdir                           " Your working directory will always be the same as your working directory
-" set foldcolumn=2                        " Folding abilities
+" set autochdir                         " Your working directory will always be the same as your working directory
+" set foldcolumn=2                      " Folding abilities
 
 autocmd FocusLost * :wa                    " Save file on focus lost
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

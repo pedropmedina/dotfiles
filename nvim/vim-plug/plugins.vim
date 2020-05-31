@@ -53,4 +53,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Remember key bindings
     Plug 'liuchengxu/vim-which-key'
+
+    " Automatically clear highlight ( :nohls )
+    Plug 'haya14busa/is.vim'
 call plug#end()
