@@ -56,4 +56,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Automatically clear highlight ( :nohls )
     Plug 'haya14busa/is.vim'
+
+    " Search highlighted text with * or # from a visual block
+    Plug 'nelstrom/vim-visual-star-search'
+
+    " Multiple files find and replace
+    Plug 'brooth/far.vim'
 call plug#end()

@@ -14,6 +14,13 @@ inoremap <expr> <c-k> ("\<C-p>")
 " Find and Replace word under the cursor
 nnoremap <Leader>fr :%s///g<Left><Left>
 
+" Find and Replace selected words in visual mode
+xnoremap <Leader>fr :s///g<Left><Left>
+
+" Multiple cursors alternative. Under a word or selection replace word and repeat instance with '.'
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* "sy:let @/=@s<CR>cgn
+
 " I hate escape more than anything else
 inoremap jk <Esc>
 inoremap kj <Esc>

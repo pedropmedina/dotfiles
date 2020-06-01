@@ -31,7 +31,6 @@ let g:which_key_map['=']  =  [ '<C-W>='                     , 'balance windows' 
 let g:which_key_map['.']  =  [ ':e $MYVIMRC'                , 'open init' ]
 let g:which_key_map[';']  =  [ ':Commands'                  , 'commands' ]
 let g:which_key_map[',']  =  [ 'Startify'                   , 'start screen' ]
-let g:which_key_map['b']  =  [ ':bd'                        , 'delete buffer']
 let g:which_key_map['e']  =  [ ':CocCommand explorer'       , 'explorer' ]
 let g:which_key_map['f']  =  [ ':Files'                     , 'search files' ]
 let g:which_key_map['t']  =  [ ':Rg'                        , 'search text' ]
@@ -41,6 +40,9 @@ let g:which_key_map['r']  =  [ ':RnvimrToggle'              , 'ranger' ]
 let g:which_key_map['w']  =  [ ':w'                         , 'write' ]
 let g:which_key_map['q']  =  [ ':q'                         , 'quit' ]
 let g:which_key_map['wq'] =  [ ':wq'                        , 'write and quit' ]
+
+" Hide some of the key automatically mapped by some of the plugins
+let g:which_key_map['*']  =  'which_key_ignore'
 
 " Group mappings
 
@@ -72,7 +74,6 @@ let g:which_key_map.S = {
       \ 'name' : '+search' ,
       \ '/' : [':History/'     , 'history'],
       \ ';' : [':Commands'     , 'commands'],
-      \ 'a' : [':Ag'           , 'text Ag'],
       \ 'b' : [':BLines'       , 'current buffer'],
       \ 'B' : [':Buffers'      , 'open buffers'],
       \ 'c' : [':Commits'      , 'commits'],
