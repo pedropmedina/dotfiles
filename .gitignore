@@ -30,6 +30,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# node_modules
+node_modules/*
+
 ### Vim ###
 # Swap
 [._]*.s[a-v][a-z]
@@ -53,10 +56,7 @@ tags
 nvim/autoload/plugged
 
 # coc
-coc/extensions/node_modules
-coc/extensions/coc-*
-coc/extensions/db.json
-coc/extensions/package.json
+coc/*
 
 # init.vim symlink used by neovim
 .vim/init.vim

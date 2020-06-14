@@ -38,7 +38,7 @@ set incsearch
 set guifont=Iosevka\ Nerd\ Font
 set autowriteall                        " Save file on buffer change
 set termguicolors                       " Enables 24-bit RGB color
-set colorcolumn=100                     " Show delimeter line at 100th column
+" set colorcolumn=100                     " Show delimeter line at 100th column
 
 " set foldcolumn=2                      " Folding abilities
 

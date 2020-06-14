@@ -8,6 +8,7 @@
     "coc-html": ">=1.2.4",
     "coc-json": ">=1.2.6",
     "coc-lua": ">=0.2.0",
+    "coc-marketplace": ">=1.7.0",
     "coc-phpls": ">=2.1.8",
     "coc-prettier": ">=1.1.14",
     "coc-python": ">=1.2.12",
@@ -18,6 +19,7 @@
     "coc-ultisnips": ">=1.2.3",
     "coc-vetur": ">=1.1.10",
     "coc-vimlsp": ">=0.8.0",
+    "coc-yank": ">=1.1.4",
     "jest-snippets": "https://github.com/andys8/vscode-jest-snippets",
     "vue-vscode-snippets": "https://github.com/sdras/vue-vscode-snippets"
   }

@@ -35,5 +35,10 @@
     "%2FUsers%2Fpedropmedina%2Fdotfiles": [
       ":"
     ]
+  },
+  "marketplace": {
+    "%2FUsers%2Fpedropmedina%2Fdotfiles": [
+      "react"
+    ]
   }
 }
