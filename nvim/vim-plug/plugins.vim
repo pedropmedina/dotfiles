@@ -39,20 +39,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
 
-    " Start screen
-    Plug 'mhinz/vim-startify'
-
     " Git integration
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
-
-    " Easy move around file
-    Plug 'justinmk/vim-sneak'
-
-    " Remember key bindings
-    Plug 'liuchengxu/vim-which-key'
 
     " Automatically clear highlight ( :nohls )
     Plug 'haya14busa/is.vim'

@@ -32,17 +32,17 @@ set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=300                      " Faster completion
-set timeoutlen=300                      " By default timeoutlen is 1000 ms
+set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
 set guifont=Iosevka\ Nerd\ Font
 set autowriteall                        " Save file on buffer change
 set termguicolors                       " Enables 24-bit RGB color
+set colorcolumn=100                     " Show delimeter line at 100th column
 
-" set autochdir                         " Your working directory will always be the same as your working directory
 " set foldcolumn=2                      " Folding abilities
 
-autocmd FocusLost * :wa                    " Save file on focus lost
+autocmd FocusLost * :wa                 " Save file on focus lost
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 

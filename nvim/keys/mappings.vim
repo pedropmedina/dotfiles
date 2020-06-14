@@ -34,6 +34,15 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 " <TAB>: completion.
 inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
+" Save and quit files
+nnoremap <Leader>w  :w<CR>
+nnoremap <Leader>q  :q<CR>
+nnoremap <Leader>wq :wq<CR>
+
+" Curernt window split horizontally, vertically, equal size
+nnoremap <Leader>_ <C-w>s
+nnoremap <Leader>\| <C-w>v
+nnoremap <Leader>= <C-w>=
 
 " Better window navigation
 nnoremap <C-h> <C-w>h
@@ -75,3 +84,16 @@ nnoremap <silent> ˚    :resize -2<CR>
 nnoremap <silent> ∆    :resize +2<CR>
 nnoremap <silent> ˙    :vertical resize -2<CR>
 nnoremap <silent> ¬    :vertical resize +2<CR>
+
+
+" Toggle Coc explorer
+nnoremap <Leader>e :CocCommand explorer<CR>
+
+" FZF
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>t :Rg<CR>
+nnoremap <Leader>l :BLines<CR>
+nnoremap <Leader>b :Buffers<CR>
+
+" Ranger
+nnoremap <Leader>r :RnvimrToggle<CR>

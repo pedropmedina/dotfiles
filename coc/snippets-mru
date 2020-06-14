@@ -1,4 +1,8 @@
+vbase-styl
+catch
+vbeforedestroy
 vbeforeenter
+vbeforerouteleave
 filter
 find
 ife
