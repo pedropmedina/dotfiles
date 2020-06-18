@@ -53,4 +53,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Multiple files find and replace
     Plug 'brooth/far.vim'
+
+    " Prisma 2 highlight support
+    Plug 'pantharshit00/vim-prisma'
 call plug#end()
