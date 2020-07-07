@@ -21,7 +21,10 @@ xnoremap <Leader>fr :s///g<Left><Left>
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
-" I hate escape more than anything else
+" Search for word under the cursor within the project
+nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
+" ESC alternative
 inoremap jk <Esc>
 inoremap kj <Esc>
 
@@ -39,7 +42,7 @@ nnoremap <Leader>w  :w<CR>
 nnoremap <Leader>q  :q<CR>
 nnoremap <Leader>wq :wq<CR>
 
-" Curernt window split horizontally, vertically, equal size
+" Current window split horizontally, vertically, equal size
 nnoremap <Leader>_ <C-w>s
 nnoremap <Leader>\| <C-w>v
 nnoremap <Leader>= <C-w>=

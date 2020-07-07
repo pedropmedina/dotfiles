@@ -51,9 +51,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Search highlighted text with * or # from a visual block
     Plug 'nelstrom/vim-visual-star-search'
 
-    " Multiple files find and replace
-    Plug 'brooth/far.vim'
-
     " Prisma 2 highlight support
     Plug 'pantharshit00/vim-prisma'
 call plug#end()
