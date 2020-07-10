@@ -53,4 +53,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Prisma 2 highlight support
     Plug 'pantharshit00/vim-prisma'
+
+    " Snippets
+    Plug 'honza/vim-snippets'
 call plug#end()

@@ -106,6 +106,7 @@ export EDITOR='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias v="nvim"
+alias r="ranger"
 
 # autogenerate .gitignore from https://docs.gitignore.io
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
