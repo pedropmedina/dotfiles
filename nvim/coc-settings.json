@@ -12,7 +12,8 @@
     "yaml",
     "json",
     "python",
-    "vue"
+    "vue",
+    "elixir"
   ],
   "coc.preferences.colorSupport": true,
   "python.linting.enabled": true,
