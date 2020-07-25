@@ -93,10 +93,10 @@ nnoremap <silent> ¬    :vertical resize +2<CR>
 nnoremap <Leader>e :CocCommand explorer<CR>
 
 " FZF
-nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>a :Files<CR>
 nnoremap <Leader>t :Rg<CR>
 nnoremap <Leader>l :BLines<CR>
 nnoremap <Leader>b :Buffers<CR>
 
-" Ranger
-nnoremap <Leader>r :RnvimrToggle<CR>
+" Floaterm
+nnoremap <Leader>lf :FloatermNew lf<CR>

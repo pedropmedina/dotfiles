@@ -31,9 +31,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
-    " Ranger
-    Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-
     " Fuzzy search
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -56,4 +53,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Snippets
     Plug 'honza/vim-snippets'
+
+    " Floaterm
+    Plug 'voldikss/vim-floaterm'
 call plug#end()

@@ -1,0 +1,64 @@
+# settings
+set preview true
+set hidden true
+set color256 true
+set icons true
+set ignorecase true
+set ratios '2:3'
+set incsearch
+set drawbox true
+
+# remove default mappings
+map m
+map o
+map n
+map "'"
+map '"'
+map d
+map c
+map f
+
+# mappings
+map . set hidden!
+map dd delete
+map p paste
+map x cut
+map y copy
+map r rename
+map u unselect
+map ch chmod
+map C clear
+map R reload
+map <enter> open
+
+# push mappings
+map md push :mkdir<space>
+map mf push :touch<space>
+
+# jump directories
+map gp cd ~/Pictures
+map gd cd ~/Documents
+map gD cd ~/Downloads
+map ge cd ~/Desktop
+map gc cd ~/code
+map g. cd ~/dotfiles
+map gf cd ~/.config
+
+# frequently edited files
+map ov $$EDITOR ~/dotfiles/nvim/init.vim
+map oz $$EDITOR ~/dotfiles/.zshrc
+map oa $$EDITOR ~/dotfiles/alacritty/alacritty.yml
+map of $$EDITOR ~/dotfiles/lf/lfrc
+
+# commands
+cmd mkdir %mkdir "$@"
+cmd touch %touch "$@"
+
+# open file on designated application else default to $EDITOR
+cmd open ${{
+    case $(file --mime-type "$fx" -bL) in
+        text/*|application/json) $EDITOR "$fx";;
+        video/*|image/*|application/pdf) open "$fx";;
+        *) $EDITOR "$fx";;
+    esac
+}}

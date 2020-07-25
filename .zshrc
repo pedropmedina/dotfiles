@@ -65,6 +65,7 @@ ENABLE_CORRECTION="true"
 plugins=(
   git
   pyenv 
+  mix
   node 
   npm
   yarn
