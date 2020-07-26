@@ -118,3 +118,17 @@ fi
 
 # Add php composer package manager to PATH
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# broot file explorer - disabled as I find it less performant than FZF
+# source /Users/pedropmedina/.config/broot/launcher/bash/br
+
+# FZF
+FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules --exclude .pyenv --exclude .composer"
+export FZF_DEFAULT_OPTS="--no-mouse --border --height 100% --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:wrap' --bind='f3:execute(bat --style=numbers {} || less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy),ctrl-x:execute(rm -i {+})+abort'"
+# Use git-ls-files inside git repo, otherwise fd
+export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard || fd --type f --type l $FD_OPTIONS"
+export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
+export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
+
+export BAT_PAGER="less -R"
+export BAT_THEME="Monokai Extended"
