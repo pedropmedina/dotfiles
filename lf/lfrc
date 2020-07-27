@@ -5,7 +5,7 @@ set icons true
 set ignorecase true
 set ratios '2:3'
 set incsearch
-set drawbox true
+# set drawbox false
 
 # previewer and highlight handled by bat
 set preview false
@@ -68,8 +68,6 @@ cmd open ${{
     esac
 }}
 
-
-   #res="$(fd --type file --follow --hidden --exclude .git --exclude node_modules | fzf --reverse --header='Jump to location' --preview 'bat {} --color=always --style=numbers --theme=base16')"
 
 # fzf jump to directory
 cmd fzf_jump ${{

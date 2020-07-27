@@ -95,7 +95,6 @@ nnoremap <Leader>e :CocCommand explorer<CR>
 " FZF
 nnoremap <Leader>a :Files<CR>
 nnoremap <Leader>t :Rg<CR>
-nnoremap <Leader>l :BLines<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " Floaterm

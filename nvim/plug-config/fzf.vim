@@ -13,11 +13,12 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_tags_command = 'ctags -R'
 
 " Border color
-let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9, 'yoffset':0.5, 'xoffset': 0.5, 'border': 'sharp', 'highlight': 'Normal' } }
 
-" Uncomment to override .zshrc settings
-let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+" Override .zshrc settings
 " let $FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --exclude node_modules"
+let $FZF_DEFAULT_OPTS="--ansi --info inline --layout reverse --margin=1,4 --preview-window 'right:60%'"
+let $BAT_THEME="base16"
 
 
 " Customize fzf colors to match your color scheme
@@ -34,11 +35,12 @@ let g:fzf_colors =
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
+  \ 'gutter':  ['fg', 'EndOfBuffer'],
   \ 'header':  ['fg', 'Comment'] }
 
 "Get Files
 command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat --theme=base16 --color=always --style=numbers {}']}, <bang>0)
+     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " Get text in files with Rg
 command! -bang -nargs=* Rg

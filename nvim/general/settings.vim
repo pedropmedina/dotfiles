@@ -46,5 +46,9 @@ autocmd FocusLost * :wa                 " Save file on focus lost
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
+" Hide the status bar when opening fzf, floaterm
+autocmd! FileType fzf,floaterm set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
 " You can't stop me
 cmap w!! w !sudo tee %

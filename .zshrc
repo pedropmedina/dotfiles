@@ -122,7 +122,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 # FZF
 FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules --exclude .pyenv --exclude .composer"
-export FZF_DEFAULT_OPTS="--no-mouse --height 100% -1 --reverse --multi --border --inline-info --ansi --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} || less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy),ctrl-x:execute(rm -i {+})+abort'"
+export FZF_DEFAULT_OPTS="--no-mouse --height 100% --layout reverse --margin=1,4 --multi --inline-info --color 'gutter:#282c34' --ansi --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:60%:hidden:wrap' --bind='f3:execute(bat --style=numbers {} || less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy),ctrl-x:execute(rm -i {+})+abort'"
 export FZF_DEFAULT_COMMAND="fd --type file --color=always $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="fd --color=always $FD_OPTIONS"
 export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
@@ -133,4 +133,3 @@ export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 # bat - alternative to cat with syntax highlighting
 export BAT_PAGER="less -RF"
 export BAT_THEME="OneHalfDark"
-
