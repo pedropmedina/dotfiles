@@ -1,5 +1,4 @@
-# settings
-set preview true
+# basic settings
 set hidden true
 set color256 true
 set icons true
@@ -7,6 +6,11 @@ set ignorecase true
 set ratios '2:3'
 set incsearch
 set drawbox true
+
+# previewer and highlight handled by bat
+set preview false
+set previewer ~/.config/lf/previewer.sh
+map i $~/.config/lf/previewer.sh $f | less -R
 
 # remove default mappings
 map m
@@ -64,9 +68,12 @@ cmd open ${{
     esac
 }}
 
+
+   #res="$(fd --type file --follow --hidden --exclude .git --exclude node_modules | fzf --reverse --header='Jump to location' --preview 'bat {} --color=always --style=numbers --theme=base16')"
+
 # fzf jump to directory
 cmd fzf_jump ${{
-   res="$(fd --type file --follow --hidden --exclude .git --exclude node_modules | fzf --reverse --header='Jump to location')"
+   res="$(fd --type file --follow --hidden --exclude .git --exclude node_modules | fzf)"
    if [ -f "$res" ]; then
      cmd="select"
    elif [ -d "$res" ]; then
