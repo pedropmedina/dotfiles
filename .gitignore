@@ -52,7 +52,7 @@ tags
 [._]*.un~
 
 # plugins
-nvim/autoload/*
+nvim/autoload
 nvim/autoload/plugged
 
 # coc
