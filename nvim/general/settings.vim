@@ -38,9 +38,12 @@ set incsearch
 set guifont=Iosevka\ Nerd\ Font
 set autowriteall                        " Save file on buffer change
 set termguicolors                       " Enables 24-bit RGB color
-" set colorcolumn=100                     " Show delimeter line at 100th column
-
+" set colorcolumn=100                   " Show delimeter line at 100th column
 " set foldcolumn=2                      " Folding abilities
+
+" disable netrw
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 
 autocmd FocusLost * :wa                 " Save file on focus lost
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
