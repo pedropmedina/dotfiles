@@ -82,6 +82,8 @@ source $ZSH/oh-my-zsh.sh
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_CHAR_SYMBOL_SECONDARY="❯ "
+SPACESHIP_VI_MODE_SHOW=false
+SPACESHIP_VI_MODE_PREFIX=""
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -90,6 +92,40 @@ SPACESHIP_CHAR_SYMBOL_SECONDARY="❯ "
 
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
+
+# Enable Vim mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# delete with backspace in insert mode
+bindkey "^?" backward-delete-char
+
+# Change cursor shape between beam and block
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+
+# initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins 
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+
+# Use beam shape cursor on startup.
+echo -ne '\e[5 q' 
+
+# Use beam shape cursor for each new prompt.
+preexec() { echo -ne '\e[5 q' ;} 
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -107,7 +143,6 @@ export EDITOR='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias v="nvim"
-alias r="ranger"
 
 # autogenerate .gitignore from https://docs.gitignore.io
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
