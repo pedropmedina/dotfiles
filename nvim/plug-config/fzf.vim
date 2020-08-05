@@ -17,7 +17,7 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9, 'yoffset':0.5, 'xo
 
 " Override .zshrc settings
 " let $FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --exclude node_modules"
-let $FZF_DEFAULT_OPTS="--ansi --info inline --layout reverse --margin=1,4 --preview-window 'right:60%'"
+let $FZF_DEFAULT_OPTS="--ansi --info inline --layout reverse --margin=1,4 --preview-window 'right:55%'"
 let $BAT_THEME="base16"
 
 
