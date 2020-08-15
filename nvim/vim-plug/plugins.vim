@@ -56,4 +56,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Floaterm
     Plug 'voldikss/vim-floaterm'
+
+    " Custom start screen
+    Plug 'mhinz/vim-startify'
+    
 call plug#end()
