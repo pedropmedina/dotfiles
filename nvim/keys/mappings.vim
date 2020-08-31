@@ -25,8 +25,8 @@ xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " ESC alternative
-inoremap jk <Esc>
-inoremap kj <Esc>
+" inoremap jk <Esc>
+" inoremap kj <Esc>
 
 " TAB in general mode will move to text buffer
 nnoremap <silent> <TAB> :bnext<CR>
