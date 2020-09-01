@@ -7,6 +7,8 @@
     "markdown",
     "javascript",
     "typescript",
+    "typescriptreact",
+    "javascriptreact",
     "graphql",
     "html",
     "yaml",
@@ -49,5 +51,6 @@
   "prettier.semi": true,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
-  "prettier.bracketSpacing": true
+  "prettier.bracketSpacing": true,
+  "prettier.jsxSingleQuote": false
 }
