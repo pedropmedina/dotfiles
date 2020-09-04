@@ -52,5 +52,14 @@
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
   "prettier.bracketSpacing": true,
-  "prettier.jsxSingleQuote": false
+  "prettier.jsxSingleQuote": false,
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.paths": true,
+  "typescript.referencesCodeLens.enable": true,
+  "typescript.suggestionActions.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "auto",
+  "typescript.workspaceSymbols.scope": "currentProject",
+  "typescript.updateImportsOnFileMove.enable": true,
+  "typescript.preferences.importModuleSpecifierEnding": "auto",
+  "typescript.showUnused": true
 }
