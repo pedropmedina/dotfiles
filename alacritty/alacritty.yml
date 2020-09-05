@@ -40,6 +40,9 @@ window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
 
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
+
   # Window decorations
   #
   # Values for `decorations`:
@@ -173,9 +176,24 @@ font:
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
-  cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+cursor:
+  text: '0x000000'
+  cursor: '0xffffff'
+
+  # Cursor style
+  #
+  # Values for `style`:
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Block
+
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
+
+  # Show Block style cursor when in vim mode
+  vi_mode_style: Block
 
   # Selection colors
   #
@@ -246,7 +264,7 @@ colors:
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
@@ -262,22 +280,6 @@ semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
 # When set to `true`, selected text will be copied to the primary clipboard.
 save_to_clipboard: false
-
-# Allow terminal applications to change Alacritty's window title.
-dynamic_title: true
-
-#cursor:
-# Cursor style
-#
-# Values for `style`:
-#   - ▇ Block
-#   - _ Underline
-#   - | Beam
-style: Block
-
-# If this is `true`, the cursor will be rendered as a hollow box when the
-# window is not focused.
-unfocused_hollow: true
 
 # Live config reload (changes require restart)
 live_config_reload: true
@@ -509,4 +511,6 @@ key_bindings:
   - { key: Q, mods: Command, action: Quit }
   - { key: W, mods: Command, action: Quit }
   - { key: F, mods: Command|Control, action: ToggleFullscreen }
-  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: Space, mods: Control, action: ToggleViMode }
+    # This feature is default in Mac os x
+    #  - { key: N, mods: Command, action: SpawnNewInstance }
