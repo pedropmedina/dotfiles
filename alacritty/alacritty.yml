@@ -511,6 +511,5 @@ key_bindings:
   - { key: Q, mods: Command, action: Quit }
   - { key: W, mods: Command, action: Quit }
   - { key: F, mods: Command|Control, action: ToggleFullscreen }
-  - { key: Space, mods: Control, action: ToggleViMode }
     # This feature is default in Mac os x
     #  - { key: N, mods: Command, action: SpawnNewInstance }
