@@ -7,6 +7,9 @@ ZSH_THEME="spaceship"
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
+# Default language
+export LANG=en_US.UTF-8
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
