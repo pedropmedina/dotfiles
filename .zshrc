@@ -104,5 +104,5 @@ export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # bat - alternative to cat with syntax highlighting
-export BAT_PAGER="less -RF"
+# export BAT_PAGER="less -RF"
 export BAT_THEME="OneHalfDark"
