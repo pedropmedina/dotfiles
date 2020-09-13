@@ -18,6 +18,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Auto pairs for '(' '[' '{' 
     Plug 'jiangmiao/auto-pairs'
 
+    " Automatically rename matching tags
+    Plug 'AndrewRadev/tagalong.vim'
+
     " Colorize matching parentheses
     Plug 'junegunn/rainbow_parentheses.vim'
 
@@ -53,11 +56,4 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Snippets
     Plug 'honza/vim-snippets'
-
-    " Floaterm
-    Plug 'voldikss/vim-floaterm'
-
-    " Custom start screen
-    Plug 'mhinz/vim-startify'
-    
 call plug#end()

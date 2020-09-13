@@ -22,7 +22,7 @@ nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
 " Search for word under the cursor within the project
-nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>gr :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " TAB in general mode will move to text buffer
 nnoremap <silent> <TAB> :bnext<CR>
@@ -89,11 +89,8 @@ nnoremap <silent> ¬    :vertical resize +2<CR>
 nnoremap <Leader>e :CocCommand explorer<CR>
 
 " FZF
-nnoremap <Leader><Leader> :Files<CR>
+nnoremap <Leader>a :Files<CR>
 nnoremap <Leader>t :Rg<CR>
 nnoremap <Leader>r :RG<CR>
 nnoremap <Leader>i :BLines<CR>
 nnoremap <Leader>b :Buffers<CR>
-
-" Floaterm
-nnoremap <Leader>lf :FloatermNew lf<CR>
