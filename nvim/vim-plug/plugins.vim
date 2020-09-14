@@ -21,38 +21,38 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Automatically rename matching tags
     Plug 'AndrewRadev/tagalong.vim'
 
-    " Colorize matching parentheses
-    Plug 'junegunn/rainbow_parentheses.vim'
-
-    " Themes
-    Plug 'joshdick/onedark.vim'
-
-    " Stable version of coc
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-    " Status line
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-
-    " Fuzzy search
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-rooter'
-
-    " Git integration
-    Plug 'mhinz/vim-signify'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
-    Plug 'junegunn/gv.vim'
-
     " Automatically clear highlight ( :nohls )
     Plug 'haya14busa/is.vim'
 
     " Search highlighted text with * or # from a visual block
     Plug 'nelstrom/vim-visual-star-search'
 
+    " Colorize matching parentheses
+    Plug 'junegunn/rainbow_parentheses.vim'
+
+    " Themes
+    Plug 'joshdick/onedark.vim'
+
+    " Status line
+    Plug 'vim-airline/vim-airline'
+
     " Prisma 2 highlight support
     Plug 'pantharshit00/vim-prisma'
+
+    " Stable version of coc
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " Fuzzy search
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+
+    " Change working directory to project root
+    " Specially useful when fuzzy searching within a subdir as it'll show all files instead of only the ones at the subdir
+    Plug 'airblade/vim-rooter'
+
+    " Git integration
+    Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-fugitive'
 
     " Snippets
     Plug 'honza/vim-snippets'
