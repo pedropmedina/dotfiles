@@ -29,7 +29,8 @@
   set smarttab                    " tab setting aware <Tab> key
   set tabpagemax=50               " maximum number of tabs open by -p flag
   set tags=./tags;,tags           " filenames to look for the tag command
-  set ttimeoutlen=50              " ms to wait for next key in a sequence
+  set timeoutlen=1000             " ms to wait for next key in a sequence
+  set ttimeoutlen=0               " ms to wait for next key in a sequence
   set ttyfast                     " indicates that our connection is fast
   set viminfo+=!                  " save global variables across sessions
   set wildmenu                    " enhanced command line completion
