@@ -20,6 +20,9 @@ let g:fzf_buffers_jump = 1
 " let g:fzf_layout = {  'window': { 'width': 0.9, 'height': 0.9, 'yoffset':0.5, 'xoffset': 0.5, 'border': 'sharp', 'highlight': 'Todo' } }
 let g:fzf_layout = {  'down': '~50%' }
 
+" Default fzf preview options used across all commands
+let fzf_preview_default_options = ['--layout=reverse', '--margin=1,1', '--info=inline', '--ansi', '--preview-window=right:60%:hidden:wrap']
+
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -39,33 +42,33 @@ let g:fzf_colors =
 
 "Get Files
 command! -bang -nargs=? -complete=dir Files
-     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--margin=1,1', '--info=inline', '--ansi']}), <bang>0)
+     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': fzf_preview_default_options}), <bang>0)
 
 " Get text in files with Rg
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --hidden --smart-case --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': [ '--preview-window=right:60%:hidden:wrap', '--delimiter=:', '--nth=4..']})
-  \           : fzf#vim#with_preview({'options': [ '--preview-window=right:60%:hidden:wrap', '--delimiter=:', '--nth=4..']}),
+  \   <bang>0 ? fzf#vim#with_preview({ 'options': ['--delimiter=:', '--nth=4..'] + fzf_preview_default_options })
+  \           : fzf#vim#with_preview({ 'options': ['--delimiter=:', '--nth=4..'] + fzf_preview_default_options }),
   \   <bang>0)
 
 " Ripgrep advanced
-function! RipgrepFzf(query, fullscreen)
+function! RipgrepFzf(query, fullscreen, preview_opts)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': [ '--preview-window=right:60%:hidden:wrap', '--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  let spec = { 'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command] + a:preview_opts } 
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0, fzf_preview_default_options)
 
 "Get Buffers
-command! -bang -nargs=? Buffers
-     \ call fzf#vim#buffers(<q-args>, fzf#vim#with_preview({'options': [ '--preview-window=right:60%:hidden:wrap']}), <bang>0)
+command! -bang -nargs=* Buffers
+     \ call fzf#vim#buffers(<q-args>, fzf#vim#with_preview({'options': fzf_preview_default_options}), <bang>0)
 
 " Git grep
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0], 'options': [ '--preview-window=right:60%:hidden:wrap'] }), <bang>0)
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0], 'options': fzf_preview_default_options }), <bang>0)

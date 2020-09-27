@@ -15,6 +15,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
 
+    " Diplay color for rgb, hex, hls, and more
+    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
     " Auto pairs for '(' '[' '{' 
     Plug 'jiangmiao/auto-pairs'
 
@@ -35,6 +38,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Status line
     Plug 'vim-airline/vim-airline'
+
+    " File explorer
+    Plug 'lambdalisue/fern.vim'
+    Plug 'lambdalisue/fern-git-status.vim'
+    Plug 'lambdalisue/fern-hijack.vim'
 
     " Prisma 2 highlight support
     Plug 'pantharshit00/vim-prisma'

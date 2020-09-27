@@ -84,10 +84,6 @@ nnoremap <silent> ∆    :resize +2<CR>
 nnoremap <silent> ˙    :vertical resize -2<CR>
 nnoremap <silent> ¬    :vertical resize +2<CR>
 
-
-" Toggle Coc explorer
-nnoremap <Leader>e :CocCommand explorer<CR>
-
 " FZF
 nnoremap <Leader>a :Files<CR>
 nnoremap <Leader>t :Rg<CR>

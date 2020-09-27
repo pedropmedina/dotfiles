@@ -21,16 +21,6 @@
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"],
-  "explorer.width": 30,
-  "explorer.icon.enableNerdfont": false,
-  "explorer.previewAction.onHover": false,
-  "explorer.keyMappings": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:vsplit"
-  },
-  "explorer.file.column.indent.indentLine": false,
-  "explorer.file.column.indent.chars": " ",
-  "explorer.icon.enableVimDevicons": false,
   "css.validate": false,
   "css.colorDecorators.enable": true,
   "stylelint.enable": true,

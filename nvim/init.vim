@@ -14,6 +14,8 @@ source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/tagalong.vim
+source $HOME/.config/nvim/plug-config/fern.vim
+source $HOME/.config/nvim/plug-config/hexakinase.vim
 
 " Themes
 source $HOME/.config/nvim/themes/onedark.vim

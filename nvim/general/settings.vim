@@ -40,13 +40,11 @@ set termguicolors                       " Enables 24-bit RGB color
 " set colorcolumn=100                   " Show delimeter line at 100th column
 " set foldcolumn=2                      " Folding abilities
 
-" disable netrw
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
-
-autocmd FocusLost * :wa                 " Save file on focus lost
+" Dont' add comment prefix when hitting Enter or o/O on comment line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-autocmd! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+
+" auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+autocmd! BufWritePost $MYVIMRC source %      
 
 " Hide the status bar when opening fzf, floaterm
 autocmd! FileType fzf,floaterm set laststatus=0 noshowmode noruler nonumber norelativenumber
