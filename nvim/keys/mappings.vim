@@ -83,10 +83,3 @@ nnoremap <silent> ˚    :resize -2<CR>
 nnoremap <silent> ∆    :resize +2<CR>
 nnoremap <silent> ˙    :vertical resize -2<CR>
 nnoremap <silent> ¬    :vertical resize +2<CR>
-
-" FZF
-nnoremap <Leader>a :Files<CR>
-nnoremap <Leader>t :Rg<CR>
-nnoremap <Leader>r :RG<CR>
-nnoremap <Leader>i :BLines<CR>
-nnoremap <Leader>b :Buffers<CR>

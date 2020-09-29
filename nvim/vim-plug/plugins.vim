@@ -6,6 +6,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+    " Formatters
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
     " Comment out code
     Plug 'tpope/vim-commentary'
 
@@ -47,8 +50,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Prisma 2 highlight support
     Plug 'pantharshit00/vim-prisma'
 
-    " Stable version of coc
+    " Stable version of coc - KEEP IT FOR NOW TO ACCESS LSP THAT AREN'T AVAILABLE IN NEOVIM YET
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " Neovim lsp Plugins
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-lua/diagnostic-nvim'
+
+    " Snippets
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 
     " Fuzzy search
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -61,7 +73,4 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Git integration
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
-
-    " Snippets
-    Plug 'honza/vim-snippets'
 call plug#end()

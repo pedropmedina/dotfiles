@@ -72,3 +72,10 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0], 'options': fzf_preview_default_options }), <bang>0)
+
+" Mappings
+nnoremap <Leader>a :Files<CR>
+nnoremap <Leader>t :Rg<CR>
+nnoremap <Leader>r :RG<CR>
+nnoremap <Leader>i :BLines<CR>
+nnoremap <Leader>b :Buffers<CR>
