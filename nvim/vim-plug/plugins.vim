@@ -58,10 +58,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-lua/diagnostic-nvim'
 
-    " Snippets
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
-
     " Fuzzy search
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'

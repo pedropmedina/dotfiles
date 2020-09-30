@@ -7,22 +7,18 @@ let g:completion_confirm_key = ""
 " Show completion popup on delete
 let g:completion_trigger_on_delete = 1
 
-" Use UltiSnips
-let g:completion_enable_snippet = 'UltiSnips'
-
-" Don't open the completion popup on keywords less than 2
-let g:completion_trigger_keyword_length = 2
+" Don't open the completion popup on keywords less than 1
+let g:completion_trigger_keyword_length = 1
 
 " Confirm completion completion with <CR>
 imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
                  \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
 
-
 " Use <Tab>, <S-Tab>, j, k to navigate through popup menu
-inoremap <expr><Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><C-k>   pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Use <c-p> to trigger completion in insert mode.
 imap <silent> <c-p> <Plug>(completion_trigger)
