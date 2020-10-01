@@ -35,7 +35,7 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Save and quit files
-nnoremap <Leader>w  :w<CR>
+nnoremap <Leader>w  :w!<CR>
 nnoremap <Leader>q  :q<CR>
 nnoremap <Leader>wq :wq<CR>
 
