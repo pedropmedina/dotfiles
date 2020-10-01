@@ -12,15 +12,16 @@ source $HOME/.config/nvim/keys/mappings.vim
 source $HOME/.config/nvim/themes/onedark.vim
 source $HOME/.config/nvim/themes/airline.vim
 
-" .Vim Plugins - Move plugins after theme for better integration
-source $HOME/.config/nvim/plug-config/fzf.vim
-source $HOME/.config/nvim/plug-config/signify.vim
-source $HOME/.config/nvim/plug-config/fern.vim
-source $HOME/.config/nvim/plug-config/prettier.vim
-source $HOME/.config/nvim/plug-config/rainbow.vim
-source $HOME/.config/nvim/plug-config/hexakinase.vim
-source $HOME/.config/nvim/plug-config/tagalong.vim
-source $HOME/.config/nvim/plug-config/lspconfig.vim
-source $HOME/.config/nvim/plug-config/completion.vim
-source $HOME/.config/nvim/plug-config/diagnostic.vim
-source $HOME/.config/nvim/plug-config/treesitter.vim
+" .lua plugins - Move plugins after theme for better integration
+luafile $HOME/.config/nvim/plug-config/lua/lspconfig.lua
+luafile $HOME/.config/nvim/plug-config/lua/treesitter.lua
+
+" .vim plugins
+source $HOME/.config/nvim/plug-config/vim/completion.vim
+source $HOME/.config/nvim/plug-config/vim/diagnostic.vim
+source $HOME/.config/nvim/plug-config/vim/fzf.vim
+source $HOME/.config/nvim/plug-config/vim/fern.vim
+source $HOME/.config/nvim/plug-config/vim/signify.vim
+source $HOME/.config/nvim/plug-config/vim/prettier.vim
+source $HOME/.config/nvim/plug-config/vim/tagalong.vim
+source $HOME/.config/nvim/plug-config/vim/rainbow.vim

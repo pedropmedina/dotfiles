@@ -18,9 +18,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Better Syntax Support
     Plug 'nvim-treesitter/nvim-treesitter'
 
-    " Diplay color for rgb, hex, hls, and more
-    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-
     " Auto pairs for '(' '[' '{' 
     Plug 'jiangmiao/auto-pairs'
 

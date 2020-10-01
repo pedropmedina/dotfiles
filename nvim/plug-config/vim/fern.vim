@@ -41,4 +41,4 @@ augroup FernGroup
 augroup END
 
 " Open Fern as drawer and reveal current buffer in the file tree
-noremap <silent> <Leader>e :Fern . -drawer -reveal=% -toggle -width=30<CR><C-w>=
+noremap <silent> <Leader>e :Fern . -drawer -reveal=% -toggle -width=35<CR><C-w>=

@@ -45,7 +45,7 @@ command! -bang -nargs=? -complete=dir Files
      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': fzf_preview_default_options}), <bang>0)
 
 " Get text in files with Rg
-command! -bang -nargs=* Rg
+command! -nargs=* -bang  Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --hidden --smart-case --no-heading --color=always '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview({ 'options': ['--delimiter=:', '--nth=4..'] + fzf_preview_default_options })
@@ -61,10 +61,10 @@ function! RipgrepFzf(query, fullscreen, preview_opts)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0, fzf_preview_default_options)
+command! -bang -nargs=* RG call RipgrepFzf(<q-args>, <bang>0, fzf_preview_default_options)
 
 "Get Buffers
-command! -bang -nargs=* Buffers
+command -bang -nargs=* Buffers
      \ call fzf#vim#buffers(<q-args>, fzf#vim#with_preview({'options': fzf_preview_default_options}), <bang>0)
 
 " Git grep
