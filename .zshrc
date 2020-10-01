@@ -50,3 +50,5 @@ fi
 # Aliases
 alias vim="nvim"
 alias v="nvim"
+alias code="code-insiders"
+alias c="code-insiders"

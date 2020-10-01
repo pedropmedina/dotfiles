@@ -10,6 +10,12 @@ let g:completion_trigger_on_delete = 1
 " Don't open the completion popup on keywords less than 1
 let g:completion_trigger_keyword_length = 1
 
+" Some extra trigger characters
+let g:completion_trigger_character = ['.', '::']
+
+" Timer controls the rate of completion. 
+let g:completion_timer_cycle = 200
+
 " Confirm completion completion with <CR>
 imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
                  \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"

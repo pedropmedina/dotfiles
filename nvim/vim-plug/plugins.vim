@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-surround'
 
     " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
+    Plug 'nvim-treesitter/nvim-treesitter'
 
     " Diplay color for rgb, hex, hls, and more
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }

@@ -23,3 +23,4 @@ source $HOME/.config/nvim/plug-config/tagalong.vim
 source $HOME/.config/nvim/plug-config/lspconfig.vim
 source $HOME/.config/nvim/plug-config/completion.vim
 source $HOME/.config/nvim/plug-config/diagnostic.vim
+source $HOME/.config/nvim/plug-config/treesitter.vim
