@@ -7,7 +7,7 @@ export KEYTIMEOUT=1
 # Apps
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="iTerm"
+export TERMINAL="Alacritty"
 export COLORTERM="truecolor"
 export PAGER="less"
 
