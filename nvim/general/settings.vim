@@ -3,7 +3,7 @@ set formatoptions-=cro                    " Stop newline continution of comments
 set hidden                                " Required to keep multiple buffers open multiple buffers
 set nowrap                                " Display long lines as just one line
 set encoding=utf-8                        " The encoding displayed 
-set pumheight=10                          " Makes popup menu smaller
+set pumheight=15                          " Makes popup menu smaller
 set fileencoding=utf-8                    " The encoding written to file
 set ruler              			              " Show the cursor position all the time
 set cmdheight=1                           " More space for displaying messages
@@ -47,9 +47,16 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 autocmd! BufWritePost $MYVIMRC source %      
 
-" Hide the status bar when opening fzf, floaterm
-autocmd! FileType fzf,floaterm set laststatus=0 noshowmode noruler nonumber norelativenumber
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler number relativenumber 
+" Hide the status bar when opening fzf 
+autocmd! FileType fzf set laststatus=0 noruler nonumber norelativenumber
+  \| autocmd BufLeave <buffer> set laststatus=2 ruler number relativenumber 
+
+" Remove number column from terminal emulator window
+augroup cleanup_terminal
+  autocmd!
+  autocmd TermOpen * startinsert
+  autocmd TermOpen * set nonumber norelativenumber 
+augroup END
 
 " You can't stop me
 cmap w!! w !sudo tee %

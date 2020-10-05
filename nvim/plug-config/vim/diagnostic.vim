@@ -17,6 +17,8 @@ call sign_define("LspDiagnosticsWarningSign", {"text" : "•", "texthl" : "LspDi
 call sign_define("LspDiagnosticsInformationSign", {"text" : "•", "texthl" : "LspDiagnosticsInformation"})
 call sign_define("LspDiagnosticsHintSign", {"text" : "•", "texthl" : "LspDiagnosticsHint"})
 
+" ----------------------------- Plugin specific mappings -----------------------------
+
 nnoremap <silent><leader>] :PrevDiagnostic<CR>
 nnoremap <silent><leader>[ :NextDiagnostic<CR>
 nnoremap <silent><leader>do :OpenDiagnostic<CR>

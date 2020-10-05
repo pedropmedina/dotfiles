@@ -16,15 +16,17 @@ let g:completion_trigger_character = ['.', '::']
 " Timer controls the rate of completion. 
 let g:completion_timer_cycle = 200
 
+" ----------------------------- Plugin specific mappings -----------------------------
+
 " Confirm completion completion with <CR>
 imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
                  \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
 
 " Use <Tab>, <S-Tab>, j, k to navigate through popup menu
-inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent> <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent> <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <silent> <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Use <c-p> to trigger completion in insert mode.
 imap <silent> <c-p> <Plug>(completion_trigger)

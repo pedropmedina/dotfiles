@@ -37,7 +37,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'joshdick/onedark.vim'
 
     " Status line
-    Plug 'vim-airline/vim-airline'
+    Plug 'itchyny/lightline.vim'
+    Plug 'mengelbrecht/lightline-bufferline'
 
     " File explorer
     Plug 'lambdalisue/fern.vim'

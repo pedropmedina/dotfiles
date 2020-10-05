@@ -18,12 +18,12 @@ let g:fzf_buffers_jump = 1
 
 " Window size and position
 " let g:fzf_layout = {  'window': { 'width': 0.9, 'height': 0.9, 'yoffset':0.5, 'xoffset': 0.5, 'border': 'sharp', 'highlight': 'Todo' } }
-let g:fzf_layout = {  'down': '~50%' }
+let g:fzf_layout = {  'down': '~45%' }
 
 " Default fzf preview options used across all commands
 let fzf_preview_default_options = ['--layout=reverse', '--margin=1,1', '--info=inline', '--ansi', '--preview-window=right:60%:hidden:wrap']
 
-" Customize fzf colors to match your color scheme
+" Customize fzf colors to match color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -73,9 +73,11 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0], 'options': fzf_preview_default_options }), <bang>0)
 
-" Mappings
-nnoremap <Leader>a :Files<CR>
-nnoremap <Leader>t :Rg<CR>
-nnoremap <Leader>r :RG<CR>
-nnoremap <Leader>i :BLines<CR>
-nnoremap <Leader>b :Buffers<CR>
+" ----------------------------- Plugin specific mappings -----------------------------
+
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>fl :BLines<CR>
+nnoremap <Leader>fg :GGrep<CR>
+nnoremap <Leader>frg :Rg<CR>
+nnoremap <Leader>frG :RG<CR>

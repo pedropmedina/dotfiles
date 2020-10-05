@@ -7,7 +7,8 @@ let g:loaded_netrwFileHandlers = 1
 let g:fern#disable_default_mappings = 1
 
 
-" Custom mappings
+" ----------------------------- Plugin specific mappings -----------------------------
+
 function! FernInit() abort
 	" Perform 'open' on leaf node and 'enter' on branch node
 	nmap <buffer><expr>

@@ -8,10 +8,6 @@ nnoremap <Space> <Nop>
 vnoremap < <gv
 vnoremap > >gv
 
-" Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-
 " Find and Replace word under the cursor
 nnoremap <Leader>fr :%s///g<Left><Left>
 
@@ -25,15 +21,6 @@ xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 " Search for word under the cursor within the project
 nnoremap <Leader>gr :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
-" TAB in general mode will move to text buffer
-nnoremap <silent> <TAB> :bnext<CR>
-
-" SHIFT-TAB will go back
-nnoremap <silent> <S-TAB> :bprevious<CR>
-
-" <TAB>: completion.
-inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " Save and quit files
 nnoremap <Leader>w  :w!<CR>
 nnoremap <Leader>q  :q<CR>
@@ -44,7 +31,7 @@ nnoremap <Leader>_ <C-w>s
 nnoremap <Leader>\| <C-w>v
 nnoremap <Leader>= <C-w>=
 
-" Better window navigation
+" Normal mode window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -60,18 +47,28 @@ inoremap <C-j> <Esc><C-w>j
 inoremap <C-k> <Esc><C-w>k
 inoremap <C-l> <Esc><C-w>l
 
-" Quit terminal with escape
-tnoremap <Esc> <C-\><C-n> :q<CR>
+" Terminal window navigation - ( ignore fzf file )
+tnoremap <expr> <Esc> (&filetype == "fzf") ?  "<Esc>" : "<C-\><C-N>"
+tnoremap <expr> <C-h> (&filetype == "fzf") ?  "<C-h>" : "<C-\><C-N><C-w>h"
+tnoremap <expr> <C-j> (&filetype == "fzf") ?  "<C-j>" : "<C-\><C-N><C-w>j"
+tnoremap <expr> <C-k> (&filetype == "fzf") ?  "<C-k>" : "<C-\><C-N><C-w>k"
+tnoremap <expr> <C-l> (&filetype == "fzf") ?  "<C-l>" : "<C-\><C-N><C-w>l"
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
 
-" Terminal window navigation
-" tnoremap <C-h> <C-\><C-N><C-w>h
-" tnoremap <C-j> <C-\><C-N><C-w>j
-" tnoremap <C-k> <C-\><C-N><C-w>k
-" tnoremap <C-l> <C-\><C-N><C-w>l
-" inoremap <C-h> <C-\><C-N><C-w>h
-" inoremap <C-j> <C-\><C-N><C-w>j
-" inoremap <C-k> <C-\><C-N><C-w>k
-" inoremap <C-l> <C-\><C-N><C-w>l
+" Buffers navigation
+nnoremap <silent> <TAB> :bnext<CR>
+nnoremap <silent> <S-TAB> :bprevious<CR>
+nnoremap <leader>bl :bnext<CR>
+nnoremap <leader>bh :bprevious<CR>
+nnoremap <leader>bq :bdelete<CR>
+
+" Tabs navigation
+nnoremap <leader>tl :tabnext<CR>
+nnoremap <leader>th :tabprevious<CR>
+nnoremap <leader>tq :tabclose<CR>
 
 " Use alt + hjkl to resize windows
 " nnoremap <silent> <M-j>    :resize -2<CR>
@@ -84,3 +81,11 @@ nnoremap <silent> ˚    :resize -2<CR>
 nnoremap <silent> ∆    :resize +2<CR>
 nnoremap <silent> ˙    :vertical resize -2<CR>
 nnoremap <silent> ¬    :vertical resize +2<CR>
+
+" Opening new terminal emulators
+nnoremap <leader>tt :tabnew +terminal<CR>
+tnoremap <leader>tt <C-b>c <C-\><C-n>:tabnew +terminal<CR>
+nnoremap <leader>ts :new +terminal<CR>
+tnoremap <leader>ts <C-\><C-n>:new +terminal<CR>
+nnoremap <leader>tv :vnew +terminal<CR>
+tnoremap <leader>tv <C-\><C-n>:vnew +terminal<CR>

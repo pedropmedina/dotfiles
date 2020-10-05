@@ -10,7 +10,7 @@ source $HOME/.config/nvim/keys/mappings.vim
 
 " Themes
 source $HOME/.config/nvim/themes/onedark.vim
-source $HOME/.config/nvim/themes/airline.vim
+source $HOME/.config/nvim/themes/lightline.vim
 
 " .lua plugins - Move plugins after theme for better integration
 luafile $HOME/.config/nvim/plug-config/lua/lspconfig.lua
