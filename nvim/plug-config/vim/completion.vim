@@ -31,7 +31,7 @@ inoremap <silent> <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-h>"
 " Use <c-p> to trigger completion in insert mode.
 imap <silent> <c-p> <Plug>(completion_trigger)
 
-" Mappings
+" GOTO mappings
 nnoremap <silent> <S-K> <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gh    <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -44,5 +44,3 @@ nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> gl    <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
-
-let g:completion_enable_snippet = 'vim-vsnip'
