@@ -1,11 +1,11 @@
-set iskeyword+=-                      	  " treat dash separated words as a word text object"
+set iskeyword+=-                          " treat dash separated words as a word text object"
 set formatoptions-=cro                    " Stop newline continution of comments
 set hidden                                " Required to keep multiple buffers open multiple buffers
 set nowrap                                " Display long lines as just one line
-set encoding=utf-8                        " The encoding displayed 
+set encoding=utf-8                        " The encoding displayed
 set pumheight=15                          " Makes popup menu smaller
 set fileencoding=utf-8                    " The encoding written to file
-set ruler              			              " Show the cursor position all the time
+set ruler                                 " Show the cursor position all the time
 set cmdheight=1                           " More space for displaying messages
 set mouse=a                               " Enable your mouse
 set splitbelow                            " Horizontal splits will automatically be below
@@ -23,7 +23,7 @@ set number                                " Line numbers
 set relativenumber                        " Set number relative to the cursor
 set cursorline                            " Enable highlighting of the current line
 set background=dark                       " tell vim what the background color looks like
-set showtabline=2                         " Always show tabs 
+set showtabline=2                         " Always show tabs
 set noshowmode                            " We don't need to see things like -- INSERT -- anymore
 set nobackup                              " This is recommended by coc
 set nowritebackup                         " This is recommended by coc
@@ -46,17 +46,17 @@ set shortmess+=c                          " Don't pass messages to |ins-completi
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
-autocmd! BufWritePost $MYVIMRC source %      
+autocmd! BufWritePost $MYVIMRC source %
 
-" Hide the status bar when opening fzf 
+" Hide the status bar when opening fzf
 autocmd! FileType fzf set laststatus=0 noruler nonumber norelativenumber
-  \| autocmd BufLeave <buffer> set laststatus=2 ruler number relativenumber 
+      \| autocmd BufLeave <buffer> set laststatus=2 ruler number relativenumber
 
 " Remove number column from terminal emulator window
 augroup cleanup_terminal
   autocmd!
   autocmd TermOpen * startinsert
-  autocmd TermOpen * set nonumber norelativenumber 
+  autocmd TermOpen * set nonumber norelativenumber
 augroup END
 
 " You can't stop me

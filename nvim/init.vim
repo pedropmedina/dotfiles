@@ -22,6 +22,6 @@ source $HOME/.config/nvim/plug-config/vim/diagnostic.vim
 source $HOME/.config/nvim/plug-config/vim/fzf.vim
 source $HOME/.config/nvim/plug-config/vim/fern.vim
 source $HOME/.config/nvim/plug-config/vim/signify.vim
-source $HOME/.config/nvim/plug-config/vim/prettier.vim
+source $HOME/.config/nvim/plug-config/vim/neoformat.vim
 source $HOME/.config/nvim/plug-config/vim/tagalong.vim
 source $HOME/.config/nvim/plug-config/vim/rainbow.vim

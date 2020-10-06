@@ -13,14 +13,14 @@ let g:completion_trigger_keyword_length = 1
 " Some extra trigger characters
 let g:completion_trigger_character = ['.', '::']
 
-" Timer controls the rate of completion. 
+" Timer controls the rate of completion.
 let g:completion_timer_cycle = 200
 
 " ----------------------------- Plugin specific mappings -----------------------------
 
 " Confirm completion completion with <CR>
 imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
-                 \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
+      \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
 
 " Use <Tab>, <S-Tab>, j, k to navigate through popup menu
 inoremap <silent> <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
