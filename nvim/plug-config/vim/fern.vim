@@ -35,7 +35,7 @@ function! FernInit() abort
   nmap <buffer> ! <Plug>(fern-action-hidden:toggle)
 endfunction
 
-" Initiate fern custom mappings and hide number and relativenumber column
+" Initiate fern custom mappings 
 augroup FernGroup
   autocm!
   autocmd FileType fern call FernInit() 

@@ -45,9 +45,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'lambdalisue/fern-git-status.vim'
     Plug 'lambdalisue/fern-hijack.vim'
 
-    " Prisma 2 highlight support
-    Plug 'pantharshit00/vim-prisma'
-
     " Stable version of coc - KEEP IT FOR NOW TO ACCESS LSP THAT AREN'T AVAILABLE IN NEOVIM YET
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -62,7 +59,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Change working directory to project root
     " Specially useful when fuzzy searching within a subdir as it'll show all files instead of only the ones at the subdir
-    Plug 'airblade/vim-rooter'
+    " Plug 'airblade/vim-rooter'
 
     " Git integration
     Plug 'mhinz/vim-signify'

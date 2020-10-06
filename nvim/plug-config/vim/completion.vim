@@ -44,3 +44,5 @@ nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> gl    <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+
+let g:completion_enable_snippet = 'vim-vsnip'

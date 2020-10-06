@@ -32,8 +32,9 @@ set updatetime=300                        " Faster completion
 set timeoutlen=1000                       " By default timeoutlen is 1000 ms
 set ttimeoutlen=0                         " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus                 " Copy paste between vim and everything else
-set incsearch
-set guifont=Iosevka\ Nerd\ Font
+set ignorecase                            " Case insensitive search
+set incsearch                             " Show search pattern as type
+set guifont=Iosevka\ Nerd\ Font           " Font family
 set autowriteall                          " Save file on buffer change
 set termguicolors                         " Enables 24-bit RGB color
 set completeopt=menuone,noinsert,noselect " Improve completion experience
