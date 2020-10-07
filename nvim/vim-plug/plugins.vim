@@ -15,8 +15,9 @@ Plug 'tpope/vim-commentary'
 " Surround text
 Plug 'tpope/vim-surround'
 
-" Better Syntax Support
+" Syntax highlight and more
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
 " Auto pairs for '(' '[' '{'
 Plug 'jiangmiao/auto-pairs'
