@@ -1,6 +1,9 @@
 " Matching strategies
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
+" Case insensitive matching
+let g:completion_matching_ignore_case = 1
+
 " No need to have a key associated to confirm completion. We use <CR> instead
 let g:completion_confirm_key = ""
 
@@ -15,6 +18,9 @@ let g:completion_trigger_character = ['.', '::']
 
 " Timer controls the rate of completion.
 let g:completion_timer_cycle = 200
+
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
 
 " ----------------------------- Plugin specific mappings -----------------------------
 
