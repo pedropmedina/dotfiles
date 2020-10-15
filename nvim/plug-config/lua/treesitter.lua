@@ -17,11 +17,11 @@ require'nvim-treesitter.configs'.setup {
       init_selection = "gis",
       node_incremental = "gni",
       scope_incremental = "gsi",
-      node_decremental = "gnd",
+      node_decremental = "gnd"
     },
   },
   refactor = {
     highlight_definitions = { enable = true },
-    -- highlight_current_scope = { enable = true }, - There's an error in the require file path for this module. Leave commented out until fixed
+    highlight_current_scope = { enable = true }, 
   },
 }
