@@ -6,43 +6,40 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Initiate starship prompt
-eval "$(starship init zsh)"
-
 # Enable Vim mode
 bindkey -v
 
-# delete with backspace in insert mode
+# Delete with backspace in insert mode
 bindkey "^?" backward-delete-char
 
 # Change cursor shape between beam and block
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
+    [[ $1 = 'block' ]]; then
+      echo -ne '\e[1 q'
+    elif [[ ${KEYMAP} == main ]] ||
+      [[ ${KEYMAP} == viins ]] ||
+      [[ ${KEYMAP} = '' ]] ||
+      [[ $1 = 'beam' ]]; then
+          echo -ne '\e[5 q'
   fi
 }
-
-# initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
 zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins 
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
+
+# # NOTE: There's a conflict between zprezto themes and this keybinding on startup where it overrides the theme
+# zle-line-init() {
+#   zle -K viins
+#   echo -ne '\e[5 q'
+# }
+# zle -N zle-line-init
 
 # Use beam shape cursor on startup.
-echo -ne '\e[5 q' 
+echo -ne '\e[5 q'
 
 # Use beam shape cursor for each new prompt.
-preexec() { echo -ne '\e[5 q' ;} 
+preexec() { echo -ne '\e[5 q' ;}
 
-# pyenv
+# Pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi

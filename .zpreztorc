@@ -1,11 +1,11 @@
-zstyle ':prezto:module:prompt' theme 'default'
+zstyle ':prezto:module:prompt' theme 'sorin'
 
 zstyle ':prezto:load' pmodule \
-  'directory' \
-  'utility' \
-  'completion' \
-  'git' \
-  'prompt' \
-  'autosuggestions' \
-  'history-substring-search' \
-  'syntax-highlighting' \
+         'directory' \
+         'utility' \
+         'completion' \
+         'git' \
+         'prompt' \
+         'autosuggestions' \
+         'history-substring-search' \
+         'syntax-highlighting' \

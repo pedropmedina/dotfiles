@@ -1,16 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
-  highlight = {
-    enable = true,
-    disable = { 
-      "c", 
-      "c_sharp", 
-      "dart", 
-      "fennel", 
-      "java", 
-      "julia", 
-    }, 
-  },
+  highlight = { enable = true },
   incremental_selection = {
     enable = true,   
     keymaps = {
