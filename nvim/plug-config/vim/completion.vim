@@ -17,7 +17,7 @@ let g:completion_trigger_keyword_length = 1
 let g:completion_trigger_character = ['.', '::']
 
 " Timer controls the rate of completion.
-let g:completion_timer_cycle = 200
+let g:completion_timer_cycle = 80
 
 " Use completion-nvim in every buffer
 autocmd BufEnter * lua require'completion'.on_attach()
@@ -29,8 +29,8 @@ imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
       \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
 
 " Use <Tab>, <S-Tab>, j, k to navigate through popup menu
-inoremap <silent> <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <silent> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <silent> <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <silent> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent> <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <silent> <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-h>"
 
