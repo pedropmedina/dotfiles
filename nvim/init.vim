@@ -25,3 +25,4 @@ source $HOME/.config/nvim/plug-config/vim/signify.vim
 source $HOME/.config/nvim/plug-config/vim/neoformat.vim
 source $HOME/.config/nvim/plug-config/vim/tagalong.vim
 source $HOME/.config/nvim/plug-config/vim/rainbow.vim
+source $HOME/.config/nvim/plug-config/vim/autopairs.vim

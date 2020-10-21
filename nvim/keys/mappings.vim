@@ -84,8 +84,5 @@ nnoremap <silent> ¬    :vertical resize +2<CR>
 
 " Opening new terminal emulators
 nnoremap <leader>tt :tabnew +terminal<CR>
-tnoremap <leader>tt <C-b>c <C-\><C-n>:tabnew +terminal<CR>
 nnoremap <leader>ts :new +terminal<CR>
-tnoremap <leader>ts <C-\><C-n>:new +terminal<CR>
 nnoremap <leader>tv :vnew +terminal<CR>
-tnoremap <leader>tv <C-\><C-n>:vnew +terminal<CR>
