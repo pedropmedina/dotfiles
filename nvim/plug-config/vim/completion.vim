@@ -34,8 +34,9 @@ imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
 inoremap <silent> <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <silent> <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Use <c-p> to trigger completion in insert mode.
+" Use <c-p> <c-n> to trigger completion in insert mode.
 imap <silent> <c-p> <Plug>(completion_trigger)
+imap <silent> <c-n> <Plug>(completion_trigger)
 
 " GOTO mappings
 nnoremap <silent> <S-K> <cmd>lua vim.lsp.buf.hover()<CR>
