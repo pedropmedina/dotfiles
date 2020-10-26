@@ -19,7 +19,7 @@ nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
 " Search for word under the cursor within the project
-nnoremap <Leader>gr :CocSearch <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <Leader>gr :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " Save and quit files
 nnoremap <Leader>w  :w!<CR>

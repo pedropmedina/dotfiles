@@ -40,14 +40,14 @@ imap <silent> <c-n> <Plug>(completion_trigger)
 
 " GOTO mappings
 nnoremap <silent> <S-K> <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gh    <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gt    <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gf    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> gl    <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
-nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <leader>gh    <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>gt    <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> <leader>gi    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <leader>gf    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <leader>g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> <leader>gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> <leader>gr    <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <leader>gl    <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <silent> <leader>ga    <cmd>lua vim.lsp.buf.code_action()<CR>
