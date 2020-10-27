@@ -22,6 +22,9 @@ Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
+" handlebars file support - treesitter does not support file type yet
+Plug 'mustache/vim-mustache-handlebars'
+
 " Fuzzy search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
