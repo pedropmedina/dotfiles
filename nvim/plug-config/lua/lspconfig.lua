@@ -11,7 +11,7 @@ require'nvim_lsp'.diagnosticls.setup{ on_attach = on_attach_vim }
 
 require'nvim_lsp'.html.setup{ 
   on_attach = on_attach_vim, 
-  filetypes = { "html", "tsx", "jsx", "vue", "hbs" } 
+  filetypes = { "html", "tsx", "jsx", "vue", "hbs", "handlebars", "html.handlebars" } 
 }
 
 require'nvim_lsp'.tsserver.setup{ on_attach = on_attach_vim }
