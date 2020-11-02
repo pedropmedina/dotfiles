@@ -150,8 +150,8 @@ font:
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
 cursor:
-  text: '0x000000'
-  cursor: '0xffffff'
+  text: "0x000000"
+  cursor: "0xffffff"
 
   # Cursor style
   #
@@ -174,38 +174,38 @@ cursor:
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
   selection:
-    text: '0x282a36'
-    background: '0xbbc5ff'
+    text: "0x282a36"
+    background: "0xbbc5ff"
 
 # Colors (One Dark)
 colors:
   # Default colors
   primary:
-    background: '#282c34'
-    foreground: '#abb2bf'
+    background: "#282c34"
+    foreground: "#abb2bf"
 
   # Normal colors
   normal:
     # NOTE: Use '#131613' for the `black` color if you'd like to see
     # black text on the background.
-    black: '#282c34'
-    red: '#e06c75'
-    green: '#98c379'
-    yellow: '#d19a66'
-    blue: '#61afef'
-    magenta: '#c678dd'
-    cyan: '#56b6c2'
-    white: '#abb2bf'
+    black: "#282c34"
+    red: "#e06c75"
+    green: "#98c379"
+    yellow: "#d19a66"
+    blue: "#61afef"
+    magenta: "#c678dd"
+    cyan: "#56b6c2"
+    white: "#abb2bf"
   # Bright colors
   bright:
-    black: '#5c6370'
-    red: '#e06c75'
-    green: '#98c379'
-    yellow: '#d19a66'
-    blue: '#61afef'
-    magenta: '#c678dd'
-    cyan: '#56b6c2'
-    white: '#ffffff'
+    black: "#5c6370"
+    red: "#e06c75"
+    green: "#98c379"
+    yellow: "#d19a66"
+    blue: "#61afef"
+    magenta: "#c678dd"
+    cyan: "#56b6c2"
+    white: "#ffffff"
   # Indexed Colors
   #
   # The indexed colors include all colors from 16 to 256.
@@ -240,7 +240,7 @@ colors:
 bell:
   animation: EaseOutExpo
   duration: 0
-  color: '0xffffff'
+  color: "0xffffff"
 
 # Background opacity
 #
