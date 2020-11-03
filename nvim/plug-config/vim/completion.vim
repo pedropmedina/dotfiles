@@ -19,6 +19,9 @@ let g:completion_trigger_character = ['.', '::']
 " Timer controls the rate of completion.
 let g:completion_timer_cycle = 80
 
+" Do not open detail floating window while navigating completion items
+let g:completion_enable_auto_hover = 0
+
 " Use completion-nvim in every buffer
 autocmd BufEnter * lua require'completion'.on_attach()
 
