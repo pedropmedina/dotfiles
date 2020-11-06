@@ -3,6 +3,8 @@ source $HOME/.config/nvim/plugs/plugins.vim
 
 " General Settings
 source $HOME/.config/nvim/general/settings.vim
+source $HOME/.config/nvim/general/highlights.vim
+source $HOME/.config/nvim/general/commands.vim
 source $HOME/.config/nvim/general/paths.vim
 
 " Key Mappings

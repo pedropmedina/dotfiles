@@ -46,3 +46,6 @@ alias vim="nvim"
 alias v="nvim"
 alias code="code-insiders"
 alias c="code-insiders"
+alias ls="exa"
+alias la="exa -la"
+export TERM=xterm-256color-italic

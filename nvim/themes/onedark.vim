@@ -7,17 +7,15 @@ if (has("autocmd") && !has("gui_running"))
   augroup END
 endif
 
-hi Comment cterm=italic
+" Hide ~ after last line on buffer
 let g:onedark_hide_endofbuffer=1
+
+" Enable italic comments
 let g:onedark_terminal_italics=1
+
+" Enable 256-color mode
 let g:onedark_termcolors=256
 
 " Enable syntax highlighting and set colorscheme
 " These two settings must be setup after the variables above in order to ensure the correct behavior
 syntax on | colorscheme onedark
-
-" checks if your terminal has 24-bit color support
-if (has("termguicolors"))
-  set termguicolors
-  hi LineNr ctermbg=NONE guibg=NONE
-endif
