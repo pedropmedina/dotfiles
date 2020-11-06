@@ -1,13 +1,12 @@
 " Git gutter signs
-let g:signify_sign_add               = '+'
-let g:signify_sign_delete            = '_'
-let g:signify_sign_delete_first_line = '‾'
-let g:signify_sign_change            = '~'
+let g:signify_sign_add               = '▎'
+let g:signify_sign_delete            = '▎'
+let g:signify_sign_delete_first_line = '▎'
+let g:signify_sign_change            = '▎'
 
-" I find the numbers disctracting
+" No need to show the count
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
-
 
 " ----------------------------- Plugin specific mappings -----------------------------
 

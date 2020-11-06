@@ -34,7 +34,7 @@ set ttimeoutlen=0                         " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus                 " Copy paste between vim and everything else
 set ignorecase                            " Case insensitive search
 set incsearch                             " Show search pattern as type
-set guifont=Iosevka\ Nerd\ Font           " Font family
+set guifont=Victor\ Mono                  " Font family
 set autowriteall                          " Save file on buffer change
 set termguicolors                         " Enables 24-bit RGB color
 set completeopt=menuone,noinsert,noselect " Improve completion experience
