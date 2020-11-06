@@ -4,11 +4,13 @@ export LANG=en_US.UTF-8
 # ZSH time to wait for additional characters
 export KEYTIMEOUT=1
 
+# Set TERM to xterm-256color-italic in order to enable italic comments
+export TERM=xterm-256color-italic
+
 # Apps
+export TERMINAL="Alacritty"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="Alacritty"
-export COLORTERM="truecolor"
 export PAGER="less"
 
 # FZF + FD

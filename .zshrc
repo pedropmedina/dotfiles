@@ -48,4 +48,6 @@ alias code="code-insiders"
 alias c="code-insiders"
 alias ls="exa"
 alias la="exa -la"
-export TERM=xterm-256color-italic
+
+# Set TERM back to xterm-256color without italics when working with ssh
+alias ssh='TERM=xterm-256color ssh'
