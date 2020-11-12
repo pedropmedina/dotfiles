@@ -41,14 +41,15 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # LF Icons
 export LF_ICONS="\
+  tw=:\
+  st=:\
+  ow=:\
+  dt=:\
   di=:\
   fi=:\
   ln=:\
   or=:\
   ex=:\
-  *.vimrc=:\
-  *.viminfo=:\
-  *.gitignore=:\
   *.c=:\
   *.cc=:\
   *.clj=:\

@@ -1,6 +1,5 @@
 # basic settings
 set hidden true
-set color256 true
 set icons true
 set ignorecase true
 set ratios '2:3'
@@ -61,21 +60,21 @@ cmd touch %touch "$@"
 
 # open file on designated application else default to $EDITOR
 cmd open ${{
-    case $(file --mime-type "$fx" -bL) in
-        text/*|application/json) $EDITOR "$fx";;
-        video/*|image/*|application/pdf) open "$fx";;
-        *) $EDITOR "$fx";;
-    esac
-}}
+  case $(file --mime-type "$fx" -bL) in
+    text/*|application/json) $EDITOR "$fx";;
+          video/*|image/*|application/pdf) open "$fx";;
+         *) $EDITOR "$fx";;
+         esac
+         }}
 
 
 # fzf jump to directory
 cmd fzf_jump ${{
-   res="$(fd --type file --follow --hidden --exclude .git --exclude node_modules | fzf)"
-   if [ -f "$res" ]; then
-     cmd="select"
-   elif [ -d "$res" ]; then
-     cmd="cd"                                                       
-   fi
+res="$(fd --type file --follow --hidden --exclude .git --exclude node_modules | fzf)"
+if [ -f "$res" ]; then
+cmd="select"
+elif [ -d "$res" ]; then
+cmd="cd"
+fi
 lf -remote "send $id $cmd \"$res\""
 }}
