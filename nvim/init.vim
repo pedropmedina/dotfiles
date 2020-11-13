@@ -20,7 +20,6 @@ luafile $HOME/.config/nvim/plugs-config/lua/treesitter.lua
 
 " .vim plugins
 source $HOME/.config/nvim/plugs-config/vim/completion.vim
-source $HOME/.config/nvim/plugs-config/vim/diagnostic.vim
 source $HOME/.config/nvim/plugs-config/vim/fzf.vim
 source $HOME/.config/nvim/plugs-config/vim/fern.vim
 source $HOME/.config/nvim/plugs-config/vim/signify.vim

@@ -16,7 +16,6 @@ Plug 'mengelbrecht/lightline-bufferline'
 " Better experience when working with Neovim builtin lsp support
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
 
 " Syntax highlight and more
 Plug 'nvim-treesitter/nvim-treesitter'

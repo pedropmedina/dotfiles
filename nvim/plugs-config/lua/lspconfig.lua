@@ -1,13 +1,10 @@
 local on_attach_vim = function(client)
   require'completion'.on_attach(client)
-  require'diagnostic'.on_attach(client)
 end
 
 require'nvim_lsp'.bashls.setup{ on_attach = on_attach_vim }
 
 require'nvim_lsp'.cssls.setup{ on_attach = on_attach_vim, settings = { css = { validate = false } }}
-
-require'nvim_lsp'.diagnosticls.setup{ on_attach = on_attach_vim }
 
 require'nvim_lsp'.html.setup{ 
   on_attach = on_attach_vim, 
@@ -55,3 +52,16 @@ require'nvim_lsp'.vuels.setup{
     }
   }
 }
+
+-- Setup built in diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    virtual_text = {
+      spacing = 4,
+      prefix = '•'
+    },
+    signs = true, 
+    update_in_insert = false,
+  }
+)
