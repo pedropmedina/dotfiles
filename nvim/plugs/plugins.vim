@@ -37,6 +37,9 @@ Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 
+" Change pwd to project's root
+Plug 'airblade/vim-rooter'
+
 " Formatters
 Plug 'sbdchd/neoformat'
 

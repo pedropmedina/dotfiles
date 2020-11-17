@@ -33,7 +33,6 @@ map ch chmod
 map C clear
 map R reload
 map <enter> open
-map f :fzf_jump
 
 # push mappings
 map md push :mkdir<space>
@@ -66,15 +65,3 @@ cmd open ${{
          *) $EDITOR "$fx";;
          esac
          }}
-
-
-# fzf jump to directory
-cmd fzf_jump ${{
-res="$(fd --type file --follow --hidden --exclude .git --exclude node_modules | fzf)"
-if [ -f "$res" ]; then
-cmd="select"
-elif [ -d "$res" ]; then
-cmd="cd"
-fi
-lf -remote "send $id $cmd \"$res\""
-}}
