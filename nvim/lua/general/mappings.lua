@@ -15,7 +15,7 @@ function mappings:load_vim_define()
     ['v|>']           = map_cmd('<gb'):with_noremap():with_silent(),
 
     -- Save and quit files mapper('n', '<Leader>w', ':w!<CR>')
-    ['n|<Leader>w!']  = map_cmd(':w<CR>'):with_noremap():with_silent(),
+    ['n|<Leader>w']  = map_cmd(':w!<CR>'):with_noremap():with_silent(),
     ['n|<Leader>wq']  = map_cmd(':wq<CR>'):with_noremap():with_silent(),
     ['n|<Leader>q']   = map_cmd(':confirm wqa<CR>'):with_noremap():with_silent(),
 
