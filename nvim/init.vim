@@ -1,28 +1,22 @@
-" Vim Plugin Manager
-source $HOME/.config/nvim/plugs/plugins.vim
+" ---------------------------------------------------------------------
+"                     - Imports -
+" ---------------------------------------------------------------------
+lua require('general')
+lua require('plugins')
 
-" General Settings
-source $HOME/.config/nvim/general/settings.vim
-source $HOME/.config/nvim/general/highlights.vim
-source $HOME/.config/nvim/general/commands.vim
-source $HOME/.config/nvim/general/paths.vim
+" ---------------------------------------------------------------------
+"                     - Non-Specific Settings -
+" ---------------------------------------------------------------------
+" Remove number column from terminal emulator window
+augroup cleanup_terminal
+  autocmd!
+  autocmd TermOpen * startinsert
+  autocmd TermOpen * set nonumber norelativenumber
+augroup END
 
-" Key Mappings
-source $HOME/.config/nvim/keys/mappings.vim
+" highlight on yank
+autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup="IncSearch", timeout=400 })
 
-" Themes
-source $HOME/.config/nvim/themes/onedark.vim
-source $HOME/.config/nvim/themes/lightline.vim
-
-" .lua plugins - Move plugins after theme for better integration
-luafile $HOME/.config/nvim/plugs-config/lua/lspconfig.lua
-luafile $HOME/.config/nvim/plugs-config/lua/treesitter.lua
-
-" .vim plugins
-source $HOME/.config/nvim/plugs-config/vim/completion.vim
-source $HOME/.config/nvim/plugs-config/vim/fzf.vim
-source $HOME/.config/nvim/plugs-config/vim/fern.vim
-source $HOME/.config/nvim/plugs-config/vim/signify.vim
-source $HOME/.config/nvim/plugs-config/vim/neoformat.vim
-source $HOME/.config/nvim/plugs-config/vim/tagalong.vim
-source $HOME/.config/nvim/plugs-config/vim/rainbow.vim
+" auto save buffer on leaving
+let save_excluded = ['lua.luapad']
+autocmd BufLeave * if index(save_excluded, &ft) == -1 | silent! update | endif

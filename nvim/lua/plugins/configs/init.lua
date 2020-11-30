@@ -1,0 +1,10 @@
+-- NOTE: Some configs no worth writting in lua were kept in after/plugin
+require('plugins.configs.lsp_config')
+require('plugins.configs.diagnostics')
+require('plugins.configs.treesitter')
+require('plugins.configs.completion_nvim')
+require('plugins.configs.telescope')
+require('plugins.configs.statusline')
+require('plugins.configs.nvim_tree')
+require('plugins.configs.signify')
+require('plugins.configs.neoformat')
