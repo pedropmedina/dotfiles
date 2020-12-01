@@ -11,11 +11,11 @@ local mappings = setmetatable({}, { __index = { vim = {}, plugin = {} } })
 function mappings:load_vim_define()
   self.vim = {
     -- Better indenting
-    ['v|<']           = map_cmd('<gv'):with_noremap():with_silent(),
-    ['v|>']           = map_cmd('<gb'):with_noremap():with_silent(),
+    ['v|<']           = map_cmd('< gv'):with_noremap():with_silent(),
+    ['v|>']           = map_cmd('> gv'):with_noremap():with_silent(),
 
     -- Save and quit files mapper('n', '<Leader>w', ':w!<CR>')
-    ['n|<Leader>w']  = map_cmd(':w!<CR>'):with_noremap():with_silent(),
+    ['n|<Leader>w']  =  map_cmd(':w!<CR>'):with_noremap():with_silent(),
     ['n|<Leader>wq']  = map_cmd(':wq<CR>'):with_noremap():with_silent(),
     ['n|<Leader>q']   = map_cmd(':confirm wqa<CR>'):with_noremap():with_silent(),
 
@@ -23,7 +23,7 @@ function mappings:load_vim_define()
     ['x|<Leader>fr']  = map_cmd(':%s///g<Left><Left>'):with_noremap():with_silent(),
 
     -- Multiple cursors alternative. Under a word or selection replace word with 's*' and repeat instance with '.'
-    ['n|s*' ]         =  map_cmd(":let @/='\\<'.expand('<cword>').'\\>'<CR>cgn"),
+    ['n|s*' ]         = map_cmd(":let @/='\\<'.expand('<cword>').'\\>'<CR>cgn"),
     ['x|s*']          = map_cmd('"sy:let @/=@s<CR>cgn'),
 
     -- Current window split horizontally, vertically, equal size

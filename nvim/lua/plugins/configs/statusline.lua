@@ -46,12 +46,17 @@ local MODE_TEXTS = {
   [''] = ' VISUAL '
 }
 
--- Utils
 local buffer_not_empty = function()
   if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
     return true
   end
   return false
+end
+
+-- Get project's root dit based on .git or fallback to ~
+local root_path = function()
+  local git_dir_path = vcs.get_git_dir(vim.fn.expand('%:p:h'))
+  return not git_dir_path and vim.fn.expand('%:~') or '~'..vim.fn.expand('%:p'):sub(git_dir_path:len() + 1)
 end
 
 local checkwidth = function()
@@ -100,7 +105,7 @@ section.left[4] = {
 section.left[5] = {
   FileName = {
     condition = buffer_not_empty,
-    provider = function() return vim.fn.expand('%') end,
+    provider = root_path,
     separator = ' ',
     separator_highlight = { COLORS.darkblue, COLORS.darkgrey },
     highlight = { COLORS.mediumgrey, COLORS.darkgrey }
