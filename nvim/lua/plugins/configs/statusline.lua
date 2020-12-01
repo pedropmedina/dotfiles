@@ -160,7 +160,7 @@ section.left[11] = {
 
 section.right[1] = {
   GitBranch = {
-    provider = function() return 'ꜛ '..vcs.get_git_branch() end,
+    provider = function() return '⠕ '..vcs.get_git_branch() end,
     condition = function()
       return buffer.get_buffer_filetype() ~= '' and vcs.check_git_workspace()
     end,
