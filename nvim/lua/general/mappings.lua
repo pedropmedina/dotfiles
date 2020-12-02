@@ -112,9 +112,11 @@ function mappings:load_plugin_define()
     -- Completion nvim
     ['i|<C-p>']       = map_cmd('<Plug>(completion_trigger)'):with_silent(),
     ['i|<C-n>']       = map_cmd('<Plug>(completion_trigger)'):with_silent(),
-    ['i|<CR>']        = map_cmd([[pumvisible() ? complete_info()["selected"] != "-1" ? "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"]]):with_expr(),
-    ['i|<TAB>']       = map_cmd([[pumvisible() ? "\<C-n>" : "\<Tab>"]]):with_expr(),
-    ['i|<S-TAB>']     = map_cmd([[pumvisible() ? "\<C-p>" : "\<S-Tab>"]]):with_expr()
+    ['i|<cr>']        = map_cmd([[pumvisible() ? complete_info()["selected"] != "-1" ? "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"]]):with_expr(),
+    ['i|<Tab>']       = map_cmd([[pumvisible() ? "\<C-n>" : "\<Tab>"]]):with_noremap():with_expr(),
+    ['i|<S-Tab>']     = map_cmd([[pumvisible() ? "\<C-p>" : "\<S-Tab>"]]):with_noremap():with_expr(),
+    ['i|<c-j>']       = map_cmd('<Plug>(completion_next_source)'),
+    ['i|<c-k>']       = map_cmd('<Plug>(completion_prev_source)')
   }
 end
 

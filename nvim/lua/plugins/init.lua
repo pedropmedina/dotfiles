@@ -17,6 +17,10 @@ return require('packer').startup(function()
   -- completion
   use 'nvim-lua/completion-nvim'
 
+  -- snippets
+  use 'sirver/UltiSnips'
+  use 'honza/vim-snippets'
+
   -- telescope
   use {
     'nvim-telescope/telescope.nvim',

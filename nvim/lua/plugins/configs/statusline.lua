@@ -30,6 +30,8 @@ local MODE_COLORS = {
   c = COLORS.darkred,
   R = COLORS.cyan,
   t = COLORS.mangenta,
+  S = COLORS.darkyellow,
+  s = COLORS.darkyellow,
   V = COLORS.darkyellow,
   v = COLORS.darkyellow,
   [''] = COLORS.darkyellow
@@ -41,6 +43,8 @@ local MODE_TEXTS = {
   c = ' COMMAND ',
   R = 'REPLACE',
   t = ' TERMINAL ',
+  S = ' SELECT ',
+  s = ' SELECT ',
   V = ' VISUAL ',
   v = ' VISUAL ',
   [''] = ' VISUAL '
@@ -66,6 +70,14 @@ local checkwidth = function()
   end
   return false
 end
+
+-- local has_item = function(item, list)
+--   for _, i in ipairs(list) do
+--     if i == item then do return true end
+--     return false
+--   end
+-- end
+-- end
 
 section.left[1] = {
   BlockIndicator = {
@@ -157,19 +169,17 @@ section.left[11] = {
   }
 }
 
-
 section.right[1] = {
   GitBranch = {
     provider = function() return '⠕ '..vcs.get_git_branch() end,
     condition = function()
-      return buffer.get_buffer_filetype() ~= '' and vcs.check_git_workspace()
+      return buffer.get_buffer_filetype() ~= '' and vcs.check_git_workspace() and vcs.get_git_branch()
     end,
     separator = ' ',
     separator_highlight = { COLORS.darkblue, COLORS.darkgrey},
     highlight = { COLORS.white, COLORS.darkgrey },
   }
 }
-
 
 section.right[2] = {
   DiffAdd = {
@@ -179,7 +189,6 @@ section.right[2] = {
     highlight = { COLORS.green, COLORS.darkgrey },
   }
 }
-
 
 section.right[3] = {
   DiffModified = {
@@ -243,7 +252,6 @@ section.right[9] = {
   }
 }
 
-
 section.short_line_left[1] = {
   Space5 = {
     provider = function () return ' ' end,
@@ -261,4 +269,3 @@ section.short_line_left[2] = {
     highlight = { COLORS.white, COLORS.darkblue }
   }
 }
-
