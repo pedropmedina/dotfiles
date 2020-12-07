@@ -40,7 +40,7 @@ vim.g.lua_tree_allow_resize = 1
 vim.g.lua_tree_disable_keybindings = 0
 
 --  select which icons to show
-vim.g.lua_tree_show_icons = { git = 1, folders = 1, files = 0 }
+vim.g.lua_tree_show_icons = { git = 0, folders = 1, files = 0 }
 
 --  modify some of the key mappings
 vim.g.lua_tree_bindings = { edit = { '<CR>', 'l', 'o' }, edit_split = '<C-s>', toggle_ignored = '!', toggle_dotfiles = '.' }

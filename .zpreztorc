@@ -1,11 +1,13 @@
 zstyle ':prezto:module:prompt' theme 'pure'
 
+zstyle ':prezto:module:autosuggestions' color 'yes'
+
 zstyle ':prezto:load' pmodule \
          'directory' \
          'utility' \
          'completion' \
          'git' \
          'prompt' \
-         'autosuggestions' \
-         'history-substring-search' \
          'syntax-highlighting' \
+         'history-substring-search' \
+         'autosuggestions' \
