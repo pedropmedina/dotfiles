@@ -9,6 +9,9 @@ fi
 # Enable Vim mode
 bindkey -v
 
+# Disable Ex mode with ':'
+bindkey -rM vicmd ':'
+
 # Delete with backspace in insert mode
 bindkey "^?" backward-delete-char
 

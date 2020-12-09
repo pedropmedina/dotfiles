@@ -60,7 +60,7 @@ end
 -- Get project's root dit based on .git or fallback to ~
 local root_path = function()
   local git_dir_path = vcs.get_git_dir(vim.fn.expand('%:p:h'))
-  return not git_dir_path and vim.fn.expand('%:~') or '~'..vim.fn.expand('%:p'):sub(git_dir_path:len() + 1)
+  return not git_dir_path and vim.fn.expand('%:~') or '~'..vim.fn.expand('%:p'):sub(git_dir_path:len() - 4 )
 end
 
 local checkwidth = function()
