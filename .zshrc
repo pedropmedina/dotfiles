@@ -9,7 +9,7 @@ fi
 # Enable Vim mode
 bindkey -v
 
-# Disable Ex mode with ':'
+# Disable Ex mode with ':' - I don't like when zsh vim mode enters _execute mode
 bindkey -rM vicmd ':'
 
 # Delete with backspace in insert mode
