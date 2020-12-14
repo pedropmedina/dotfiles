@@ -73,14 +73,3 @@ require'lspconfig'.vuels.setup{
     }
   }
 }
-
--- Experimentation
--- vim.api.nvim_command[[autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil,1000)]]
--- vim.cmd([[ autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil,1000) ]])
--- vim.cmd([[ autocmd BufWritePre *.vim lua vim.lsp.buf.formatting_sync(nil,1000) ]])
--- vim.cmd([[ autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil,1000) ]])
-
-  -- ['<tab>']    = { scope = 'buf', mode = 'i', mapping = [[pumvisible() ? "\<C-n>" : "\<Tab>"]], expr = true };
-  -- ['<s-tab>']  = { scope = 'buf', mode = 'i', mapping = [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], expr = true };
-  -- ['<c-j>']    = { scope = 'buf', mode = {'i', 's'}, mapping = [[vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>']], expr = true };
-

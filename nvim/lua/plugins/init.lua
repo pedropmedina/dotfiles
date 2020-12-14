@@ -1,6 +1,3 @@
--- Require all configs up here
-require('plugins.configs')
-
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
 

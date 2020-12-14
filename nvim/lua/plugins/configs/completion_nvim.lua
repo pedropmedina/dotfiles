@@ -2,7 +2,7 @@
 vim.g.completion_confirm_key = ""
 
 -- Matching strategies
-vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
+vim.g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
 
 -- Enable snippets.nvim
 vim.g.completion_enable_snippet = 'UltiSnips'
@@ -11,7 +11,7 @@ vim.g.completion_enable_snippet = 'UltiSnips'
 vim.g.completion_matching_ignore_case = 1
 
 -- Show completion popup on delete
-vim.g.completion_trigger_on_delete = 1
+vim.g.completion_trigger_on_delete = 0
 
 -- Don't open the completion popup on keywords less than 1
 vim.g.completion_trigger_keyword_length = 1
@@ -36,7 +36,8 @@ vim.g.completion_chain_complete_list = {
 }
 
 -- Let completion-nvim move across chain completion sources as we run out of matching items
-vim.g.completion_auto_change_source = 1
+vim.g.completion_auto_change_source = 0
 
 -- Use completion-nvim in every buffer
-vim.cmd([[ autocmd BufEnter,BufReadPre,BufNewFile * lua require'completion'.on_attach() ]])
+-- vim.cmd([[ autocmd BufEnter,BufReadPre,BufNewFile * lua require'completion'.on_attach() ]])
+vim.cmd([[ autocmd BufEnter * lua require'completion'.on_attach() ]])

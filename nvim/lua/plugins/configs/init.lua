@@ -1,4 +1,4 @@
--- NOTE: Some configs no worth writting in lua were kept in after/plugin
+-- NOTE: Other configs were kept in after/plugin
 require('plugins.configs.lsp_config')
 require('plugins.configs.diagnostics')
 require('plugins.configs.treesitter')
