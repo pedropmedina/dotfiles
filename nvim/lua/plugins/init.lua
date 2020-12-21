@@ -61,4 +61,7 @@ return require('packer').startup(function()
 
   --Search highlighted text with * or # from a visual block
   use 'nelstrom/vim-visual-star-search'
+
+  -- temp support for .hbs files
+  use 'mustache/vim-mustache-handlebars'
 end)

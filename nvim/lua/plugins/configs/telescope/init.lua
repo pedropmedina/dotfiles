@@ -5,6 +5,16 @@ local sorters = require('telescope.sorters')
 
 require('telescope').setup{
   defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--glob=!node_modules/*'
+    },
     prompt_position = 'top',
     prompt_prefix = ' > ',
     sorting_strategy = 'ascending',
@@ -19,6 +29,7 @@ require('telescope').setup{
       },
     },
     file_sorter = sorters.get_fzy_sorter,
+    file_ignore_patterns = { 'node_modules/.*' },
     extensions = {
       fzy_native = {
         override_generic_sorter = false,

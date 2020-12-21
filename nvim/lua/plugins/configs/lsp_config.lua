@@ -10,7 +10,7 @@ require'lspconfig'.cssls.setup{ on_attach = on_attach_vim, settings = { css = { 
 
 require'lspconfig'.html.setup{
   on_attach = on_attach_vim,
-  filetypes = { "html", "tsx", "jsx", "vue", "hbs", "handlebars", "html.handlebars", "liquid" }
+  filetypes = { "html", "tsx", "jsx", "vue", "hbs", "handlebars",  "html.hbs", "html.handlebars", "liquid" }
 }
 
 require'lspconfig'.jsonls.setup{ on_attach = on_attach_vim }
