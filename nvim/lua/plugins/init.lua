@@ -15,8 +15,8 @@ return require('packer').startup(function()
   use 'nvim-lua/completion-nvim'
 
   -- snippets
-  use 'sirver/UltiSnips'
-  use 'honza/vim-snippets'
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
 
   -- telescope
   use {
@@ -42,7 +42,7 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
 
   -- Formatters
-  use 'sbdchd/neoformat'
+  use 'mhartington/formatter.nvim'
 
   -- Comment out code
   use 'tomtom/tcomment_vim'

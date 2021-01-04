@@ -100,7 +100,7 @@ function mappings:load_plugin_define()
     ['n|<Leader>ds']  = map_cmd('<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>'):with_noremap():with_silent(),
 
     -- Lua tree
-    ['n|<Leader>e']   = map_cmd(':LuaTreeToggle<CR>'):with_noremap():with_silent(),
+    ['n|<Leader>e']   = map_cmd(':NvimTreeToggle<CR>'):with_noremap():with_silent(),
 
     -- Telescope
     ['n|<Leader>ff']  = map_cmd('<cmd>lua require("plugins.configs.telescope.finders").find_files()<CR>'):with_noremap():with_silent(),

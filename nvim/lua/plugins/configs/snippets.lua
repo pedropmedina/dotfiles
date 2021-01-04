@@ -1,4 +1,1 @@
--- Remap these variables so that they dont' interfere with completion-nvim
-vim.g.UltiSnipsExpandTrigger = "µ"
-vim.g.UltiSnipsJumpForwardTrigger = '∫'
-vim.g.UltiSnipsJumpBackwardTrigger = "√"
+vim.g.vsnip_snippet_dir = vim.fn.expand('~/.config/nvim/.vsnip')

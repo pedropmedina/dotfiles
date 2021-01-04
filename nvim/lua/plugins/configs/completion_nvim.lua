@@ -5,7 +5,7 @@ vim.g.completion_confirm_key = ""
 vim.g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
 
 -- Enable snippets.nvim
-vim.g.completion_enable_snippet = 'UltiSnips'
+vim.g.completion_enable_snippet = 'vim-vsnip'
 
 -- Case insensitive matching
 vim.g.completion_matching_ignore_case = 1
@@ -20,23 +20,28 @@ vim.g.completion_trigger_keyword_length = 1
 -- vim.g.completion_trigger_character = { '.', '::' }
 
 --Timer controls the rate of completion.
-vim.g.completion_timer_cycle = 80
+vim.g.completion_timer_cycle = 200
 
 -- Do not open detail floating window while navigating completion items
 vim.g.completion_enable_auto_hover = 0
 
 -- Setup chain completion by separating completion sources into groups
 vim.g.completion_chain_complete_list = {
-  { complete_items = { 'lsp' } },
-  { complete_items = { 'snippet' } },
-  { complete_items = { 'buffers' } },
-  { complete_items = { 'path' } },
-  { mode = '<c-p>' },
-  { mode = '<c-n>' }
+  default = {
+    { complete_items = { 'lsp', 'snippet' } },
+    -- { complete_items = { 'snippet' } },
+    { complete_items = { 'buffers' } },
+    { mode = '<c-p>' },
+    { mode = '<c-n>' }
+  },
+  string = {
+    { complete_items = { 'path' }, triggered_only = { '/' } },
+  },
+  comment = {},
 }
 
 -- Let completion-nvim move across chain completion sources as we run out of matching items
-vim.g.completion_auto_change_source = 0
+vim.g.completion_auto_change_source = 1
 
 -- Use completion-nvim in every buffer
 -- vim.cmd([[ autocmd BufEnter,BufReadPre,BufNewFile * lua require'completion'.on_attach() ]])
