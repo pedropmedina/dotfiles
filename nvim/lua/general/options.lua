@@ -36,7 +36,7 @@ local global_options = {
   expandtab = true;
   tabstop = 2;
   shiftwidth = 2;
-  guifont = 'VictorMono Nerd Font Mono'
+  guifont = 'VictorMono Nerd Font Mono',
 }
 
 -- Buffer options

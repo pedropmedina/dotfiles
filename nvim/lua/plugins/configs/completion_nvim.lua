@@ -14,7 +14,7 @@ vim.g.completion_matching_ignore_case = 1
 vim.g.completion_trigger_on_delete = 0
 
 -- Don't open the completion popup on keywords less than 1
-vim.g.completion_trigger_keyword_length = 1
+vim.g.completion_trigger_keyword_length = 2
 
 -- Some extra trigger characters
 -- vim.g.completion_trigger_character = { '.', '::' }
@@ -29,13 +29,7 @@ vim.g.completion_enable_auto_hover = 0
 vim.g.completion_chain_complete_list = {
   default = {
     { complete_items = { 'lsp', 'snippet' } },
-    -- { complete_items = { 'snippet' } },
     { complete_items = { 'buffers' } },
-    { mode = '<c-p>' },
-    { mode = '<c-n>' }
-  },
-  string = {
-    { complete_items = { 'path' }, triggered_only = { '/' } },
   },
   comment = {},
 }

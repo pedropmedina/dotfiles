@@ -15,7 +15,8 @@ require('formatter').setup({
     typescriptreact = { prettier },
     json = { prettier },
     html = { prettier },
-    css = { prettier }
+    css = { prettier },
+    vue = { prettier }
   }
 })
 

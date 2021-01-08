@@ -1,0 +1,15 @@
+{
+  "diagnostic.hintSign": "•",
+  "diagnostic.infoSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.errorSign": "•",
+  "diagnostic.showUnused": true,
+  "diagnostic.messageTarget": "float",
+  "html.format.enable": false,
+  "json.format.enable": false,
+  "vetur.format.enable": false,
+  "tsserver.formatOnType": false,
+  "typescript.format.enabled": false,
+  "javascript.format.enabled": false,
+  "Lua.diagnostics.globals": ["vim", "use"]
+}
