@@ -28,6 +28,7 @@ local global_options = {
 	ttimeoutlen = 0;
 	clipboard = 'unnamedplus';
 	ignorecase = true;
+  smartcase = true;
 	incsearch = true;
 	completeopt = 'menuone,noinsert,noselect';
 	shortmess = 'aoOTcF';
@@ -36,6 +37,7 @@ local global_options = {
   expandtab = true;
   tabstop = 2;
   shiftwidth = 2;
+  scrolloff = 8;
   guifont = 'VictorMono Nerd Font Mono',
 }
 
