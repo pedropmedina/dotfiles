@@ -45,7 +45,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Aliases
-alias vim="nvim"
+# alias vim="nvim"
 alias v="nvim"
 alias code="code-insiders"
 alias c="code-insiders"

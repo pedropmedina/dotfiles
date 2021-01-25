@@ -18,6 +18,7 @@ require('telescope').setup{
     prompt_position = 'top',
     prompt_prefix = ' > ',
     sorting_strategy = 'ascending',
+    preview_cutoff = 140,
     winblend = 2,
     borderchars = {"─", "│", "─", "│", "┌", "┐", "┘", "└"},
     layout_strategy = 'horizontal',
@@ -28,11 +29,12 @@ require('telescope').setup{
         ["<c-s>"] = actions.goto_file_selection_split,
       },
     },
+    find_command = { 'fd',  '--hidden',  '--follow', '--type', 'file', '--exclude', '.git' },
     file_sorter = sorters.get_fzy_sorter,
     file_ignore_patterns = { 'node_modules/.*' },
     extensions = {
       fzy_native = {
-        override_generic_sorter = false,
+        override_generic_sorter = true,
         override_file_sorter = true,
       }
     },
