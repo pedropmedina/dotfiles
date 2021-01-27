@@ -29,7 +29,6 @@ require('telescope').setup{
         ["<c-s>"] = actions.goto_file_selection_split,
       },
     },
-    find_command = { 'fd',  '--hidden',  '--follow', '--type', 'file', '--exclude', '.git' },
     file_sorter = sorters.get_fzy_sorter,
     file_ignore_patterns = { 'node_modules/.*' },
     extensions = {

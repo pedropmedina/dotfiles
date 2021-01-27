@@ -5,7 +5,7 @@ return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
   use {'wbthomason/packer.nvim', opt = true}
 
-  -- theme
+  -- themes
   use 'joshdick/onedark.vim'
 
   -- lsp

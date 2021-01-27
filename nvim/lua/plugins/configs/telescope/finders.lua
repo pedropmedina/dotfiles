@@ -13,8 +13,10 @@ local finders = {}
 
 -- find files
 finders.find_files = function()
-  -- local opts = vim.deepcopy(center_list)
-  require('telescope.builtin').find_files()
+  local opts = {
+    find_command = { 'fd',  '--hidden',  '--follow', '--type', 'file', '--exclude', '.git' }
+  }
+  require('telescope.builtin').find_files(opts)
 end
 
 -- find files in dotfiles dir

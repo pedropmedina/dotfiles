@@ -68,7 +68,7 @@ lspconfig.sumneko_lua.setup{
   }
 }
 
---Enable (broadcasting) snippet capability for completion - No sure if this will be needed in the future
+-- Enable (broadcasting) snippet capability for [html, css] completion - No sure if this will be needed in the future
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
