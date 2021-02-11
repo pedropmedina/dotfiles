@@ -1,22 +1,59 @@
 -- Only required if you have packer in your `opt` pack
-vim.cmd [[packadd packer.nvim]]
+local packer_exists = pcall(vim.cmd, [[packadd packer.nvim]])
+
+-- Install packer if not preset in ~/.local/share/nvim/site/pack/packer/opt
+if not packer_exists then
+  if vim.fn.input("Download Packer? ( y for yes ) ") ~= "y" then
+    return
+  end
+
+  local directory = string.format(
+    '%s/site/pack/packer/opt/',
+    vim.fn.stdpath('data')
+  )
+
+  vim.fn.mkdir(directory, 'p')
+
+  local out = vim.fn.system(string.format(
+    'git clone %s %s',
+    'https://github.com/wbthomason/packer.nvim',
+    directory .. '/packer.nvim'
+  ))
+
+  print(out)
+  print("Downloading packer.nvim...")
+  print("( Restart now, then run :PackerInstall and :PackerCompile to install/configure plugins! )")
+  return
+end
 
 return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
   use {'wbthomason/packer.nvim', opt = true}
 
   -- themes
-  use 'joshdick/onedark.vim'
+  use { 'joshdick/onedark.vim',
+    config = [[require('plugins.configs.onedark')]],
+    after = { 'telescope.nvim', 'nvim-tree.lua' }
+  }
 
   -- lsp
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    config = [[
+      require('plugins.configs.lsp_config')
+      require('plugins.configs.diagnostics')
+    ]]
+  }
 
   -- completion
-  use 'nvim-lua/completion-nvim'
+  use { 'nvim-lua/completion-nvim', config = [[require('plugins.configs.completion_nvim')]] }
 
   -- snippets
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
+  use {
+    'hrsh7th/vim-vsnip',
+    requires = { { 'hrsh7th/vim-vsnip-integ', after = 'vim-vsnip' } },
+    config = [[require('plugins.configs.snippets')]]
+  }
 
   -- telescope
   use {
@@ -24,28 +61,31 @@ return require('packer').startup(function()
     requires = {
       {'nvim-lua/popup.nvim'},
       {'nvim-lua/plenary.nvim'}
-    }
+    },
+    config = [[require('plugins.configs.telescope')]]
   }
 
   -- Syntax highlight and more
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'nvim-treesitter/nvim-treesitter-refactor'
+  use { 'nvim-treesitter/nvim-treesitter',
+    requires = { { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' } },
+    config = [[require('plugins.configs.treesitter')]]
+  }
 
   use {
     'glepnir/galaxyline.nvim',
       branch = 'main',
-      config = function() require'plugins.statusline' end
+      config = [[require('plugins.configs.statusline')]]
   }
 
   -- File tree
-  use { 'kyazdani42/nvim-tree.lua' }
+  use { 'kyazdani42/nvim-tree.lua', config = [[require('plugins.configs.nvim_tree')]] }
 
   -- Version control
-  use 'mhinz/vim-signify'
+  use { 'mhinz/vim-signify', config = [[require('plugins.configs.signify')]] }
   use 'tpope/vim-fugitive'
 
   -- Formatters
-  use 'mhartington/formatter.nvim'
+  use { 'mhartington/formatter.nvim', config = [[require('plugins.configs.formatter')]]}
 
   -- Comment out code
   use 'tomtom/tcomment_vim'
@@ -57,7 +97,10 @@ return require('packer').startup(function()
   use 'jiangmiao/auto-pairs'
 
   -- Colorize matching parentheses
-  use 'junegunn/rainbow_parentheses.vim'
+  use {
+    'junegunn/rainbow_parentheses.vim',
+    config = [[require('plugins.configs.rainbow')]]
+  }
 
   -- Automatically clear highlight ( :nohls )
   use 'haya14busa/is.vim'
@@ -68,3 +111,4 @@ return require('packer').startup(function()
   -- temp support for .hbs files
   use 'mustache/vim-mustache-handlebars'
 end)
+

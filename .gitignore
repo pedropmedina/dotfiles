@@ -51,9 +51,12 @@ tags
 # Persistent undo
 [._]*.un~
 
-# plugins
+# Vim-Plug
 nvim/autoload
 nvim/autoload/plugged
+
+# Packer compiled lazy-load config
+nvim/plugin/packer_*
 
 # coc
 coc/*

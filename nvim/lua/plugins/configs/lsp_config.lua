@@ -62,7 +62,7 @@ lspconfig.sumneko_lua.setup{
     Lua = {
       diagnostics = {
         enable = true,
-        globals = { 'vim', 'use' },
+        globals = { 'vim', 'use', 'packer_plugins' },
       },
     }
   }

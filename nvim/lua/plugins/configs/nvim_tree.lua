@@ -58,8 +58,3 @@ vim.g.nvim_tree_icons = {
   git = { unstaged = '•', staged= '•', unmerged= '≠', renamed= '•', untracked= '•' },
   folder = { default= '+', open= '-' }
 }
-
-vim.cmd([[
-  hi NvimTreeIndentMarker guifg=#5c6370 
-  hi NvimTreeFolderIcon guifg=#5c6370
-]])

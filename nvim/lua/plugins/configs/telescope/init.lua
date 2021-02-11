@@ -39,6 +39,3 @@ require('telescope').setup{
     },
   }
 }
-
--- Higlights
-vim.cmd([[ hi TelescopeBorder guifg=#363a42 ]])

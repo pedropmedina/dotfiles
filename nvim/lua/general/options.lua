@@ -72,16 +72,6 @@ set_options(global_options, 'o')
 set_options(buffer_options, 'bo')
 set_options(window_options, 'wo')
 
--- Theme related settings - MUST FOLLOW OTHER SETTINGS
-vim.cmd(
-[[
-  let g:onedark_hide_endofbuffer = 0
-  let g:onedark_terminal_italics = 1
-  let g:onedark_termcolors = 256
-  colorscheme onedark | syntax on
-]]
-)
-
 -- enable embeded lua highlighting
 vim.g.vimsyn_embed = 'l'
 
