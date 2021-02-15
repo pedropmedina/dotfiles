@@ -1,6 +1,7 @@
 local galaxyline = require('galaxyline')
 local buffer = require('galaxyline.provider_buffer')
 local vcs = require('galaxyline.provider_vcs')
+local cond = require('galaxyline.condition')
 local section = galaxyline.section
 
 galaxyline.short_line_list = { 'LuaTree', 'vista', 'dbui' }
@@ -173,7 +174,7 @@ section.right[1] = {
   GitBranch = {
     provider = function() return '⠕ '..vcs.get_git_branch() end,
     condition = function()
-      return buffer.get_buffer_filetype() ~= '' and vcs.check_git_workspace() and vcs.get_git_branch()
+      return buffer.get_buffer_filetype() ~= '' and cond.check_git_workspace() and vcs.get_git_branch()
     end,
     separator = ' ',
     separator_highlight = { COLORS.darkblue, COLORS.darkgrey},
@@ -211,7 +212,7 @@ section.right[4] = {
 section.right[5] = {
   GitSeparator = {
     condition = function()
-      return buffer.get_buffer_filetype() ~= '' and vcs.check_git_workspace()
+      return buffer.get_buffer_filetype() ~= '' and cond.check_git_workspace()
     end,
     provider = function() return ' |' end,
     highlight = { COLORS.darkblue, COLORS.darkgrey }

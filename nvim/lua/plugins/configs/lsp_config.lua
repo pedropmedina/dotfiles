@@ -101,6 +101,8 @@ lspconfig.jsonls.setup{
   on_attach = on_attach_vim
 }
 
+lspconfig.dockerls.setup{}
+
 lspconfig.tsserver.setup{
   cmd = { 'typescript-language-server', '--stdio' },
   on_attach = on_attach_vim,
