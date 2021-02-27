@@ -42,13 +42,19 @@ vim.g.nvim_tree_disable_keybindings = 0
 --  select which icons to show
 vim.g.nvim_tree_show_icons = { git = 0, folders = 1, files = 0 }
 
+
+local function get_lua_cb(cb_name)
+  return string.format(":lua require'nvim-tree'.on_keypress('%s')<CR>", cb_name)
+end
+
+
 --  modify some of the key mappings
 vim.g.nvim_tree_bindings = {
-  edit = { '<CR>', 'l', 'o' },
-  close_node = { '<BS>', 'h' },
-  edit_split = '<C-s>',
-  toggle_ignored = '!',
-  toggle_dotfiles = '.'
+    ["l"]     = get_lua_cb("edit"),
+    ["<C-s>"] = get_lua_cb("split"),
+    ["h"]     = get_lua_cb("close_node"),
+    ["!"]     = get_lua_cb("toggle_ignored"),
+    ["."]     = get_lua_cb("toggle_dotfiles"),
 }
 
 --  icons to be used

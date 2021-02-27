@@ -26,7 +26,7 @@ require('telescope').setup{
     mappings = {
       i = {
         ["<c-x>"] = false,
-        ["<c-s>"] = actions.goto_file_selection_split,
+        ["<c-s>"] = actions.select_horizontal
       },
     },
     file_sorter = sorters.get_fzy_sorter,
