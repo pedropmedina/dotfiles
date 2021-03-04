@@ -32,7 +32,7 @@ return require('packer').startup(function()
 
   -- themes
   use { 'joshdick/onedark.vim',
-    config = [[require('plugins.configs.onedark')]],
+    config = [[require('plugins.config.onedark')]],
     after = { 'telescope.nvim', 'nvim-tree.lua' }
   }
 
@@ -40,19 +40,19 @@ return require('packer').startup(function()
   use {
     'neovim/nvim-lspconfig',
     config = [[
-      require('plugins.configs.lsp_config')
-      require('plugins.configs.diagnostics')
+      require('plugins.config.lsp_config')
+      require('plugins.config.diagnostics')
     ]]
   }
 
   -- completion
-  use { 'nvim-lua/completion-nvim', config = [[require('plugins.configs.completion_nvim')]] }
+  use { 'nvim-lua/completion-nvim', config = [[require('plugins.config.completion_nvim')]] }
 
   -- snippets
   use {
     'hrsh7th/vim-vsnip',
     requires = { { 'hrsh7th/vim-vsnip-integ', after = 'vim-vsnip' } },
-    config = [[require('plugins.configs.snippets')]]
+    config = [[require('plugins.config.snippets')]]
   }
 
   -- telescope
@@ -62,30 +62,32 @@ return require('packer').startup(function()
       {'nvim-lua/popup.nvim'},
       {'nvim-lua/plenary.nvim'}
     },
-    config = [[require('plugins.configs.telescope')]]
+    config = [[require('plugins.config.telescope')]]
   }
 
   -- Syntax highlight and more
   use { 'nvim-treesitter/nvim-treesitter',
-    requires = { { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' } },
-    config = [[require('plugins.configs.treesitter')]]
+    config = [[require('plugins.config.treesitter')]],
+    run = ':TSUpdate'
   }
+
+  use { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' }
 
   use {
     'glepnir/galaxyline.nvim',
       branch = 'main',
-      config = [[require('plugins.configs.statusline')]]
+      config = [[require('plugins.config.statusline')]]
   }
 
   -- File tree
-  use { 'kyazdani42/nvim-tree.lua', config = [[require('plugins.configs.nvim_tree')]] }
+  use { 'kyazdani42/nvim-tree.lua', config = [[require('plugins.config.nvim_tree')]] }
 
   -- Version control
-  use { 'mhinz/vim-signify', config = [[require('plugins.configs.signify')]] }
+  use { 'mhinz/vim-signify', config = [[require('plugins.config.signify')]] }
   use 'tpope/vim-fugitive'
 
   -- Formatters
-  use { 'mhartington/formatter.nvim', config = [[require('plugins.configs.formatter')]]}
+  use { 'mhartington/formatter.nvim', config = [[require('plugins.config.formatter')]]}
 
   -- Comment out code
   use 'tomtom/tcomment_vim'
@@ -99,7 +101,7 @@ return require('packer').startup(function()
   -- Colorize matching parentheses
   use {
     'junegunn/rainbow_parentheses.vim',
-    config = [[require('plugins.configs.rainbow')]]
+    config = [[require('plugins.config.rainbow')]]
   }
 
   -- Automatically clear highlight ( :nohls )

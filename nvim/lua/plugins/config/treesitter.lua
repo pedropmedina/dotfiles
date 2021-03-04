@@ -1,19 +1,19 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    'html',
-    'css',
-    'json',
-    'jsdoc',
-    'graphql',
-    'javascript',
-    'typescript',
-    'tsx',
-    'vue',
-    'php',
-    'python',
-    'rust',
-    'lua'
-  },
+  -- ensure_installed = {
+  --   'html',
+  --   'css',
+  --   'json',
+  --   'jsdoc',
+  --   'graphql',
+  --   'javascript',
+  --   'typescript',
+  --   'tsx',
+  --   'vue',
+  --   'php',
+  --   'python',
+  --   'rust',
+  --   'lua'
+  -- },
   highlight = { enable = true },
   incremental_selection = {
     enable = true,

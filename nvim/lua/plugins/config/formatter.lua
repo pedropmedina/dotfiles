@@ -20,7 +20,12 @@ require('formatter').setup({
   }
 })
 
-vim.cmd([[augroup fmt]])
-vim.cmd([[autocmd!]])
-vim.cmd([[autocmd BufWritePre * Format]])
-vim.cmd([[augroup END]])
+vim.api.nvim_exec(
+  [[
+  augroup FormatAutogroup
+    autocmd!
+    autocmd BufWritePost *.js,*.ts,*.tsx,*.jsx,*.json,*.html,*.css,*.vue FormatWrite
+  augroup END
+  ]], 
+  true
+)
