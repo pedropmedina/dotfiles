@@ -93,14 +93,14 @@ return require('packer').startup(function()
   -- Formatters
   use { 'mhartington/formatter.nvim', config = [[require('plugins.config.formatter')]]}
 
-  -- Comment out code
-  use 'tomtom/tcomment_vim'
+  -- Comment text in and out
+  use { 'b3nj5m1n/kommentary' }
 
   -- Surround text
   use 'tpope/vim-surround'
 
-  -- Auto pairs for '(' '[' '{'
-  use 'jiangmiao/auto-pairs'
+  -- Auto pairs for '(' '[' '{'...
+  use { 'windwp/nvim-autopairs', config = [[require('plugins.config.autopairs')]] }
 
   -- Colorize matching parentheses
   use {
