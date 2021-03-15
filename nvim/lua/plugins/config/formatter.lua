@@ -26,6 +26,6 @@ vim.api.nvim_exec(
     autocmd!
     autocmd BufWritePost *.js,*.ts,*.tsx,*.jsx,*.json,*.html,*.css,*.vue FormatWrite
   augroup END
-  ]], 
+  ]],
   true
 )

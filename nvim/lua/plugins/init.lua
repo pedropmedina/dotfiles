@@ -30,13 +30,13 @@ return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
   use {'wbthomason/packer.nvim', opt = true}
 
-  -- themes
+  -- Themes
   use { 'joshdick/onedark.vim',
     config = [[require('plugins.config.onedark')]],
     after = { 'telescope.nvim', 'nvim-tree.lua' }
   }
 
-  -- lsp
+  -- LSP
   use {
     'neovim/nvim-lspconfig',
     config = [[
@@ -45,17 +45,17 @@ return require('packer').startup(function()
     ]]
   }
 
-  -- completion
+  -- Completion
   use { 'nvim-lua/completion-nvim', config = [[require('plugins.config.completion_nvim')]] }
 
-  -- snippets
+  -- Snippets
   use {
     'hrsh7th/vim-vsnip',
     requires = { { 'hrsh7th/vim-vsnip-integ', after = 'vim-vsnip' } },
     config = [[require('plugins.config.snippets')]]
   }
 
-  -- telescope
+  -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -65,14 +65,18 @@ return require('packer').startup(function()
     config = [[require('plugins.config.telescope')]]
   }
 
-  -- Syntax highlight and more
-  use { 'nvim-treesitter/nvim-treesitter',
+  -- Treesitter support
+  use { 'theHamsta/nvim-treesitter',
+    branch = 'lockfile',
     config = [[require('plugins.config.treesitter')]],
     run = ':TSUpdate'
   }
-
   use { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' }
 
+  -- Colors
+  use { 'norcalli/nvim-colorizer.lua' }
+
+  -- Status line
   use {
     'glepnir/galaxyline.nvim',
       branch = 'main',
@@ -83,8 +87,8 @@ return require('packer').startup(function()
   use { 'kyazdani42/nvim-tree.lua', config = [[require('plugins.config.nvim_tree')]] }
 
   -- Version control
-  use { 'mhinz/vim-signify', config = [[require('plugins.config.signify')]] }
-  use 'tpope/vim-fugitive'
+  use { 'tpope/vim-fugitive' }
+  use { 'lewis6991/gitsigns.nvim', config = [[require('plugins.config.gitsigns')]]  }
 
   -- Formatters
   use { 'mhartington/formatter.nvim', config = [[require('plugins.config.formatter')]]}
