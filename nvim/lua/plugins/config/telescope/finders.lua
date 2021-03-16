@@ -35,6 +35,11 @@ finders.live_grep = function()
   require'telescope.builtin'.live_grep()
 end
 
+-- rg string under the cursor
+finders.grep_string = function()
+  require'telescope.builtin'.grep_string()
+end
+
 -- list buffers
 finders.buffers = function()
   -- local opts = vim.deepcopy(center_list)

@@ -85,6 +85,7 @@ function mappings:load_plugin_define()
     ['n|<Leader>ff']  = map_cmd('<cmd>lua require("plugins.config.telescope.finders").find_files()<CR>'):with_noremap():with_silent(),
     ['n|<Leader>fd']  = map_cmd('<cmd>lua require("plugins.config.telescope.finders").find_dotfiles()<CR>'):with_noremap():with_silent(),
     ['n|<Leader>fg']  = map_cmd('<cmd>lua require("plugins.config.telescope.finders").live_grep()<CR>'):with_noremap():with_silent(),
+    ['n|<Leader>fs']  = map_cmd('<cmd>lua require("plugins.config.telescope.finders").grep_string()<CR>'):with_noremap():with_silent(),
     ['n|<Leader>fb']  = map_cmd('<cmd>lua require("plugins.config.telescope.finders").buffers()<CR>'):with_noremap():with_silent(),
     ['n|<Leader>fl']  = map_cmd('<cmd>lua require("plugins.config.telescope.finders").current_buffer_fuzzy_find()<CR>'):with_noremap():with_silent(),
 
