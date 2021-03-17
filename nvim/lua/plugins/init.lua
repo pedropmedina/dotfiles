@@ -46,7 +46,7 @@ return require('packer').startup(function()
   }
 
   -- Completion
-  use { 'nvim-lua/completion-nvim', config = [[require('plugins.config.completion_nvim')]] }
+  use { 'hrsh7th/nvim-compe', config = [[require('plugins.config.completion')]] }
 
   -- Snippets
   use {
@@ -55,15 +55,12 @@ return require('packer').startup(function()
     config = [[require('plugins.config.snippets')]]
   }
 
-  -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {
-      {'nvim-lua/popup.nvim'},
-      {'nvim-lua/plenary.nvim'}
-    },
-    config = [[require('plugins.config.telescope')]]
-  }
+  -- Telescope - dependencies and extensions
+  use { 'nvim-lua/popup.nvim' }
+  use { 'nvim-lua/plenary.nvim' }
+  use { 'nvim-telescope/telescope.nvim', config = [[require('plugins.config.telescope')]] }
+  use { 'nvim-telescope/telescope-fzy-native.nvim' }
+  use { 'nvim-telescope/telescope-fzf-writer.nvim' }
 
   -- Treesitter support
   use { 'theHamsta/nvim-treesitter',

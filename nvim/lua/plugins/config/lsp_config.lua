@@ -1,11 +1,8 @@
 local lspconfig = require('lspconfig')
-local completion = require('completion')
 
 local on_attach_vim = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  completion.on_attach(client)
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -117,6 +114,7 @@ lspconfig.dockerls.setup{}
 
 lspconfig.tsserver.setup{
   cmd = { 'typescript-language-server', '--stdio' },
+  capabilities = capabilities,
   on_attach = on_attach_vim,
   filetypes = {
         'javascript',

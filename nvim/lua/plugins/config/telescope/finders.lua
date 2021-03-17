@@ -14,7 +14,7 @@ local finders = {}
 -- find files
 finders.find_files = function()
   local opts = {
-    find_command = { 'fd',  '--hidden',  '--follow', '--type', 'file', '--exclude', '.git' }
+    find_command = { 'fd',  '--hidden',  '--follow', '--type', 'file', '--exclude', '.git', '--exclude', 'node_modules' }
   }
   require('telescope.builtin').find_files(opts)
 end
@@ -26,30 +26,30 @@ finders.find_dotfiles = function()
   opts.cwd = '~/dotfiles'
   opts.prompt_title = '~ dotfiles ~'
   opts.shorten_path = false
-  require'telescope.builtin'.find_files(opts)
+  require('telescope.builtin').find_files(opts)
 end
 
 -- rg
 finders.live_grep = function()
   -- local opts = vim.deepcopy(center_list)
-  require'telescope.builtin'.live_grep()
+  require('telescope').extensions.fzf_writer.staged_grep({ shorten_path = true, previewer = false })
 end
 
 -- rg string under the cursor
 finders.grep_string = function()
-  require'telescope.builtin'.grep_string()
+  require('telescope.builtin').grep_string()
 end
 
 -- list buffers
 finders.buffers = function()
   -- local opts = vim.deepcopy(center_list)
-  require'telescope.builtin'.buffers()
+  require('telescope.builtin').buffers()
 end
 
 -- current buffer lines
 finders.current_buffer_fuzzy_find = function()
   -- local opts = vim.deepcopy(center_list)
-  require'telescope.builtin'.current_buffer_fuzzy_find()
+  require('telescope.builtin').current_buffer_fuzzy_find()
 end
 
 return finders

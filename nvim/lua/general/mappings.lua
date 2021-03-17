@@ -89,14 +89,16 @@ function mappings:load_plugin_define()
     ['n|<Leader>fb']  = map_cmd('<cmd>lua require("plugins.config.telescope.finders").buffers()<CR>'):with_noremap():with_silent(),
     ['n|<Leader>fl']  = map_cmd('<cmd>lua require("plugins.config.telescope.finders").current_buffer_fuzzy_find()<CR>'):with_noremap():with_silent(),
 
-    -- Completion nvim
-    ['i|<C-p>']       = map_cmd('<Plug>(completion_trigger)'):with_silent(),
-    ['i|<C-n>']       = map_cmd('<Plug>(completion_trigger)'):with_silent(),
-    ['i|<cr>']        = map_cmd([[pumvisible() ? complete_info()["selected"] != "-1" ? "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"]]):with_expr(),
-    ['i|<Tab>']       = map_cmd([[pumvisible() ? "\<C-n>" : "\<Tab>"]]):with_noremap():with_expr(),
-    ['i|<S-Tab>']     = map_cmd([[pumvisible() ? "\<C-p>" : "\<S-Tab>"]]):with_noremap():with_expr(),
-    ['i|<c-j>']       = map_cmd('<Plug>(completion_next_source)'),
-    ['i|<c-k>']       = map_cmd('<Plug>(completion_prev_source)')
+    -- Completion
+    ['i|<C-Space>']   = map_cmd([[compe#complete()]]):with_noremap():with_silent():with_expr(),
+    ['i|<CR>']        = map_cmd([[compe#confirm('<CR>')]]):with_noremap():with_silent():with_expr(),
+    ['i|<C-e>']       = map_cmd([[compe#close('<C-e>')]]):with_noremap():with_silent():with_expr(),
+    ['i|<C-f>']       = map_cmd([[compe#scroll({ 'delta': +4 })]]):with_noremap():with_silent():with_expr(),
+    ['i|<C-d>']       = map_cmd([[compe#scroll({ 'delta': -4 })]]):with_noremap():with_silent():with_expr(),
+    ['i|<Tab>']       = map_cmd('v:lua.tab_complete()'):with_expr(),
+    ['s|<Tab>']       = map_cmd('v:lua.tab_complete()'):with_expr(),
+    ['i|<S-Tab>']     = map_cmd('v:lua.s_tab_complete()'):with_expr(),
+    ['s|<S-Tab>']     = map_cmd('v:lua.s_tab_complete()'):with_expr(),
 
     -- Moved these mappings under the on_attach callback under the lsp_config.lua file
     -- -- Lsp
