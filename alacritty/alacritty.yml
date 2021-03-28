@@ -43,6 +43,26 @@ font:
     family: Victor Mono
     style: Bold Italic
 
+# font:
+#   normal:
+#     family: JetBrains Mono
+#     style: Thin
+
+#   # Bold font face
+#   bold:
+#     family: JetBrains Mono
+#     style: Medium
+
+#   # Italic font face
+#   italic:
+#     family: JetBrains Mono
+#     style: Thin Italic
+
+#   # Bold italic font face
+#   bold_italic:
+#     family: JetBrains Mono
+#     style: Medium Italic
+
   # Point size
   size: 16.0
 

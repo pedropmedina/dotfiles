@@ -2,7 +2,7 @@
 require("plugins")
 
 -- general - ...
-require("general/options")
-require("general/mappings")
-require("general/autocmd")
-require("general/host_progs")
+require("options")
+require("mappings")
+require("autocmds")
+require("hosts")

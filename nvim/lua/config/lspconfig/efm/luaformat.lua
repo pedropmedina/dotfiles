@@ -8,6 +8,8 @@ return {
         --spaces-inside-table-braces
         --break-before-functioncall-rp
         --break-after-functioncall-lp
+        --chop-down-table
     ]]):gsub("\n", ""),
     formatStdin = true
 }
+

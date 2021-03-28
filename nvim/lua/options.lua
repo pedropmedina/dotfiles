@@ -37,7 +37,7 @@ local global_options = {
     tabstop = 2,
     shiftwidth = 2,
     scrolloff = 8,
-    guifont = "VictorMono Nerd Font Mono"
+    guifont = "Victor\\ Mono"
 }
 
 -- Buffer options

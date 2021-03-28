@@ -4,7 +4,7 @@ local vcs = require("galaxyline.provider_vcs")
 local cond = require("galaxyline.condition")
 local section = galaxyline.section
 
-galaxyline.short_line_list = { "LuaTree", "vista", "dbui" }
+galaxyline.short_line_list = { "NvimTree", "vista", "dbui", "packer" }
 
 -- Constants
 local COLORS = {

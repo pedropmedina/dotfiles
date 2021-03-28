@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
-require("plugins/config/lspconfig/diagnostics")
-require("plugins/config/lspconfig/formatting")
+require("config/lspconfig/diagnostics")
+require("config/lspconfig/formatting")
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
@@ -135,21 +135,15 @@ lspconfig.bashls.setup { on_attach = on_attach }
 -- https://github.com/vscode-langservers/vscode-json-languageserver
 lspconfig.jsonls.setup({ on_attach = on_attach, cmd = { "json-languageserver", "--stdio" } })
 
--- https://github.com/vscode-langservers/vscode-css-languageserver-bin
-lspconfig.cssls.setup({ on_attach = on_attach })
-
--- https://github.com/vscode-langservers/vscode-html-languageserver-bin
-lspconfig.html.setup({ on_attach = on_attach })
-
 -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
 lspconfig.dockerls.setup({ on_attach = on_attach })
 
 -- https://github.com/vuejs/vetur/tree/master/server
 lspconfig.vuels.setup { on_attach = on_attach }
 
-local prettier = require("plugins/config/lspconfig/efm/prettier")
-local eslint = require("plugins/config/lspconfig/efm/eslint")
-local luaformat = require("plugins/config/lspconfig/efm/luaformat")
+local prettier = require("config/lspconfig/efm/prettier")
+local eslint = require("config/lspconfig/efm/eslint")
+local luaformat = require("config/lspconfig/efm/luaformat")
 
 -- https://github.com/mattn/efm-langserver
 lspconfig.efm.setup(
@@ -157,8 +151,17 @@ lspconfig.efm.setup(
         on_attach = on_attach,
         init_options = { documentFormatting = true },
         filetypes = {
-            "lua", "typescript", "javascript", "javascriptreact", "typescriptreact", "html", "css", "scss", "json",
-            "yaml", "markdown"
+            "lua",
+            "typescript",
+            "javascript",
+            "javascriptreact",
+            "typescriptreact",
+            "html",
+            "css",
+            "scss",
+            "json",
+            "yaml",
+            "markdown"
         },
         settings = {
             rootMarkers = { ".git/" },

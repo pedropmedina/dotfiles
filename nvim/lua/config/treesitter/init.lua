@@ -15,6 +15,9 @@ require"nvim-treesitter.configs".setup {
     --   'lua'
     -- },
     highlight = { enable = true },
+    indent = { enable = true },
+    context_commentstring = { enable = true },
+    rainbow = { enable = true },
     incremental_selection = {
         enable = true,
         keymaps = {
