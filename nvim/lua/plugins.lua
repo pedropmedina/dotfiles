@@ -52,8 +52,7 @@ return require('packer').startup(
 
         -- Treesitter support
         use {
-            'theHamsta/nvim-treesitter',
-            branch = 'lockfile',
+            'nvim-treesitter/nvim-treesitter',
             config = [[require('config/treesitter')]],
             requires = {
                 { 'nvim-treesitter/nvim-treesitter-refactor' },
