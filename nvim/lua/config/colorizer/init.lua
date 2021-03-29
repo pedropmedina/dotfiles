@@ -1,4 +1,4 @@
-require"colorizer".setup {
-    "*", -- Exclude files
-    "!vim"
+require'colorizer'.setup {
+    '*', -- Exclude files
+    '!vim'
 }

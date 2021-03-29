@@ -3,10 +3,10 @@
 -- Global options
 local global_options = {
     termguicolors = true,
-    encoding = "utf-8",
-    fileencoding = "utf-8",
-    t_Co = "256",
-    background = "dark",
+    encoding = 'utf-8',
+    fileencoding = 'utf-8',
+    t_Co = '256',
+    background = 'dark',
     ruler = true,
     laststatus = 2,
     showtabline = 0,
@@ -15,7 +15,7 @@ local global_options = {
     splitright = true,
     hidden = true,
     cmdheight = 1,
-    mouse = "a",
+    mouse = 'a',
     smarttab = true,
     smartindent = true,
     showmode = false,
@@ -25,19 +25,19 @@ local global_options = {
     updatetime = 300,
     timeoutlen = 500,
     ttimeoutlen = 0,
-    clipboard = "unnamedplus",
+    clipboard = 'unnamedplus',
     ignorecase = true,
     smartcase = true,
     incsearch = true,
-    completeopt = "menuone,noinsert,noselect",
-    shortmess = "aoOTcF",
+    completeopt = 'menuone,noinsert,noselect',
+    shortmess = 'aoOTcF',
     autowriteall = true,
     autoindent = true,
     expandtab = true,
     tabstop = 2,
     shiftwidth = 2,
     scrolloff = 8,
-    guifont = "Victor\\ Mono"
+    guifont = 'Victor\\ Mono'
 }
 
 -- Buffer options
@@ -56,23 +56,23 @@ local window_options = {
     number = true,
     relativenumber = true,
     cursorline = true,
-    signcolumn = "yes",
+    signcolumn = 'yes',
     conceallevel = 0,
     linebreak = true,
     wrap = false,
-    breakindentopt = "shift:2,min:20"
+    breakindentopt = 'shift:2,min:20'
 }
 
 local function set_options(options, scope)
     for name, value in pairs(options) do vim[scope][name] = value end
 end
 
-set_options(global_options, "o")
-set_options(buffer_options, "bo")
-set_options(window_options, "wo")
+set_options(global_options, 'o')
+set_options(buffer_options, 'bo')
+set_options(window_options, 'wo')
 
 -- enable embeded lua highlighting
-vim.g.vimsyn_embed = "l"
+vim.g.vimsyn_embed = 'l'
 
 -- disable some of the built in plugins
 local function disable_distribution_plugins()

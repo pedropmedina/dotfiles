@@ -1,11 +1,11 @@
 -- left by default
-vim.g.nvim_tree_side = "left"
+vim.g.nvim_tree_side = 'left'
 
 -- 30 by default
 vim.g.nvim_tree_width = 37
 
 -- empty by default
-vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
+vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
 
 -- 0 by default, opens the tree when typing `vim $DIR` or `vim`
 vim.g.nvim_tree_auto_open = 0
@@ -29,7 +29,7 @@ vim.g.nvim_tree_hide_dotfiles = 0
 vim.g.nvim_tree_git_hl = 0
 
 -- This is the default. See :help filename-modifiers for more options
-vim.g.nvim_tree_root_folder_modifier = ":~"
+vim.g.nvim_tree_root_folder_modifier = ':~'
 
 -- 0 by default, will open the tree when entering a new tab and the tree was previously open
 vim.g.nvim_tree_tab_open = 0
@@ -43,22 +43,22 @@ vim.g.nvim_tree_disable_keybindings = 0
 vim.g.nvim_tree_show_icons = { git = 0, folders = 1, files = 0 }
 
 local function get_lua_cb(cb_name)
-    return string.format(":lua require'nvim-tree'.on_keypress('%s')<CR>", cb_name)
+    return string.format(':lua require\'nvim-tree\'.on_keypress(\'%s\')<CR>', cb_name)
 end
 
 --  modify some of the key mappings
 vim.g.nvim_tree_bindings = {
-    ["l"] = get_lua_cb("edit"),
-    ["<C-s>"] = get_lua_cb("split"),
-    ["h"] = get_lua_cb("close_node"),
-    ["!"] = get_lua_cb("toggle_ignored"),
-    ["."] = get_lua_cb("toggle_dotfiles")
+    ['l'] = get_lua_cb('edit'),
+    ['<C-s>'] = get_lua_cb('split'),
+    ['h'] = get_lua_cb('close_node'),
+    ['!'] = get_lua_cb('toggle_ignored'),
+    ['.'] = get_lua_cb('toggle_dotfiles')
 }
 
 --  icons to be used
 vim.g.nvim_tree_icons = {
-    default = "",
-    symlink = ">",
-    git = { unstaged = "•", staged = "•", unmerged = "≠", renamed = "•", untracked = "•" },
-    folder = { default = "+", open = "-" }
+    default = '',
+    symlink = '>',
+    git = { unstaged = '•', staged = '•', unmerged = '≠', renamed = '•', untracked = '•' },
+    folder = { default = '+', open = '-' }
 }

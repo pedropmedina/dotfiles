@@ -1,8 +1,8 @@
 -- plugins - packer handles the config per plugin
-require("plugins")
+require('plugins')
 
 -- general - ...
-require("options")
-require("mappings")
-require("autocmds")
-require("hosts")
+require('options')
+require('mappings')
+require('autocmds')
+require('hosts')
