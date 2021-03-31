@@ -15,7 +15,10 @@ local format_options_prettier = {
     tabWidth = 2,
     singleQuote = true,
     trailingComma = 'all',
-    configPrecedence = 'prefer-file'
+    configPrecedence = 'prefer-file',
+    noBracketSpacing = false,
+    noSemi = false,
+    printWidth = 100
 }
 
 -- Set init configs under _G for supported file types

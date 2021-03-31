@@ -19,9 +19,9 @@ highlight NvimTreeIndentMarker guifg=#5c6370
 highlight NvimTreeFolderIcon guifg=#5c6370
 
 
-" Indentation
-highlight IndentBlanklineChar guifg=#323740 gui=nocombine
-highlight IndentBlanklineContextChar guifg=#474e59 gui=nocombine
+" " Indentation
+" highlight IndentBlanklineChar guifg=#323740 gui=nocombine
+" highlight IndentBlanklineContextChar guifg=#474e59 gui=nocombine
 
 " Rainbow
 highlight rainbowcol1 guifg=#e06c75

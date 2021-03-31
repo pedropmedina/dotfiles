@@ -78,22 +78,27 @@ return require('packer').startup(
         -- Comment text in and out
         use { 'terrortylor/nvim-comment', config = [[require('config/comment')]] }
 
-        -- Indentation lines
-        use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua', config = [[require('config/indentation')]] }
+        -- Indentation lines - DISABLED for now (It can get pretty slow in large files)
+        use {
+            'lukas-reineke/indent-blankline.nvim',
+            branch = 'lua',
+            config = [[require('config/indentation')]],
+            disable = true
+        }
 
         -- Surround text
-        use 'tpope/vim-surround'
+        use { 'tpope/vim-surround' }
 
         -- Auto pairs for '(' '[' '{'...
-        use { 'Raimondi/delimitMate' }
+        use { 'cohama/lexima.vim' }
 
         -- Automatically clear highlight ( :nohls )
-        use 'haya14busa/is.vim'
+        use { 'haya14busa/is.vim' }
 
         -- Search highlighted text with * or # from a visual block
-        use 'nelstrom/vim-visual-star-search'
+        use { 'nelstrom/vim-visual-star-search' }
 
         -- temp support for .hbs files
-        use 'mustache/vim-mustache-handlebars'
+        use { 'mustache/vim-mustache-handlebars' }
     end
        )

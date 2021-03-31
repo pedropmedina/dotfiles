@@ -22,6 +22,9 @@ local prettier = {
         ${--tab-width:tabWidth}
         ${--single-quote:singleQuote}
         ${--trailing-comma:trailingComma}
+        ${--no-bracket-spacing:noBracketSpacing},
+        ${--no-semi:noSemi},
+        ${--print-width:printWidth:100}
     ]]):gsub('\n', '')
 }
 

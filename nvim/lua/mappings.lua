@@ -8,6 +8,11 @@ vim.api.nvim_set_keymap('x', ' ', '', { noremap = true })
 
 local mappings = setmetatable({}, { __index = { vim = {}, plugin = {} } })
 
+-- Necessary to get <CR> working between lexima and nvim-compe
+-- Taken from nvim-compe site
+vim.g.lexima_no_default_rules = true
+vim.fn['lexima#set_default_rules']()
+
 function mappings:load_vim_define()
     self.vim = {
         -- Better indenting
@@ -97,8 +102,7 @@ function mappings:load_plugin_define()
 
         -- Completion
         ['i|<C-Space>'] = map_cmd([[compe#complete()]]):with_noremap():with_silent():with_expr(),
-        ['i|<CR>'] = map_cmd([[compe#confirm({'keys': "\<Plug>delimitMateCR", 'mode': ''})]]):with_noremap()
-            :with_silent():with_expr(),
+        ['i|<CR>'] = map_cmd([[compe#confirm(lexima#expand('<LT>CR>', 'i'))]]):with_noremap():with_silent():with_expr(),
         ['i|<C-e>'] = map_cmd([[compe#close('<C-e>')]]):with_noremap():with_silent():with_expr(),
         ['i|<C-f>'] = map_cmd([[compe#scroll({ 'delta': +4 })]]):with_noremap():with_silent():with_expr(),
         ['i|<C-d>'] = map_cmd([[compe#scroll({ 'delta': -4 })]]):with_noremap():with_silent():with_expr(),
