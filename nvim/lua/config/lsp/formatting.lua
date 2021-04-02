@@ -33,6 +33,7 @@ vim.g.format_options_scss = format_options_prettier
 vim.g.format_options_html = format_options_prettier
 vim.g.format_options_yaml = format_options_prettier
 vim.g.format_options_markdown = format_options_prettier
+vim.g.format_options_vue = format_options_prettier
 
 -- Helper function to toggle formatting on and off based off file type
 FormatToggle = function(value)

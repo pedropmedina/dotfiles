@@ -67,11 +67,11 @@ end
 
 function keymapper.nvim_load_mapping(mapping)
     for key, value in pairs(mapping) do
-        local mode, keymap = key:match('([^|]*)|?(.*)')
+        local mode, lhs = key:match('([^|]*)|?(.*)')
         if type(value) == 'table' then
             local rhs = value.cmd
             local options = value.options
-            vim.api.nvim_set_keymap(mode, keymap, rhs, options)
+            vim.api.nvim_set_keymap(mode, lhs, rhs, options)
         end
     end
 end

@@ -22,9 +22,9 @@ local prettier = {
         ${--tab-width:tabWidth}
         ${--single-quote:singleQuote}
         ${--trailing-comma:trailingComma}
-        ${--no-bracket-spacing:noBracketSpacing},
-        ${--no-semi:noSemi},
-        ${--print-width:printWidth:100}
+        ${--no-bracket-spacing:noBracketSpacing}
+        ${--no-semi:noSemi}
+        ${--print-width:printWidth}
     ]]):gsub('\n', '')
 }
 
@@ -47,7 +47,8 @@ local efm = function(config)
             'scss',
             'json',
             'yaml',
-            'markdown'
+            'markdown',
+            'vue'
         },
         settings = {
             rootMarkers = { '.git/', 'node_modules/', 'package.json' },
@@ -62,7 +63,8 @@ local efm = function(config)
                 html = { prettier },
                 scss = { prettier },
                 css = { prettier },
-                markdown = { prettier }
+                markdown = { prettier },
+                vue = { prettier }
             }
         }
     }

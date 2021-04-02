@@ -13,3 +13,7 @@ vim.cmd([[autocmd BufLeave * if index(['lua.luapad'], &ft) == -1 | silent! updat
 
 -- reset treesitter highlights
 vim.cmd([[command! TSResetHighlight write | edit | TSBufEnable highlight]])
+
+vim.cmd([[autocmd BufWinEnter * setlocal formatoptions-=cro]])
+vim.cmd([[autocmd BufRead * setlocal formatoptions-=cro]])
+vim.cmd([[autocmd BufNewFile * setlocal formatoptions-=cro]])

@@ -1,4 +1,4 @@
-local keymapper = require('utils.keymapper')
+local keymapper = require('utils/keymapper')
 local map_cmd = keymapper.map_cmd
 
 -- Leader key
@@ -7,11 +7,6 @@ vim.api.nvim_set_keymap('n', ' ', '', { noremap = true })
 vim.api.nvim_set_keymap('x', ' ', '', { noremap = true })
 
 local mappings = setmetatable({}, { __index = { vim = {}, plugin = {} } })
-
--- Necessary to get <CR> working between lexima and nvim-compe
--- Taken from nvim-compe site
-vim.g.lexima_no_default_rules = true
-vim.fn['lexima#set_default_rules']()
 
 function mappings:load_vim_define()
     self.vim = {
@@ -113,7 +108,14 @@ function mappings:load_plugin_define()
     }
 end
 
+-- Set lexima this way before nvim-compe keymap, or else <CR> wont' work
+function mappings:set_lexima_default_rules()
+    vim.g.lexima_no_default_rules = true
+    vim.fn['lexima#set_default_rules']()
+end
+
 local function load_mappings()
+    mappings:set_lexima_default_rules()
     mappings:load_plugin_define()
     mappings:load_vim_define()
     keymapper.nvim_load_mapping(mappings.vim)
