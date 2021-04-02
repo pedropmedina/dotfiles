@@ -18,13 +18,11 @@ local luaformat = {
 local prettier = {
     formatCommand = ([[
         ./node_modules/.bin/prettier
-        ${--config-precedence:configPrecedence}
-        ${--tab-width:tabWidth}
-        ${--single-quote:singleQuote}
-        ${--trailing-comma:trailingComma}
-        ${--no-bracket-spacing:noBracketSpacing}
-        ${--no-semi:noSemi}
-        ${--print-width:printWidth}
+        --stdin-filepath %
+        --config-precedence prefer-file
+        --tab-width 2
+        --single-quote
+        --print-width 100
     ]]):gsub('\n', '')
 }
 

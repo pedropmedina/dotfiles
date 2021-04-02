@@ -9,9 +9,6 @@ local on_attach = function(client, bufnr)
     -- required to ensure lsp completion :h lsp-buf
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    -- disable LSP builtin formatting (set formatters in the lsp/setups/efm server)
-    client.resolved_capabilities.document_formatting = true
-
     -- common keymap options
     local opts = { noremap = true, silent = true }
 
