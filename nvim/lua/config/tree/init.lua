@@ -40,7 +40,7 @@ vim.g.nvim_tree_allow_resize = 1
 vim.g.nvim_tree_disable_keybindings = 0
 
 --  select which icons to show
-vim.g.nvim_tree_show_icons = { git = 0, folders = 1, files = 0 }
+vim.g.nvim_tree_show_icons = { git = 0, files = 0, folders = 1 }
 
 local function get_lua_cb(cb_name)
     return string.format(':lua require\'nvim-tree\'.on_keypress(\'%s\')<CR>', cb_name)

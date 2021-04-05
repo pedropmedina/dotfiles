@@ -91,9 +91,8 @@ function mappings:load_plugin_define()
             :with_silent(),
         ['n|<Leader>fb'] = map_cmd([[<cmd>lua require("config/telescope/finders").buffers()<CR>]]):with_noremap()
             :with_silent(),
-        ['n|<Leader>fl'] = map_cmd(
-            [[<cmd>lua require(\"plugins.config.telescope.finders\").current_buffer_fuzzy_find()<CR>]]
-        ):with_noremap():with_silent(),
+        ['n|<Leader>fl'] = map_cmd([[<cmd>lua require("config/telescope/finders").current_buffer_fuzzy_find()<CR>]]):with_noremap()
+            :with_silent(),
 
         -- Completion
         ['i|<C-Space>'] = map_cmd([[compe#complete()]]):with_noremap():with_silent():with_expr(),

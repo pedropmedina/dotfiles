@@ -21,7 +21,7 @@ require('telescope').setup {
         selection_strategy = 'reset',
         sorting_strategy = 'ascending',
         preview_cutoff = 140,
-        winblend = 2,
+        winblend = 5,
         borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         layout_strategy = 'horizontal',
         scroll_strategy = 'cycle',

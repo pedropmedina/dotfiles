@@ -71,6 +71,9 @@ set_options(global_options, 'o')
 set_options(buffer_options, 'bo')
 set_options(window_options, 'wo')
 
+-- color scheme
+vim.cmd [[colorscheme nord | syntax on]]
+
 -- enable embeded lua highlighting
 vim.g.vimsyn_embed = 'l'
 

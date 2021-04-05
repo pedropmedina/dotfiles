@@ -7,11 +7,29 @@ local section = galaxyline.section
 galaxyline.short_line_list = { 'NvimTree', 'vista', 'dbui', 'packer' }
 
 -- Constants
+-- local COLORS = {
+--     bg = '#282c34',
+--     white = '#abb2bf',
+--     black = '#282c34 ',
+--     darkblue = '#242830',
+--     lightyellow = '#e5c07b',
+--     darkyellow = '#d19a66',
+--     lightred = '#e06c75',
+--     darkred = '#be5046',
+--     blue = '#61afef',
+--     mangenta = '#c678dd',
+--     cyan = '#56b6c2',
+--     green = '#98c379',
+--     lightgrey = '#c0c0c0',
+--     mediumgrey = '#5c6370',
+--     darkgrey = '#2e323a'
+-- }
+
 local COLORS = {
-    bg = '#282c34',
-    white = '#abb2bf',
-    black = '#282c34 ',
-    darkblue = '#242830',
+    bg = '#2E3440',
+    white = '#EDE6DE',
+    black = '#282c34',
+    darkblue = '#3B4252',
     lightyellow = '#e5c07b',
     darkyellow = '#d19a66',
     lightred = '#e06c75',
@@ -19,10 +37,10 @@ local COLORS = {
     blue = '#61afef',
     mangenta = '#c678dd',
     cyan = '#56b6c2',
-    green = '#98c379',
-    lightgrey = '#c0c0c0',
-    mediumgrey = '#5c6370',
-    darkgrey = '#2e323a'
+    green = '#8BC270',
+    lightgrey = '#D8DEE9',
+    mediumgrey = '#434C5E',
+    darkgrey = '#3B4252'
 }
 
 local MODE_COLORS = {
@@ -80,7 +98,7 @@ section.left[1] = {
     BlockIndicator = {
         provider = function()
             vim.api.nvim_command('hi GalaxyBlockIndicator guibg=' .. MODE_COLORS[vim.fn.mode()])
-            vim.api.nvim_command('hi GalaxyViMode guifg=' .. MODE_COLORS[vim.fn.mode()])
+            -- vim.api.nvim_command('hi GalaxyViMode guifg=' .. MODE_COLORS[vim.fn.mode()])
             return ' '
         end,
         highlight = { COLORS.lightgrey, COLORS.blue }
@@ -111,7 +129,7 @@ section.left[4] = {
             return '| '
         end,
         condition = buffer_not_empty,
-        highlight = { COLORS.darkblue, COLORS.darkgrey }
+        highlight = { COLORS.white, COLORS.darkgrey }
     }
 }
 
@@ -121,7 +139,7 @@ section.left[5] = {
         provider = root_path,
         separator = ' ',
         separator_highlight = { COLORS.darkblue, COLORS.darkgrey },
-        highlight = { COLORS.mediumgrey, COLORS.darkgrey }
+        highlight = { COLORS.white, COLORS.darkgrey }
     }
 }
 
