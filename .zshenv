@@ -24,7 +24,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 # Bat - Alternative to cat with syntax highlighting
 # export BAT_PAGER="less -RF"
-export BAT_THEME="OneHalfDark"
+export BAT_THEME="Nord"
 
 # Files and Directories colors
 export CLICOLOR=1
