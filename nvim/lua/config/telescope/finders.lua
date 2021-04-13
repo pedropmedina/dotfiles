@@ -43,7 +43,7 @@ end
 -- rg
 finders.live_grep = function()
     -- local opts = vim.deepcopy(center_list)
-    require('telescope').extensions.fzf_writer.staged_grep({ shorten_path = true, previewer = false })
+    require('telescope.builtin').live_grep()
 end
 
 -- rg string under the cursor
