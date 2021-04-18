@@ -28,13 +28,23 @@ vim.g.nvim_tree_hide_dotfiles = 0
 -- 0 by default, will enable file highlight for git attributes (can be used without the icons).
 vim.g.nvim_tree_git_hl = 0
 
+-- 1 by default, disables netrw
+vim.g.nvim_tree_disable_netrw = 1
+
+-- 1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+vim.g.nvim_tree_hijack_netrw = 1
+
 -- This is the default. See :help filename-modifiers for more options
 vim.g.nvim_tree_root_folder_modifier = ':~'
 
 -- 0 by default, will open the tree when entering a new tab and the tree was previously open
 vim.g.nvim_tree_tab_open = 0
 
+-- 0 by default, will not resize the tree when opening a file
 vim.g.nvim_tree_allow_resize = 1
+
+-- 0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
+vim.g.nvim_tree_lsp_diagnostics = 0
 
 -- 0 by default, will not resize the tree when opening a file
 vim.g.nvim_tree_disable_keybindings = 0
@@ -42,17 +52,15 @@ vim.g.nvim_tree_disable_keybindings = 0
 --  select which icons to show
 vim.g.nvim_tree_show_icons = { git = 0, files = 0, folders = 1 }
 
-local function get_lua_cb(cb_name)
-    return string.format(':lua require\'nvim-tree\'.on_keypress(\'%s\')<CR>', cb_name)
-end
+local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 --  modify some of the key mappings
 vim.g.nvim_tree_bindings = {
-    ['l'] = get_lua_cb('edit'),
-    ['<C-s>'] = get_lua_cb('split'),
-    ['h'] = get_lua_cb('close_node'),
-    ['!'] = get_lua_cb('toggle_ignored'),
-    ['.'] = get_lua_cb('toggle_dotfiles')
+    ['l'] = tree_cb('edit'),
+    ['<C-s>'] = tree_cb('split'),
+    ['h'] = tree_cb('close_node'),
+    ['!'] = tree_cb('toggle_ignored'),
+    ['.'] = tree_cb('toggle_dotfiles')
 }
 
 --  icons to be used
@@ -60,5 +68,6 @@ vim.g.nvim_tree_icons = {
     default = '',
     symlink = '>',
     git = { unstaged = '•', staged = '•', unmerged = '≠', renamed = '•', untracked = '•' },
-    folder = { default = '+', open = '-' }
+    folder = { default = '+', open = '-' },
+    lsp = { hint = '•', info = '•', warning = '•', error = '•' }
 }
