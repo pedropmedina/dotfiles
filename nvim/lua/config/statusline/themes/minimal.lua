@@ -3,6 +3,8 @@ local gl_buffer = require('galaxyline.provider_buffer')
 local gl_vcs = require('galaxyline.provider_vcs')
 local gl_cond = require('galaxyline.condition')
 local gl_section = galaxyline.section
+local gl_diagnostic = require('galaxyline.provider_diagnostic')
+local gl_fileinfo = require('galaxyline.provider_fileinfo')
 local COLORS = require('config.statusline.colors').NORD
 local modes = require('config.statusline.modes')
 
@@ -28,27 +30,23 @@ local checkwidth = function()
     return false
 end
 
-local separator = function(postfix, condition, provider, fg, bg)
+local set_section = function(name, provider, condition, icon, fg, bg)
+    local provider_cb = function(p)
+        return function()
+            return p and p or ' '
+        end
+    end
+
+    local prov = not provider and provider_cb() or type(provider) == 'function' and provider or provider_cb(provider)
+
     return {
-        ['Separator' .. postfix] = {
-            provider = function()
-                return provider or ' '
-            end,
+        [name] = {
+            provider = prov,
             condition = function()
                 return condition and condition() or true
             end,
+            icon = icon or nil,
             highlight = { fg or COLORS.darkest, bg or COLORS.darkest }
-        }
-    }
-end
-
-local git_diff = function(provider, condition, icon, fg, bg)
-    return {
-        [provider] = {
-            provider = provider,
-            condition = condition,
-            icon = ' ' .. icon,
-            highlight = { fg or COLORS.medium, bg or COLORS.darkest }
         }
     }
 end
@@ -82,45 +80,42 @@ local prov = {
 }
 
 local left = {
-    { BlockIndicator = { provider = prov.block_indicator } },
-    separator(1),
-    { ViMode = { provider = prov.vi_mode, highlight = { COLORS.medium, COLORS.darkest } } },
-    separator(2),
-    { FileName = { condition = buffer_not_empty, provider = root_path, highlight = { COLORS.medium, COLORS.darkest } } },
-    separator(3),
-    { ModBuffer = { provider = prov.dirty_buf, highlight = { COLORS.success, COLORS.darkest } } },
-    separator(4),
-    { DiagnosticHint = { provider = 'DiagnosticHint', icon = '• ', highlight = { COLORS.info, COLORS.darkest } } },
-    separator(5),
-    { DiagnosticError = { provider = 'DiagnosticError', icon = '• ', highlight = { COLORS.error, COLORS.darkest } } },
-    separator(6),
-    { DiagnosticWarn = { provider = 'DiagnosticWarn', icon = '• ', highlight = { COLORS.warning, COLORS.darkest } } }
+    set_section('BlockIndicator', prov.block_indicator),
+    set_section('Separator_1'),
+    set_section('ViMode', prov.vi_mode, nil, nil, COLORS.medium),
+    set_section('Separator_2'),
+    set_section('FileName', root_path, buffer_not_empty, nil, COLORS.medium),
+    set_section('Separator_3'),
+    set_section('ModBuffer', prov.dirty_buf, nil, nil, COLORS.success),
+    set_section('Separator_4'),
+    set_section('DiagnosticHint', gl_diagnostic.get_diagnostic_hint, nil, '• ', COLORS.light),
+    set_section('Separator_5'),
+    set_section('DiagnosticError', gl_diagnostic.get_diagnostic_error, nil, '• ', COLORS.error),
+    set_section('Separator_6'),
+    set_section('DiagnosticWarn', gl_diagnostic.get_diagnostic_warn, nil, '• ', COLORS.warning)
 }
 
 local right = {
-    { GitBranch = { provider = prov.branch, condition = cond.branch, highlight = { COLORS.medium, COLORS.darkest } } },
-    separator(7),
-    git_diff('DiffAdd', checkwidth, '+', COLORS.success),
-    git_diff('DiffModified', checkwidth, '~', COLORS.warning),
-    git_diff('DiffRemove', checkwidth, '-', COLORS.error),
-    separator(8, cond.git_separator, ' • ', COLORS.medium),
-    { FileFormat = { provider = 'FileFormat', highlight = { COLORS.medium, COLORS.darkest } } },
-    separator(9),
-    { LineInfo = { provider = 'LineColumn', highlight = { COLORS.medium, COLORS.darkest } } },
-    separator(10, nil, ' • ', COLORS.medium),
-    { PerCent = { provider = 'LinePercent', highlight = { COLORS.medium, COLORS.darkest } } },
-    separator(11, nil, ' ')
+    set_section('GitBranch', prov.branch, nil, nil, COLORS.medium),
+    set_section('Separator_7'),
+    set_section('DiffAdd', gl_vcs.diff_add, checkwidth, '+', COLORS.success),
+    set_section('DiffModified', gl_vcs.diff_modified, checkwidth, '~', COLORS.warning),
+    set_section('DiffRemove', gl_vcs.diff_remove, checkwidth, '-', COLORS.error),
+    set_section('Separator_8', ' • ', cond.git_separator, nil, COLORS.medium),
+    set_section('FileFormat', gl_buffer.get_buffer_filetype, nil, nil, COLORS.medium),
+    set_section('Separator_9', '  • ', nil, nil, COLORS.medium),
+    set_section('LineInfo', gl_fileinfo.line_column, nil, nil, COLORS.medium),
+    set_section('Separator_10', ' • ', nil, nil, COLORS.medium),
+    set_section('PerCent', gl_fileinfo.current_line_percent, nil, nil, COLORS.medium),
+    set_section('Separator_11', ' ', nil)
 }
 
-local short_left = {
-    separator(12),
-    { BufferType = { provider = prov.buffer_type, highlight = { COLORS.medium, COLORS.darkest } } }
-}
+local short_left = { set_section('Separator_12'), set_section('BufferType', prov.buffer_type, nil, nil, COLORS.medium) }
 
-local set_section = function(position, config)
+local set_section_position = function(position, config)
     for i, table in ipairs(config) do gl_section[position][i] = table end
 end
 
-set_section('left', left)
-set_section('right', right)
-set_section('short_line_left', short_left)
+set_section_position('left', left)
+set_section_position('right', right)
+set_section_position('short_line_left', short_left)
