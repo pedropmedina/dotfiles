@@ -1,1 +1,1 @@
-require('config/statusline/galaxyline')
+require('config.statusline.themes.minimal')

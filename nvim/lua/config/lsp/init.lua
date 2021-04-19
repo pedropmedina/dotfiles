@@ -17,8 +17,8 @@ local setups = {
 }
 
 local function setup_servers(servers_setup)
-    local servers = require'lspinstall'.installed_servers()
-    for _, server in pairs(servers) do require'lspconfig'[server].setup(servers_setup[server]) end
+    local servers = require('lspinstall').installed_servers()
+    for _, server in pairs(servers) do require('lspconfig')[server].setup(servers_setup[server]) end
 end
 
 setup_servers(setups)
