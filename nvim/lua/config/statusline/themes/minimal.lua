@@ -43,7 +43,8 @@ local set_section = function(name, provider, condition, icon, fg, bg)
         [name] = {
             provider = prov,
             condition = function()
-                return condition and condition() or true
+                if (condition) then return condition() end
+                return true
             end,
             icon = icon or nil,
             highlight = { fg or COLORS.darkest, bg or COLORS.darkest }
@@ -96,7 +97,7 @@ local left = {
 }
 
 local right = {
-    set_section('GitBranch', prov.branch, nil, nil, COLORS.medium),
+    set_section('GitBranch', prov.branch, cond.branch, nil, COLORS.medium),
     set_section('Separator_7'),
     set_section('DiffAdd', gl_vcs.diff_add, checkwidth, '+', COLORS.success),
     set_section('DiffModified', gl_vcs.diff_modified, checkwidth, '~', COLORS.warning),
