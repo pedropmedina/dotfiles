@@ -2,8 +2,16 @@ local tailwindcss = function(config)
     local opts = {
         settings = {
             includeLanguages = { typescript = 'javascript', typescriptreact = 'javascript' },
-            experimental = {
-                classRegex = { 'tw`([^`]*)', 'tw="([^"]*)', 'tw={"([^"}]*)', 'tw\\.\\w+`([^`]*)', 'tw\\(.*?\\)`([^`]*)' }
+            tailwindCSS = {
+                experimental = {
+                    classRegex = {
+                        'tw`([^`]*)',
+                        'tw="([^"]*)',
+                        'tw={"([^"}]*)',
+                        'tw\\.\\w+`([^`]*)',
+                        'tw\\(.*?\\)`([^`]*)'
+                    }
+                }
             }
         }
     }
