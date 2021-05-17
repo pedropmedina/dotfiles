@@ -20,3 +20,6 @@ email = pedrodelilia@gmail.com
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
     file-decoration-style = none
+
+[init]
+	defaultBranch = master
