@@ -1,6 +1,6 @@
 # basic settings
 set hidden true
-set icons true
+# set icons false
 set ignorecase true
 set ratios '2:3'
 set incsearch
