@@ -67,7 +67,7 @@ local function set_options(options, scope)
     for name, value in pairs(options) do vim[scope][name] = value end
 end
 
-set_options(global_options, 'o')
+set_options(global_options, 'go')
 set_options(buffer_options, 'bo')
 set_options(window_options, 'wo')
 

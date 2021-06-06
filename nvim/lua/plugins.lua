@@ -30,70 +30,42 @@ return require('packer').startup(
         use({ 'rktjmp/lush.nvim' })
 
         -- LSP
-        use({ 'kabouzeid/nvim-lspinstall', config = [[require('config/lspinstall')]] })
-        use({ 'neovim/nvim-lspconfig', config = [[require('config/lsp')]] })
+        use({ 'kabouzeid/nvim-lspinstall' })
+        use({ 'neovim/nvim-lspconfig' })
 
         -- Completion
-        use({ 'hrsh7th/nvim-compe', config = [[require('config/completion')]] })
+        use({ 'hrsh7th/nvim-compe' })
 
         -- Snippets
-        use(
-            { 'hrsh7th/vim-vsnip', config = [[require('config/snippets')]], requires = { { 'hrsh7th/vim-vsnip-integ' } } }
-        )
+        use({ 'hrsh7th/vim-vsnip' })
+        use({ 'hrsh7th/vim-vsnip-integ' })
 
         -- Telescope - dependencies and extensions
-        use(
-            {
-                'nvim-telescope/telescope.nvim',
-                config = [[require('config/telescope')]],
-                requires = {
-                    { 'nvim-telescope/telescope-fzy-native.nvim' },
-                    { 'nvim-telescope/telescope-fzf-writer.nvim' },
-                    { 'nvim-lua/popup.nvim' },
-                    { 'nvim-lua/plenary.nvim' }
-                }
-            }
-        )
+        use({ 'nvim-lua/popup.nvim' })
+        use({ 'nvim-lua/plenary.nvim' })
+        use({ 'nvim-telescope/telescope.nvim' })
+        use({ 'nvim-telescope/telescope-fzy-native.nvim' })
+        use({ 'nvim-telescope/telescope-fzf-writer.nvim' })
 
         -- Treesitter
-        use(
-            {
-                'nvim-treesitter/nvim-treesitter',
-                config = [[require('config/treesitter')]],
-                requires = {
-                    { 'nvim-treesitter/nvim-treesitter-refactor' },
-                    { 'nvim-treesitter/playground' },
-                    { 'JoosepAlviste/nvim-ts-context-commentstring' },
-                    { 'p00f/nvim-ts-rainbow' }
-                }
-            }
-        )
-
-        -- RGB, Hex, ... color highlights
-        use({ 'norcalli/nvim-colorizer.lua', config = [[require('config/colorizer')]] })
+        use({ 'nvim-treesitter/nvim-treesitter' })
+        use({ 'nvim-treesitter/nvim-treesitter-refactor' })
+        use({ 'nvim-treesitter/playground' })
+        use({ 'JoosepAlviste/nvim-ts-context-commentstring' })
+        use({ 'p00f/nvim-ts-rainbow' })
 
         -- Status line
-        use({ 'glepnir/galaxyline.nvim', branch = 'main', config = [[require('config/statusline')]] })
+        use({ 'glepnir/galaxyline.nvim', branch = 'main' })
 
         -- File tree
-        use({ 'kyazdani42/nvim-tree.lua', config = [[require('config/tree')]] })
+        use({ 'kyazdani42/nvim-tree.lua' })
 
         -- Version control
-        use({ 'lewis6991/gitsigns.nvim', config = [[require('config/gitsigns')]] })
         use({ 'tpope/vim-fugitive' })
+        use({ 'lewis6991/gitsigns.nvim' })
 
         -- Comment text in and out
-        use({ 'terrortylor/nvim-comment', config = [[require('config/comment')]] })
-
-        -- Indentation lines - DISABLED for now (It can get pretty slow in large files)
-        use(
-            {
-                'lukas-reineke/indent-blankline.nvim',
-                branch = 'lua',
-                config = [[require('config/indentation')]],
-                disable = true
-            }
-        )
+        use({ 'terrortylor/nvim-comment' })
 
         -- Surround text
         use({ 'tpope/vim-surround' })
