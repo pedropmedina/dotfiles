@@ -35,10 +35,10 @@ local on_attach = function(client, bufnr)
         buf_set_keymap('x', '<Leader>ca', '<cmd>\'<\'>lua vim.lsp.buf.range_code_action()<CR>', opts)
     end
     if client.resolved_capabilities.document_formatting then
-        vim.cmd [[augroup Format]]
-        vim.cmd [[autocmd! * <buffer>]]
-        vim.cmd [[autocmd BufWritePost <buffer> lua formatting()]]
-        vim.cmd [[augroup END]]
+        vim.cmd([[augroup Format]])
+        vim.cmd([[autocmd! * <buffer>]])
+        vim.cmd([[autocmd BufWritePost <buffer> lua formatting()]])
+        vim.cmd([[augroup END]])
 
         buf_set_keymap('n', '<Leader>gf', '<cmd>lua formatting()<CR>', opts)
     end
