@@ -1,10 +1,10 @@
 require('gitsigns').setup {
     signs = {
-        add = { hl = 'GitGutterAdd', text = '▎' },
-        change = { hl = 'GitGutterChange', text = '▎' },
-        delete = { hl = 'GitGutterDelete', text = '▎' },
-        topdelete = { hl = 'GitGutterChangeDelete', text = '▎' },
-        changedelete = { hl = 'GitGutterChangeDelete', text = '▎' }
+        add = { text = '▎' },
+        change = { text = '▎' },
+        delete = { text = '▎' },
+        topdelete = { text = '▎' },
+        changedelete = { text = '▎' }
     },
     numhl = false,
     linehl = false,
@@ -21,12 +21,14 @@ require('gitsigns').setup {
         ['n <leader>hR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
         ['n <leader>hp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
         ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
+        ['n <leader>df'] = '<cmd>lua require"gitsigns".diffthis()<CR>',
 
         -- Text objects
         ['o ih'] = ':<C-U>lua require"gitsigns".text_object()<CR>',
         ['x ih'] = ':<C-U>lua require"gitsigns".text_object()<CR>'
     },
     watch_index = { interval = 1000 },
+    current_line_blame = false,
     sign_priority = 6,
     update_debounce = 100,
     status_formatter = nil,

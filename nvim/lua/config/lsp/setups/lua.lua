@@ -19,4 +19,3 @@ local lua = function(config)
 end
 
 return lua
-

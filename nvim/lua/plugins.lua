@@ -20,14 +20,17 @@ if not packer_exists then
     return
 end
 
+vim.g.nord_italic = false
+
 return require('packer').startup(
            function()
         -- Packer can manage itself as an optional plugin
         use({ 'wbthomason/packer.nvim', opt = true })
 
         -- Themes
-        use({ 'christianchiarulli/nvcode-color-schemes.vim' })
         use({ 'rktjmp/lush.nvim' })
+        use({ 'tjdevries/colorbuddy.nvim' })
+        use({ 'maaslalani/nordbuddy' })
 
         -- LSP
         use({ 'kabouzeid/nvim-lspinstall' })

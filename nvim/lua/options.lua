@@ -37,7 +37,8 @@ local global_options = {
     tabstop = 2,
     shiftwidth = 2,
     scrolloff = 8,
-    guifont = 'Victor\\ Mono'
+    guifont = 'Victor\\ Mono',
+    syntax = 'on'
 }
 
 -- Buffer options
@@ -70,9 +71,6 @@ end
 set_options(global_options, 'go')
 set_options(buffer_options, 'bo')
 set_options(window_options, 'wo')
-
--- color scheme
-vim.cmd [[colorscheme nord | syntax on]]
 
 -- enable embeded lua highlighting
 vim.g.vimsyn_embed = 'l'
