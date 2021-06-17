@@ -37,7 +37,7 @@ vim.opt.ttimeoutlen = 0
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
-vim.opt.showmatch = true
+vim.opt.showmatch = false
 
 vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus'
