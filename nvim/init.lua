@@ -1,3 +1,6 @@
+-- check for packer (plugin manager) and install if not present
+if not require('packer_install') then return end
+
 -- plugins - packer handles the config per plugin
 require('plugins')
 
@@ -10,6 +13,7 @@ require('config.lspinstall')
 require('config.lsp')
 require('config.completion')
 require('config.telescope')
+require('config.trouble')
 require('config.tree')
 require('config.snippets')
 require('config.comment')

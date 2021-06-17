@@ -2,6 +2,7 @@
 -- NOTE: I have to dig deeper here as not all the defult provided in the docs are applied
 local actions = require('telescope.actions')
 local sorters = require('telescope.sorters')
+local trouble = require('trouble.providers.telescope')
 
 require('telescope').setup {
     defaults = {
@@ -25,7 +26,10 @@ require('telescope').setup {
         borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         layout_strategy = 'horizontal',
         scroll_strategy = 'cycle',
-        mappings = { i = { ['<c-x>'] = false, ['<c-s>'] = actions.select_horizontal } },
+        mappings = {
+            i = { ['<c-s>'] = actions.select_horizontal, ['<c-t>'] = trouble.open_with_trouble },
+            n = { ['<c-t>'] = trouble.open_with_trouble }
+        },
         file_sorter = sorters.get_fzy_sorter,
         file_ignore_patterns = { 'node_modules/.*', '.git/.*' },
         file_previewer = require('telescope.previewers').vim_buffer_cat.new,
@@ -40,3 +44,5 @@ require('telescope').setup {
 
 -- Load extensions
 pcall(require('telescope').load_extension, 'fzy_native')
+
+-- ['<c-x>'] = false, 

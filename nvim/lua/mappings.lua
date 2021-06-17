@@ -66,12 +66,12 @@ function mappings:load_vim_define()
         ['n|˚'] = map_cmd(':resize -2<CR>'):with_noremap():with_silent(),
         ['n|∆'] = map_cmd(':resize +2<CR>'):with_noremap():with_silent(),
         ['n|˙'] = map_cmd(':vertical resize -2<CR>'):with_noremap():with_silent(),
-        ['n|¬'] = map_cmd(':vertical resize +2<CR>'):with_noremap():with_silent(),
+        ['n|¬'] = map_cmd(':vertical resize +2<CR>'):with_noremap():with_silent()
 
         -- Opening new terminal emulators
-        ['n|<Leader>tt'] = map_cmd(':tabnew +terminal<CR>'):with_noremap():with_silent(),
-        ['n|<Leader>ts'] = map_cmd(':new +terminal<CR>'):with_noremap():with_silent(),
-        ['n|<Leader>tv'] = map_cmd(':vnew +terminal<CR>'):with_noremap():with_silent()
+        -- ['n|<Leader>tt'] = map_cmd(':tabnew +terminal<CR>'):with_noremap():with_silent(),
+        -- ['n|<Leader>ts'] = map_cmd(':new +terminal<CR>'):with_noremap():with_silent(),
+        -- ['n|<Leader>tv'] = map_cmd(':vnew +terminal<CR>'):with_noremap():with_silent()
     }
 end
 
@@ -93,6 +93,16 @@ function mappings:load_plugin_define()
             :with_silent(),
         ['n|<Leader>fl'] = map_cmd([[<cmd>lua require("config/telescope/finders").current_buffer_fuzzy_find()<CR>]]):with_noremap()
             :with_silent(),
+
+        -- Trouble
+        ['n|<Leader>tt'] = map_cmd([[<cmd>TroubleToggle<CR>]]):with_noremap():with_silent(),
+        ['n|<Leader>tc'] = map_cmd([[<cmd>TroubleClose<CR>]]):with_noremap():with_silent(),
+        ['n|<Leader>tr'] = map_cmd([[<cmd>TroubleRefresh<CR>]]):with_noremap():with_silent(),
+        ['n|<Leader>tw'] = map_cmd([[<cmd>TroubleToggle lsp_workspace_diagnostics<CR>]]):with_noremap():with_silent(),
+        ['n|<Leader>td'] = map_cmd([[<cmd>TroubleToggle lsp_document_diagnostics<CR>]]):with_noremap():with_silent(),
+        ['n|<Leader>tl'] = map_cmd([[<cmd>TroubleToggle loclist<CR>]]):with_noremap():with_silent(),
+        ['n|<Leader>tq'] = map_cmd([[<cmd>TroubleToggle quickfix<CR>]]):with_noremap():with_silent(),
+        ['n|<Leader>tR'] = map_cmd([[<cmd>TroubleToggle lsp_references<CR>]]):with_noremap():with_silent(),
 
         -- Completion
         ['i|<C-Space>'] = map_cmd([[compe#complete()]]):with_noremap():with_silent():with_expr(),

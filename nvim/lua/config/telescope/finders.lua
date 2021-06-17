@@ -1,16 +1,6 @@
 -- Custom finders
 local finders = {}
 
--- Dropdown list theme using a builtin theme definations :
--- local center_list = require'telescope.themes'.get_dropdown({
---   winblend = 2,
---   width = 0.85,
---   prompt_prefix = ' > ',
---   results_height = 45,
---   previewer = false,
---   find_command = { 'fd',  '--hidden',  '--follow', '--type', 'file', '--exclude', '.git' },
--- })
-
 -- find files
 finders.find_files = function()
     local opts = {
