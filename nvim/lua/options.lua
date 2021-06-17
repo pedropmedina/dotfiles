@@ -1,100 +1,63 @@
--- No sure why options available on more than one scope need to be set on all
--- applicable scopes in order to take effect; e.g. bo.tabstop and o.tabstop
--- Global options
-local global_options = {
-    termguicolors = true,
-    encoding = 'utf-8',
-    fileencoding = 'utf-8',
-    t_Co = '256',
-    background = 'dark',
-    ruler = true,
-    laststatus = 2,
-    showtabline = 1,
-    pumheight = 15,
-    splitbelow = true,
-    splitright = true,
-    hidden = true,
-    cmdheight = 1,
-    mouse = 'a',
-    smarttab = true,
-    smartindent = true,
-    showmode = false,
-    backup = false,
-    writebackup = false,
-    swapfile = false,
-    updatetime = 300,
-    timeoutlen = 500,
-    ttimeoutlen = 0,
-    clipboard = 'unnamedplus',
-    ignorecase = true,
-    smartcase = true,
-    incsearch = true,
-    completeopt = 'menuone,noinsert,noselect',
-    shortmess = 'aoOTcF',
-    autowriteall = true,
-    autoindent = true,
-    expandtab = true,
-    tabstop = 2,
-    shiftwidth = 2,
-    scrolloff = 8,
-    guifont = 'Victor\\ Mono',
-    syntax = 'on'
-}
+vim.opt.termguicolors = true
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 
--- Buffer options
-local buffer_options = {
-    synmaxcol = 2500,
-    autoindent = true,
-    expandtab = true,
-    tabstop = 2,
-    shiftwidth = 2,
-    softtabstop = -1,
-    swapfile = false
-}
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.wrap = false
+vim.opt.linebreak = true
+vim.opt.signcolumn = 'yes'
+vim.opt.conceallevel = 0
+vim.opt.synmaxcol = 2500
 
--- Set window options
-local window_options = {
-    number = true,
-    relativenumber = true,
-    cursorline = true,
-    signcolumn = 'yes',
-    conceallevel = 0,
-    linebreak = true,
-    wrap = false,
-    breakindentopt = 'shift:2,min:20'
-}
+vim.opt.belloff = 'all'
+vim.opt.syntax = 'on'
+vim.opt.background = 'dark'
+vim.opt.ruler = true
+vim.opt.laststatus = 2
+vim.opt.showtabline = 1
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.hidden = true
+vim.opt.showmode = false
+vim.opt.showcmd = true
+vim.opt.cmdheight = 1
+vim.opt.pumheight = 17
+vim.opt.pumblend = 17
 
-local function set_options(options, scope)
-    for name, value in pairs(options) do vim[scope][name] = value end
-end
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
 
-set_options(global_options, 'go')
-set_options(buffer_options, 'bo')
-set_options(window_options, 'wo')
+vim.opt.updatetime = 300
+vim.opt.timeoutlen = 500
+vim.opt.ttimeoutlen = 0
 
--- enable embeded lua highlighting
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.showmatch = true
+
+vim.opt.mouse = 'a'
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.completeopt = 'menuone,noinsert,noselect'
+vim.opt.shortmess = 'aoOTcF'
+vim.opt.autowriteall = true
+vim.opt.softtabstop = -1
+vim.opt.smarttab = true
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.breakindent = true
+vim.opt.breakindentopt = 'shift:2,min:20'
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.scrolloff = 8
+vim.opt.formatoptions = vim.opt.formatoptions - 'c' - 'r' - 'o'
+vim.opt.wildignore = vim.opt.wildignore + { '*.o', '*~', '*.pyc', '*pycache*', 'node_modules' }
+vim.opt.wildmode = { 'longest', 'list', 'full' }
+vim.opt.wildmode = vim.opt.wildmode - 'list'
+vim.opt.wildoptions = 'pum'
+
 vim.g.vimsyn_embed = 'l'
-
--- disable some of the built in plugins
-local function disable_distribution_plugins()
-    vim.g.loaded_gzip = 1
-    vim.g.loaded_tar = 1
-    vim.g.loaded_tarPlugin = 1
-    vim.g.loaded_zip = 1
-    vim.g.loaded_zipPlugin = 1
-    vim.g.loaded_getscript = 1
-    vim.g.loaded_getscriptPlugin = 1
-    vim.g.loaded_vimball = 1
-    vim.g.loaded_vimballPlugin = 1
-    -- vim.g.loaded_matchit           = 1
-    -- vim.g.loaded_matchparen        = 1
-    vim.g.loaded_2html_plugin = 1
-    vim.g.loaded_logiPat = 1
-    vim.g.loaded_rrhelper = 1
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-    vim.g.loaded_netrwSettings = 1
-    vim.g.loaded_netrwFileHandlers = 1
-end
-
-disable_distribution_plugins()
