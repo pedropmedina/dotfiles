@@ -46,11 +46,8 @@ fi
 
 # Aliases
 # alias vim="nvim"
-alias v="nvim"
-alias code="code-insiders"
-alias c="code-insiders"
-alias ls="exa"
-alias la="exa -la"
+# alias ls="exa"
+# alias la="exa -la"
 
 # Set TERM back to xterm-256color without italics when working with ssh
 alias ssh='TERM=xterm-256color ssh'
