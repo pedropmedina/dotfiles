@@ -11,7 +11,6 @@ return require('packer').startup(
         -- LSP
         use({ 'kabouzeid/nvim-lspinstall' })
         use({ 'neovim/nvim-lspconfig' })
-        use({ 'folke/trouble.nvim' })
 
         -- Completion
         use({ 'hrsh7th/nvim-compe' })
