@@ -25,23 +25,23 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Victor Mono
+    family: FiraCode Nerd Font
     style: Regular
 
   # Bold font face
   bold:
-    family: Victor Mono
+    family: FiraCode Nerd Font
     style: Bold
 
   # Italic font face
   italic:
-    family: Victor Mono
-    style: Italic
+    family: FiraCode Nerd Font
+    style: Light
 
   # Bold italic font face
   bold_italic:
-    family: Victor Mono
-    style: Bold Italic
+    family: FiraCode Nerd Font
+    style: Medium
 
   offset:
     x: 0
@@ -52,7 +52,7 @@ font:
     y: 0
 
   # Point size
-  size: 16.0
+  size: 15.0
 
   # This is a global setting and will require a log out or restart to take
   use_thin_strokes: true

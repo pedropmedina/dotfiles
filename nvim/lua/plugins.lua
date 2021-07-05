@@ -13,7 +13,16 @@ return require('packer').startup(
         use({ 'neovim/nvim-lspconfig' })
 
         -- Completion
-        use({ 'hrsh7th/nvim-compe' })
+        use(
+            {
+                'hrsh7th/nvim-compe',
+                event = 'InsertEnter',
+                function()
+                    require('config/completion')
+                end,
+                disable = true
+            }
+        )
 
         -- Snippets
         use({ 'hrsh7th/vim-vsnip' })
@@ -37,7 +46,16 @@ return require('packer').startup(
         use({ 'glepnir/galaxyline.nvim', branch = 'main' })
 
         -- File tree
-        use({ 'kyazdani42/nvim-tree.lua' })
+        use(
+            {
+                'kyazdani42/nvim-tree.lua',
+                cmd = 'NvimTreeToggle',
+                config = function()
+                    require('config/tree')
+                end,
+                disable = true
+            }
+        )
 
         -- Version control
         use({ 'tpope/vim-fugitive' })

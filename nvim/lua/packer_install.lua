@@ -3,6 +3,7 @@ local packer_exists = pcall(vim.cmd, [[packadd packer.nvim]])
 
 -- Install packer if not preset in ~/.local/share/nvim/site/pack/packer/opt
 return function()
+	print('is packer here? ', packer_exists)
     if not packer_exists then
         if vim.fn.input('Download Packer? ( y for yes ) ') ~= 'y' then return end
 

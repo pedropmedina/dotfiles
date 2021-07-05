@@ -56,11 +56,11 @@ local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 --  modify some of the key mappings
 vim.g.nvim_tree_bindings = {
-    ['l'] = tree_cb('edit'),
-    ['<C-s>'] = tree_cb('split'),
-    ['h'] = tree_cb('close_node'),
-    ['!'] = tree_cb('toggle_ignored'),
-    ['.'] = tree_cb('toggle_dotfiles')
+    { key = 'l', cb = tree_cb('edit') },
+    { key = '<C-s>', cb = tree_cb('split') },
+    { key = 'h', cb = tree_cb('close_node') },
+    { key = '!', cb = tree_cb('toggle_ignored') },
+    { key = '.', cb = tree_cb('toggle_dotfiles') }
 }
 
 --  icons to be used
