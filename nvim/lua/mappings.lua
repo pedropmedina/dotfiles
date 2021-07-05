@@ -96,7 +96,7 @@ function mappings:load_plugin_define()
 
         -- Completion
         ['i|<C-Space>'] = map_cmd([[compe#complete()]]):with_noremap():with_silent():with_expr(),
-        ['i|<CR>'] = map_cmd([[compe#confirm(lexima#expand('<LT>CR>', 'i'))]]):with_noremap():with_silent():with_expr(),
+        -- ['i|<CR>'] = map_cmd([[compe#confirm(lexima#expand('<LT>CR>', 'i'))]]):with_noremap():with_silent():with_expr(),
         ['i|<C-e>'] = map_cmd([[compe#close('<C-e>')]]):with_noremap():with_silent():with_expr(),
         ['i|<C-f>'] = map_cmd([[compe#scroll({ 'delta': +4 })]]):with_noremap():with_silent():with_expr(),
         ['i|<C-d>'] = map_cmd([[compe#scroll({ 'delta': -4 })]]):with_noremap():with_silent():with_expr(),
@@ -114,7 +114,7 @@ function mappings:set_lexima_default_rules()
 end
 
 local function load_mappings()
-    mappings:set_lexima_default_rules()
+    -- mappings:set_lexima_default_rules()
     mappings:load_plugin_define()
     mappings:load_vim_define()
     keymapper.nvim_load_mapping(mappings.vim)

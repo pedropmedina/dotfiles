@@ -4,46 +4,87 @@ return require('packer').startup(
         use({ 'wbthomason/packer.nvim', opt = true })
 
         -- Themes
-        use({ 'rktjmp/lush.nvim' })
-        use({ 'tjdevries/colorbuddy.nvim' })
-        use({ 'maaslalani/nordbuddy' })
+        use(
+            {
+                'maaslalani/nordbuddy',
+                config = function()
+                    require('config/theme')
+                end,
+                requires = { 'tjdevries/colorbuddy.nvim' }
+            }
+        )
 
         -- LSP
-        use({ 'kabouzeid/nvim-lspinstall' })
-        use({ 'neovim/nvim-lspconfig' })
+        use(
+            {
+                'kabouzeid/nvim-lspinstall',
+                config = function()
+                    require('config/lspinstall')
+                end,
+                requires = {
+                    'neovim/nvim-lspconfig',
+                    event = 'BufRead',
+                    config = function()
+                        require('config/lsp')
+                    end
+                }
+            }
+        )
 
-        -- Completion
+        -- Completion & Snippets
         use(
             {
                 'hrsh7th/nvim-compe',
                 event = 'InsertEnter',
-                function()
+                config = function()
                     require('config/completion')
                 end,
-                disable = true
+                requires = { { 'hrsh7th/vim-vsnip' }, { 'hrsh7th/vim-vsnip-integ' } },
             }
         )
 
-        -- Snippets
-        use({ 'hrsh7th/vim-vsnip' })
-        use({ 'hrsh7th/vim-vsnip-integ' })
-
         -- Telescope - dependencies and extensions
-        use({ 'nvim-lua/popup.nvim' })
-        use({ 'nvim-lua/plenary.nvim' })
-        use({ 'nvim-telescope/telescope.nvim' })
-        use({ 'nvim-telescope/telescope-fzy-native.nvim' })
-        use({ 'nvim-telescope/telescope-fzf-writer.nvim' })
+        use(
+            {
+                'nvim-telescope/telescope.nvim',
+                config = function()
+                    require('config/telescope')
+                end,
+                requires = {
+                    { 'nvim-lua/plenary.nvim' },
+                    { 'nvim-lua/popup.nvim' },
+                    { 'nvim-telescope/telescope-fzy-native.nvim' },
+                    { 'nvim-telescope/telescope-fzf-writer.nvim' }
+                }
+            }
+        )
 
         -- Treesitter
-        use({ 'nvim-treesitter/nvim-treesitter' })
-        use({ 'nvim-treesitter/nvim-treesitter-refactor' })
-        use({ 'nvim-treesitter/playground' })
-        use({ 'JoosepAlviste/nvim-ts-context-commentstring' })
-        use({ 'p00f/nvim-ts-rainbow' })
+        use(
+            {
+                'nvim-treesitter/nvim-treesitter',
+                event = 'BufRead',
+                config = function()
+                    require('config/treesitter')
+                end
+            }
+        )
+        use({ 'nvim-treesitter/playground', after = 'nvim-treesitter' })
+        use({ 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' })
+        use({ 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter'})
+        use({ 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' })
 
         -- Status line
-        use({ 'glepnir/galaxyline.nvim', branch = 'main' })
+        use(
+            {
+                'glepnir/galaxyline.nvim',
+                branch = 'main',
+                event = 'BufRead',
+                config = function()
+                    require('config/statusline')
+                end
+            }
+        )
 
         -- File tree
         use(
@@ -53,16 +94,40 @@ return require('packer').startup(
                 config = function()
                     require('config/tree')
                 end,
-                disable = true
             }
         )
 
         -- Version control
+        use(
+            {
+                'lewis6991/gitsigns.nvim',
+                event = 'BufRead',
+                config = function()
+                    require('config/gitsigns')
+                end
+            }
+        )
+
         use({ 'tpope/vim-fugitive' })
-        use({ 'lewis6991/gitsigns.nvim' })
 
         -- Comment text in and out
-        use({ 'terrortylor/nvim-comment' })
+        use(
+            {
+                'terrortylor/nvim-comment',
+                cmd = 'CommentToggle',
+                config = function()
+                    require('config/comment')
+                end
+            }
+        )
+
+        use {
+            'karb94/neoscroll.nvim',
+            event = 'WinScrolled',
+            config = function()
+                require('neoscroll').setup()
+            end
+        }
 
         -- Surround text
         use({ 'tpope/vim-surround' })
