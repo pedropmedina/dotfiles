@@ -51,7 +51,7 @@ return function()
     vim.g.nvim_tree_disable_keybindings = 0
 
     --  select which icons to show
-    vim.g.nvim_tree_show_icons = { git = 0, files = 0, folders = 1 }
+    vim.g.nvim_tree_show_icons = { git = 0, files = 1, folders = 1 }
 
     local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
@@ -66,8 +66,8 @@ return function()
 
     --  icons to be used
     vim.g.nvim_tree_icons = {
-        default = '',
-        symlink = '>',
+        default = '',
+        symlink = '',
         git = {
             unstaged = '•',
             staged = '•',

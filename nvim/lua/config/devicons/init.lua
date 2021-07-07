@@ -29,7 +29,8 @@ return function()
             rpm = { icon = '', color = colors.gray, name = 'rpm' },
             lua = { icon = '', color = colors.blue, name = 'lua' },
             vim = { icon = '', color = colors.green, name = 'vim' },
-            vimrc = { icon = '', color = colors.green, name = 'vimrc' }
+            vimrc = { icon = '', color = colors.green, name = 'vimrc' },
+            LICENSE = { icon = '', color = colors.yellow, name = 'LICENSE' }
         }
     }
 end
