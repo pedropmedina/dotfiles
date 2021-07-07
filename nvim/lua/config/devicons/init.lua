@@ -6,7 +6,7 @@ return function()
             html = { icon = '', color = colors.red, name = 'html' },
             css = { icon = '', color = colors.dark_yellow, name = 'css' },
             js = { icon = '', color = colors.yellow, name = 'js' },
-            ts = { icon = 'ﯤ', color = colors.blue, name = 'ts' },
+            ts = { icon = '', color = colors.blue, name = 'ts' },
             jsx = { icon = '', color = colors.blue, name = 'jsx' },
             tsx = { icon = '', color = colors.blue, name = 'jsx' },
             json = { icon = '', color = colors.yellow, name = 'json' },
