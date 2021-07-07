@@ -1,4 +1,5 @@
 return function()
+    require('lspinstall').setup()
     require('config.lsp.diagnostics')
     require('config.lsp.formatting')
     local config = require('config.lsp.common_config')
@@ -19,7 +20,9 @@ return function()
 
     local function setup_servers(servers_setup)
         local servers = require('lspinstall').installed_servers()
-        for _, server in pairs(servers) do require('lspconfig')[server].setup(servers_setup[server]) end
+        for _, server in pairs(servers) do
+            require('lspconfig')[server].setup(servers_setup[server])
+        end
     end
 
     setup_servers(setups)

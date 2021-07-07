@@ -6,7 +6,9 @@ vim.lsp.handlers['textDocument/formatting'] = function(err, _, result, _, bufnr)
         vim.lsp.util.apply_text_edits(result, bufnr)
         vim.fn.winrestview(view)
         -- No sure why bufnr is nil in the latest neovim update
-        if bufnr == nil or bufnr == vim.api.nvim_get_current_buf() then vim.cmd([[noautocmd :update]]) end
+        if bufnr == nil or bufnr == vim.api.nvim_get_current_buf() then
+            vim.cmd([[noautocmd :update]])
+        end
     end
 end
 
@@ -21,5 +23,7 @@ vim.cmd([[command! FormatEnable lua FormatToggle(false)]])
 
 -- Global function we call on BufWritePost to format file type
 _G.formatting = function()
-    if not vim.g[string.format('format_disabled_%s', vim.bo.filetype)] then vim.lsp.buf.formatting({}) end
+    if not vim.g[string.format('format_disabled_%s', vim.bo.filetype)] then
+        vim.lsp.buf.formatting({})
+    end
 end

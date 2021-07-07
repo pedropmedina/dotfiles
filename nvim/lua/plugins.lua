@@ -3,21 +3,14 @@ return require('packer').startup(
         -- Packer can manage itself as an optional plugin
         use({ 'wbthomason/packer.nvim', opt = true })
 
-        use {
-            'pedropmedina/darkside',
-            requires = { 'rktjmp/lush.nvim' }
-        }
+        use { 'pedropmedina/darkside', requires = { 'rktjmp/lush.nvim' } }
 
         -- LSP
         use(
             {
                 'kabouzeid/nvim-lspinstall',
-                config = require('config/lspinstall'),
-                requires = {
-                    'neovim/nvim-lspconfig',
-                    event = 'BufRead',
-                    config = require('config/lsp')
-                }
+                config = require('config/lsp'),
+                requires = { 'neovim/nvim-lspconfig', event = 'BufRead' }
             }
         )
 
@@ -27,7 +20,7 @@ return require('packer').startup(
                 'hrsh7th/nvim-compe',
                 event = 'InsertEnter',
                 config = require('config/completion'),
-                requires = { 
+                requires = {
                     { 'hrsh7th/vim-vsnip', config = require('config/snippets') },
                     { 'hrsh7th/vim-vsnip-integ' }
                 }
@@ -58,7 +51,7 @@ return require('packer').startup(
         )
         use({ 'nvim-treesitter/playground', after = 'nvim-treesitter' })
         use({ 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' })
-        use({ 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter'})
+        use({ 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' })
         use({ 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' })
 
         -- Status line
@@ -72,51 +65,26 @@ return require('packer').startup(
         )
 
         -- File tree
-        use(
-            {
-                'kyazdani42/nvim-tree.lua',
-                cmd = 'NvimTreeToggle',
-                config = require('config/tree')
-            }
-        )
+        use({ 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = require('config/tree') })
 
         -- Version control
-        use(
-            {
-                'lewis6991/gitsigns.nvim',
-                event = 'BufRead',
-                config = require('config/gitsigns')
-            }
-        )
+        use({ 'lewis6991/gitsigns.nvim', event = 'BufRead', config = require('config/gitsigns') })
 
         use({ 'tpope/vim-fugitive' })
 
         -- Comment text in and out
         use(
-            {
-                'terrortylor/nvim-comment',
-                cmd = 'CommentToggle',
-                config = require('config/comment')
-            }
+            { 'terrortylor/nvim-comment', cmd = 'CommentToggle', config = require('config/comment') }
         )
 
         -- Icons
         use({ 'kyazdani42/nvim-web-devicons', config = require('config/devicons') })
 
         -- Better scrolling
-        use {
-            'karb94/neoscroll.nvim',
-            event = 'WinScrolled',
-            config = function()
-                require('neoscroll').setup()
-            end
-        }
+        use { 'karb94/neoscroll.nvim', event = 'WinScrolled', config = require('config/scroll') }
 
         -- Auto pairs for '(' '[' '{'...
-        use({ 'windwp/nvim-autopairs', 
-            after = 'nvim-compe',
-            config = require('config/autopairs') 
-        })
+        use({ 'windwp/nvim-autopairs', after = 'nvim-compe', config = require('config/autopairs') })
 
         -- Surround text
         use({ 'tpope/vim-surround' })

@@ -9,9 +9,3 @@ require('options')
 require('mappings')
 require('autocmds')
 require('hosts')
-
--- cleaner term buffer
-vim.api.nvim_exec([[
-au BufEnter term://* setlocal nonumber
-   au BufEnter term://* set laststatus=0 
-]], false)

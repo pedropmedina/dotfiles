@@ -62,4 +62,4 @@ vim.opt.wildoptions = 'pum'
 
 vim.g.vimsyn_embed = 'l'
 
-vim.g.colors_name="darkside"
+vim.g.colors_name = 'darkside'

@@ -3,7 +3,7 @@ local luaformat = {
     formatCommand = ([[
         lua-format -i
         --no-keep-simple-function-one-line
-        --column-limit=120
+        --column-limit=100
         --double-quote-to-single-quote 
         --spaces-around-equals-in-field
         --spaces-inside-table-braces
@@ -27,8 +27,11 @@ local prettier = {
 }
 
 -- https://eslint.org/
-local eslint =
-    { lintCommand = './node_modules/.bin/eslint -f unix --stdin', lintIgnoreExitCode = true, lintStdin = true }
+local eslint = {
+    lintCommand = './node_modules/.bin/eslint -f unix --stdin',
+    lintIgnoreExitCode = true,
+    lintStdin = true
+}
 
 -- https://github.com/mattn/efm-langserver
 local efm = function(config)

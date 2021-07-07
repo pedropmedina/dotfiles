@@ -22,7 +22,6 @@ end
 
 -- find files in dotfiles dir
 finders.find_dotfiles = function()
-    -- local opts = vim.deepcopy(center_list)
     local opts = {}
     opts.cwd = '~/dotfiles'
     opts.prompt_title = '~ dotfiles ~'
@@ -32,7 +31,6 @@ end
 
 -- rg
 finders.live_grep = function()
-    -- local opts = vim.deepcopy(center_list)
     require('telescope.builtin').live_grep()
 end
 
@@ -43,13 +41,11 @@ end
 
 -- list buffers
 finders.buffers = function()
-    -- local opts = vim.deepcopy(center_list)
     require('telescope.builtin').buffers()
 end
 
 -- current buffer lines
 finders.current_buffer_fuzzy_find = function()
-    -- local opts = vim.deepcopy(center_list)
     require('telescope.builtin').current_buffer_fuzzy_find()
 end
 

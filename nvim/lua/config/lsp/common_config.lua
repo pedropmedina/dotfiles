@@ -13,7 +13,9 @@ local on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true }
 
     -- diagnostics keymaps
-    buf_set_keymap('n', '<Leader>dl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap(
+        'n', '<Leader>dl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts
+    )
     buf_set_keymap('n', '<Leader>dk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', '<Leader>dj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<Leader>do', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)

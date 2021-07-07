@@ -28,7 +28,10 @@ return function()
                 node_decremental = 'gnd'
             }
         },
-        refactor = { highlight_definitions = { enable = true }, highlight_current_scope = { enable = false } },
+        refactor = {
+            highlight_definitions = { enable = true },
+            highlight_current_scope = { enable = false }
+        },
         playground = {
             enable = true,
             disable = {},

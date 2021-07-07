@@ -80,25 +80,33 @@ function mappings:load_plugin_define()
         -- Lua tree
         ['n|<Leader>e'] = map_cmd(':NvimTreeToggle<CR>'):with_noremap():with_silent(),
 
+        -- Nvim comment
+        ['n|gcc'] = map_cmd(':CommentToggle<CR>'):with_noremap():with_silent(),
+
         -- Telescope
         ['n|<Leader>ff'] = map_cmd([[<cmd>lua require("config/telescope/finders").find_files()<CR>]]):with_noremap()
             :with_silent(),
-        ['n|<Leader>fd'] = map_cmd([[<cmd>lua require("config/telescope/finders").find_dotfiles()<CR>]]):with_noremap()
-            :with_silent(),
+        ['n|<Leader>fd'] = map_cmd(
+            [[<cmd>lua require("config/telescope/finders").find_dotfiles()<CR>]]
+        ):with_noremap():with_silent(),
         ['n|<Leader>fg'] = map_cmd([[<cmd>lua require("config/telescope/finders").live_grep()<CR>]]):with_noremap()
             :with_silent(),
-        ['n|<Leader>fs'] = map_cmd([[<cmd>lua require("config/telescope/finders").grep_string()<CR>]]):with_noremap()
-            :with_silent(),
+        ['n|<Leader>fs'] = map_cmd(
+            [[<cmd>lua require("config/telescope/finders").grep_string()<CR>]]
+        ):with_noremap():with_silent(),
         ['n|<Leader>fb'] = map_cmd([[<cmd>lua require("config/telescope/finders").buffers()<CR>]]):with_noremap()
             :with_silent(),
-        ['n|<Leader>fl'] = map_cmd([[<cmd>lua require("config/telescope/finders").current_buffer_fuzzy_find()<CR>]]):with_noremap()
-            :with_silent(),
+        ['n|<Leader>fl'] = map_cmd(
+            [[<cmd>lua require("config/telescope/finders").current_buffer_fuzzy_find()<CR>]]
+        ):with_noremap():with_silent(),
 
         -- Completion
         ['i|<C-Space>'] = map_cmd([[compe#complete()]]):with_noremap():with_silent():with_expr(),
         ['i|<C-e>'] = map_cmd([[compe#close('<C-e>')]]):with_noremap():with_silent():with_expr(),
-        ['i|<C-f>'] = map_cmd([[compe#scroll({ 'delta': +4 })]]):with_noremap():with_silent():with_expr(),
-        ['i|<C-d>'] = map_cmd([[compe#scroll({ 'delta': -4 })]]):with_noremap():with_silent():with_expr(),
+        ['i|<C-f>'] = map_cmd([[compe#scroll({ 'delta': +4 })]]):with_noremap():with_silent()
+            :with_expr(),
+        ['i|<C-d>'] = map_cmd([[compe#scroll({ 'delta': -4 })]]):with_noremap():with_silent()
+            :with_expr()
         -- ['i|<CR>'] = map_cmd([[compe#confirm((luaeval("require 'nvim-autopairs'.autopairs_cr()")))]]):with_noremap():with_silent():with_expr(),
         -- ['i|<Tab>'] = map_cmd([[v:lua.tab_complete()]]):with_noremap():with_silent():with_expr(),
         -- ['s|<Tab>'] = map_cmd([[v:lua.tab_complete()]]):with_noremap():with_silent():with_expr(),
