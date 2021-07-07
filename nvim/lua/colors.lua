@@ -12,5 +12,5 @@ return {
     dark_yellow = '#D19A66',
     blue = '#61AFEF',
     purple = '#C882E7',
-    cyan = '#A3B8EF'
+    cyan = '#67bdc8'
 }
