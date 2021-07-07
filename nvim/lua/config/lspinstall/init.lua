@@ -1,1 +1,3 @@
-require('lspinstall').setup()
+return function()
+    require('lspinstall').setup()
+end

@@ -1,10 +1,3 @@
-" Telescope
-highlight TelescopeBorder guifg=#4C566A 
-
-" Nvim Tree
-highlight NvimTreeIndentMarker guifg=#4C566A 
-highlight NvimTreeFolderIcon guifg=#4C566A
-
 " Rainbow
 highlight rainbowcol1 guifg=#8FBCBB
 highlight rainbowcol2 guifg=#BD8F90

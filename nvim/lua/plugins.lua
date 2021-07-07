@@ -3,30 +3,20 @@ return require('packer').startup(
         -- Packer can manage itself as an optional plugin
         use({ 'wbthomason/packer.nvim', opt = true })
 
-        -- Themes
-        use(
-            {
-                'maaslalani/nordbuddy',
-                config = function()
-                    require('config/theme')
-                end,
-                requires = { 'tjdevries/colorbuddy.nvim' }
-            }
-        )
+        use {
+            'pedropmedina/darkside',
+            requires = { 'rktjmp/lush.nvim' }
+        }
 
         -- LSP
         use(
             {
                 'kabouzeid/nvim-lspinstall',
-                config = function()
-                    require('config/lspinstall')
-                end,
+                config = require('config/lspinstall'),
                 requires = {
                     'neovim/nvim-lspconfig',
                     event = 'BufRead',
-                    config = function()
-                        require('config/lsp')
-                    end
+                    config = require('config/lsp')
                 }
             }
         )
@@ -36,10 +26,11 @@ return require('packer').startup(
             {
                 'hrsh7th/nvim-compe',
                 event = 'InsertEnter',
-                config = function()
-                    require('config/completion')
-                end,
-                requires = { { 'hrsh7th/vim-vsnip' }, { 'hrsh7th/vim-vsnip-integ' } },
+                config = require('config/completion'),
+                requires = { 
+                    { 'hrsh7th/vim-vsnip', config = require('config/snippets') },
+                    { 'hrsh7th/vim-vsnip-integ' }
+                }
             }
         )
 
@@ -47,9 +38,7 @@ return require('packer').startup(
         use(
             {
                 'nvim-telescope/telescope.nvim',
-                config = function()
-                    require('config/telescope')
-                end,
+                config = require('config/telescope'),
                 requires = {
                     { 'nvim-lua/plenary.nvim' },
                     { 'nvim-lua/popup.nvim' },
@@ -64,9 +53,7 @@ return require('packer').startup(
             {
                 'nvim-treesitter/nvim-treesitter',
                 event = 'BufRead',
-                config = function()
-                    require('config/treesitter')
-                end
+                config = require('config/treesitter')
             }
         )
         use({ 'nvim-treesitter/playground', after = 'nvim-treesitter' })
@@ -80,9 +67,7 @@ return require('packer').startup(
                 'glepnir/galaxyline.nvim',
                 branch = 'main',
                 event = 'BufRead',
-                config = function()
-                    require('config/statusline')
-                end
+                config = require('config/statusline')
             }
         )
 
@@ -91,9 +76,7 @@ return require('packer').startup(
             {
                 'kyazdani42/nvim-tree.lua',
                 cmd = 'NvimTreeToggle',
-                config = function()
-                    require('config/tree')
-                end,
+                config = require('config/tree')
             }
         )
 
@@ -102,9 +85,7 @@ return require('packer').startup(
             {
                 'lewis6991/gitsigns.nvim',
                 event = 'BufRead',
-                config = function()
-                    require('config/gitsigns')
-                end
+                config = require('config/gitsigns')
             }
         )
 
@@ -115,12 +96,14 @@ return require('packer').startup(
             {
                 'terrortylor/nvim-comment',
                 cmd = 'CommentToggle',
-                config = function()
-                    require('config/comment')
-                end
+                config = require('config/comment')
             }
         )
 
+        -- Icons
+        use({ 'kyazdani42/nvim-web-devicons', config = require('config/devicons') })
+
+        -- Better scrolling
         use {
             'karb94/neoscroll.nvim',
             event = 'WinScrolled',
@@ -129,11 +112,14 @@ return require('packer').startup(
             end
         }
 
+        -- Auto pairs for '(' '[' '{'...
+        use({ 'windwp/nvim-autopairs', 
+            after = 'nvim-compe',
+            config = require('config/autopairs') 
+        })
+
         -- Surround text
         use({ 'tpope/vim-surround' })
-
-        -- Auto pairs for '(' '[' '{'...
-        use({ 'cohama/lexima.vim' })
 
         -- Automatically clear highlight ( :nohls )
         use({ 'haya14busa/is.vim' })

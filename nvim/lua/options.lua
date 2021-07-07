@@ -24,7 +24,7 @@ vim.opt.showmode = false
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1
 vim.opt.pumheight = 17
-vim.opt.pumblend = 17
+vim.opt.pumblend = 3
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -61,3 +61,5 @@ vim.opt.wildmode = vim.opt.wildmode - 'list'
 vim.opt.wildoptions = 'pum'
 
 vim.g.vimsyn_embed = 'l'
+
+vim.g.colors_name="darkside"

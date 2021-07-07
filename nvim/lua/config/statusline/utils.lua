@@ -13,21 +13,21 @@ local utils = function(colors)
     -- Get project's root dit based off .git or fallback to ~
     function u.root_path()
         local git_dir_path = gl_vcs.get_git_dir(vim.fn.expand('%:p:h'))
-        return not git_dir_path and vim.fn.expand('%:~') or '...' .. vim.fn.expand('%:p'):sub(git_dir_path:len() - 4)
+        return not git_dir_path and vim.fn.expand('%:~') or vim.fn.expand('%:p'):sub(git_dir_path:len() - 4)
     end
 
     function u.has_git()
         return gl_buffer.get_buffer_filetype() ~= '' and gl_cond.check_git_workspace()
     end
 
-    function u.has_git_branch()
-        return gl_buffer.get_buffer_filetype() ~= '' and gl_cond.check_git_workspace() and gl_vcs.get_git_branch()
-    end
-
     function u.checkwidth()
         local squeeze_width = vim.fn.winwidth(0) / 2
         if squeeze_width > 40 then return true end
         return false
+    end
+
+    function u.has_git_branch()
+        return gl_buffer.get_buffer_filetype() ~= '' and gl_cond.check_git_workspace() and gl_vcs.get_git_branch() and u.checkwidth()
     end
 
     function u.set_section(name, provider, condition, icon, fg, bg)
@@ -48,7 +48,7 @@ local utils = function(colors)
                     return true
                 end,
                 icon = icon or nil,
-                highlight = { fg or colors.darkest, bg or colors.darkest }
+                highlight = { fg or colors.dark_gray, bg or colors.dark_gray }
             }
         }
     end
