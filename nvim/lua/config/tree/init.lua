@@ -75,7 +75,7 @@ return function()
             renamed = '•',
             untracked = '•'
         },
-        folder = { default = '+', open = '-' },
+        folder = { default = '+', open = '-', empty = '+', empty_open = '-' },
         lsp = { hint = '•', info = '•', warning = '•', error = '•' }
     }
 end

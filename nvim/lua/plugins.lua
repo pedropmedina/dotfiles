@@ -3,8 +3,6 @@ return require('packer').startup(
         -- Packer can manage itself as an optional plugin
         use({ 'wbthomason/packer.nvim', opt = true })
 
-        use { 'pedropmedina/darkside', requires = { 'rktjmp/lush.nvim' } }
-
         -- LSP
         use(
             {
@@ -40,6 +38,9 @@ return require('packer').startup(
                 }
             }
         )
+
+        -- Theme
+        use({ 'pedropmedina/darkside', requires = { 'rktjmp/lush.nvim' } })
 
         -- Treesitter
         use(

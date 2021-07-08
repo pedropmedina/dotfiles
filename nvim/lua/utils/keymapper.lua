@@ -21,7 +21,6 @@ end
 
 function keymapper_options:map_args(cmd_string)
     self.cmd = (':%s<Space>'):format(cmd_string)
-    print(vim.inspect(self.cmd))
     return self
 end
 

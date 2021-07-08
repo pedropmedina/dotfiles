@@ -1,5 +1,6 @@
 return function()
-    local colors = require('colors')
+    local darkside = require('darkside')
+    local colors = darkside.colors
 
     require'nvim-web-devicons'.setup {
         override = {

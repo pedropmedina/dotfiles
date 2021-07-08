@@ -1,7 +1,7 @@
 local modes = {}
 
 function modes.mode_colors(defaults, colors)
-    local MODE_COLORS = {
+    return {
         n = colors and colors.n or defaults.blue,
         i = colors and colors.i or defaults.green,
         c = colors and colors.c or defaults.red,
@@ -13,11 +13,10 @@ function modes.mode_colors(defaults, colors)
         v = colors and colors.v or defaults.cyan,
         [''] = colors and colors['^V'] or defaults.cyan
     }
-    return MODE_COLORS
 end
 
 function modes.mode_texts(texts)
-    local MODE_TEXTS = {
+    return {
         n = texts and texts.n or ' normal ',
         i = texts and texts.i or ' insert ',
         c = texts and texts.c or ' command ',
@@ -29,7 +28,6 @@ function modes.mode_texts(texts)
         v = texts and texts.v or ' visual ',
         [''] = texts and texts['^V'] or ' visual '
     }
-    return MODE_TEXTS
 end
 
 return modes

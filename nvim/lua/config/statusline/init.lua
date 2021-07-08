@@ -5,8 +5,9 @@ return function()
     local gl_diagnostic = require('galaxyline.provider_diagnostic')
     local gl_fileinfo = require('galaxyline.provider_fileinfo')
     local gl_section = gl.section
+    local darkside = require('darkside')
 
-    local colors = require('colors')
+    local colors = darkside.colors
     local modes = require('config.statusline.modes')
     local utils = require('config.statusline.utils')(colors)
 
