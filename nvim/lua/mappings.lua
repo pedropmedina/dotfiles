@@ -1,4 +1,4 @@
-local keymapper = require('utils/keymapper')
+local keymapper = require('utils.keymapper')
 local map_cmd = keymapper.map_cmd
 
 -- Leader key
@@ -102,6 +102,7 @@ function mappings:load_plugin_define()
 
         -- Completion
         ['i|<C-Space>'] = map_cmd([[compe#complete()]]):with_noremap():with_silent():with_expr(),
+        ['i|<CR>'] = map_cmd([[compe#confirm('<CR>')]]):with_noremap():with_silent():with_expr(),
         ['i|<C-e>'] = map_cmd([[compe#close('<C-e>')]]):with_noremap():with_silent():with_expr(),
         ['i|<C-f>'] = map_cmd([[compe#scroll({ 'delta': +4 })]]):with_noremap():with_silent()
             :with_expr(),

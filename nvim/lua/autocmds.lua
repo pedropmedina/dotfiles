@@ -7,7 +7,7 @@ vim.cmd([[augroup END]])
 
 -- highlight on yank
 vim.cmd(
-    [[autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup="IncSearch", timeout=400 })]]
+    [[autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup="Substitute", timeout=400 })]]
 )
 
 -- auto save buffer on leaving

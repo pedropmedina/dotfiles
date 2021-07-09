@@ -1,3 +1,3 @@
 return function()
-    vim.g.vsnip_snippet_dir = vim.fn.expand('~/.config/nvim/vsnip')
+    require('luasnip/loaders/from_vscode').load()
 end

@@ -5,14 +5,13 @@ vim.lsp.handlers['textDocument/formatting'] = function(err, _, result, _, bufnr)
         local view = vim.fn.winsaveview()
         vim.lsp.util.apply_text_edits(result, bufnr)
         vim.fn.winrestview(view)
-        -- No sure why bufnr is nil in the latest neovim update
         if bufnr == nil or bufnr == vim.api.nvim_get_current_buf() then
             vim.cmd([[noautocmd :update]])
         end
     end
 end
 
--- Helper function to toggle formatting on and off based off file type
+-- Toggle formatting on and off based off file type
 FormatToggle = function(value)
     vim.g[string.format('format_disabled_%s', vim.bo.filetype)] = value
 end
