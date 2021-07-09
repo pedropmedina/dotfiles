@@ -3,7 +3,8 @@ local function packer_startup_cb()
     use({ 'wbthomason/packer.nvim', opt = true })
 
     -- Theme
-    use({ 'pedropmedina/darkside', requires = { 'rktjmp/lush.nvim' } })
+    --  this is a local plugin, use 'pedropmedina/darkside' instead
+    use({ '~/code/mine/darkside', requires = { 'rktjmp/lush.nvim' } })
 
     -- LSP
     use(
