@@ -42,3 +42,4 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+. "$HOME/.cargo/env"
