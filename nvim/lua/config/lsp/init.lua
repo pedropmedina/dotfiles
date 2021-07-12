@@ -28,6 +28,7 @@ return function()
         lua = require('config.lsp.setups.lua')(common_setup),
         vim = require('config.lsp.setups.vim')(common_setup),
         bash = require('config.lsp.setups.bash')(common_setup),
+        rust = require('config.lsp.setups.rust')(common_setup),
         html = require('config.lsp.setups.html')(common_setup),
         css = require('config.lsp.setups.css')(common_setup),
         json = require('config.lsp.setups.json')(common_setup),
