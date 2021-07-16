@@ -82,6 +82,7 @@ function mappings:load_plugin_define()
 
         -- Nvim comment
         ['n|gcc'] = map_cmd(':CommentToggle<CR>'):with_noremap():with_silent(),
+        ['x|gc'] = map_cmd(':CommentToggle<CR>'):with_noremap():with_silent(),
 
         -- Telescope
         ['n|<Leader>ff'] = map_cmd([[<cmd>lua require("config/telescope/finders").find_files()<CR>]]):with_noremap()

@@ -60,7 +60,7 @@ return function()
         utils.set_section('ModBuffer', providers.dirty_buf, nil, nil, colors.green),
         utils.set_section('Separator_4'),
         utils.set_section(
-            'DiagnosticHint', gl_diagnostic.get_diagnostic_hint, nil, '• ', colors.light_gray
+            'DiagnosticHint', gl_diagnostic.get_diagnostic_hint, nil, '• ', colors.cyan
         ),
         utils.set_section('Separator_5'),
         utils.set_section(

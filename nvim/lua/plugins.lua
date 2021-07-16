@@ -69,7 +69,14 @@ local function packer_startup_cb()
     )
 
     -- File tree
-    use({ 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle', config = require('config.tree') })
+    use(
+        {
+            'kyazdani42/nvim-tree.lua',
+            cmd = 'NvimTreeToggle',
+            event = 'BufRead',
+            config = require('config.tree')
+        }
+    )
 
     -- Version control
     use({ 'lewis6991/gitsigns.nvim', event = 'BufRead', config = require('config.gitsigns') })
