@@ -1,4 +1,5 @@
-zstyle ':prezto:module:prompt' theme 'pure'
+# Let's disable prompt for now as I'm using starship for now - https://starship.rs/
+# zstyle ':prezto:module:prompt' theme 'pure'
 
 zstyle ':prezto:module:autosuggestions' color 'yes'
 
@@ -7,7 +8,6 @@ zstyle ':prezto:load' pmodule \
          'utility' \
          'completion' \
          'git' \
-         'prompt' \
          'syntax-highlighting' \
          'history-substring-search' \
          'autosuggestions' \
