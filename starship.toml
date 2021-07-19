@@ -1,11 +1,11 @@
 add_newline = true
 
-format = '$character$directory($git_branch$git_status) '
+format = '$directory($git_branch$git_status) $character '
 
 [character]
-success_symbol = "[](bold green)" 
-error_symbol = "[](bold red)" 
-vicmd_symbol = "[](bold cyan)" 
+success_symbol = "[...](bold green)" 
+error_symbol = "[...](bold red)" 
+vicmd_symbol = "[...](bold cyan)" 
 
 [git_branch]
 format = '[\($symbol|$branch\)](bright-black)'
