@@ -1,0 +1,26 @@
+add_newline = true
+
+format = '$character$directory($git_branch$git_status) '
+
+[character]
+success_symbol = "[](bold green)" 
+error_symbol = "[](bold red)" 
+vicmd_symbol = "[](bold cyan)" 
+
+[git_branch]
+format = '[\($symbol|$branch\)](bright-black)'
+symbol = ""
+
+[git_status]
+format = "[$all_status]($style)"
+conflicted = "="
+ahead = ""
+behind = ""
+diverged = ""
+untracked = "?"
+stashed = "≠"
+modified = "*"
+staged = "+"
+renamed = ""
+deleted = "–"
+disabled = false
