@@ -78,6 +78,9 @@ local function packer_startup_cb()
         }
     )
 
+    -- Change cwd to the project's root
+    use({ 'airblade/vim-rooter', config = require('config.rooter'), event = 'BufRead' })
+
     -- Version control
     use({ 'lewis6991/gitsigns.nvim', event = 'BufRead', config = require('config.gitsigns') })
 
