@@ -1,6 +1,13 @@
--- https://github.com/Koihik/LuaFormatter
-local luaformat = {
-    formatCommand = ([[
+-- https://github.com/mattn/efm-langserver
+local efm = function(config)
+    -- Let's use vim-rooter here to find the project's root since in a monorepo
+    -- style project the node_modules at the app level is empty and the binaries
+    -- are kept at the monorepo root level
+    local root_path = vim.g.project_root_path
+
+    -- https://github.com/Koihik/LuaFormatter
+    local luaformat = {
+        formatCommand = ([[
         lua-format -i
         --no-keep-simple-function-one-line
         --column-limit=100
@@ -11,30 +18,32 @@ local luaformat = {
         --break-after-functioncall-lp
         --chop-down-table
     ]]):gsub('\n', ''),
-    formatStdin = true
-}
+        formatStdin = true
+    }
 
--- https://prettier.io/
-local prettier = {
-    formatCommand = ([[
-        ./node_modules/.bin/prettier
-        --stdin-filepath %
-        --config-precedence prefer-file
-        --tab-width 2
-        --single-quote
-        --print-width 100
-    ]]):gsub('\n', '')
-}
+    -- https://prettier.io/
+    local prettier_bin = (root_path ~= nil and root_path ~= '') and root_path ..
+                             '/node_modules/.bin/prettier' or './node_modules/.bin/prettier'
+    local prettier = {
+        formatCommand = prettier_bin .. ([[
+            --stdin-filepath %
+            --config-precedence prefer-file
+            --tab-width 2
+            --single-quote
+            --print-width 100
+        ]]):gsub('\n', '')
+    }
 
--- https://eslint.org/
-local eslint = {
-    lintCommand = './node_modules/.bin/eslint -f unix --stdin',
-    lintIgnoreExitCode = true,
-    lintStdin = true
-}
+    -- https://eslint.org/
+    local eslint_bin = (root_path ~= nil and root_path ~= '') and root_path ..
+                           '/node_modules/.bin/eslint' or './node_modules/.bin/eslint'
+    local eslint = {
+        lintCommand = eslint_bin .. ' -f visualstudio --stdin --stdin-filename ${INPUT}',
+        lintIgnoreExitCode = true,
+        lintStdin = true,
+        lintFormats = { '%f(%l,%c): %tarning %m', '%f(%l,%c): %trror %m' }
+    }
 
--- https://github.com/mattn/efm-langserver
-local efm = function(config)
     local opts = {
         init_options = { documentFormatting = true },
         filetypes = {
@@ -52,7 +61,7 @@ local efm = function(config)
             'vue'
         },
         settings = {
-            rootMarkers = { '.git/', 'node_modules/', 'package.json' },
+            rootMarkers = { '.git/', 'package.json' },
             languages = {
                 lua = { luaformat },
                 typescript = { prettier, eslint },
