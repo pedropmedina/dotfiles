@@ -83,6 +83,8 @@ local function packer_startup_cb()
 
     -- Version control
     use({ 'lewis6991/gitsigns.nvim', event = 'BufRead', config = require('config.gitsigns') })
+    use({ 'sindrets/diffview.nvim', event = 'BufRead', config = require('config.diffview') })
+    use({ 'TimUntersberger/neogit', event = 'BufRead', config = require('config.neogit') })
 
     use({ 'tpope/vim-fugitive', cmd = 'Git' })
 
