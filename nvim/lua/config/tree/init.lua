@@ -13,6 +13,9 @@ return function()
     -- This is the default. See :help filename-modifiers for more options
     vim.g.nvim_tree_root_folder_modifier = ':t'
 
+    -- Have nvim tree ignore these dirs
+    vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
+
     --  select which icons to show
     vim.g.nvim_tree_show_icons = { git = 0, files = 1, folders = 1 }
 
