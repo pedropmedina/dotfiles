@@ -1,8 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
 name = Pedro P. Medina
-email = pedrodelilia@gmail.com
+	email = pedrodelilia@gmail.com
 
 [init]
 defaultBranch = master
+
+[core]
+	editor = nvim
