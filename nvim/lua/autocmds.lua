@@ -6,9 +6,7 @@ vim.cmd([[autocmd TermOpen * setlocal nonumber norelativenumber]])
 vim.cmd([[augroup END]])
 
 -- highlight on yank
-vim.cmd(
-    [[autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup="Substitute", timeout=400 })]]
-)
+vim.cmd([[autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup="Substitute", timeout=400 })]])
 
 -- auto save buffer on leaving
 vim.cmd([[autocmd BufLeave * if index(['lua.luapad'], &ft) == -1 | silent! update | endif]])

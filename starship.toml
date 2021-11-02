@@ -10,8 +10,9 @@ error_symbol = "[... ](bold red)"
 vicmd_symbol = "[... ](bold cyan)" 
 
 [git_branch]
-format = '[\($symbol|$branch\)](bright-black)'
-symbol = ""
+# format = '[\($symbol|$branch\)](bright-black)'
+# symbol = ""
+format = '[\($branch\)](bright-black)'
 
 [git_status]
 format = "[$all_status]($style)"

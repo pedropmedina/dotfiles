@@ -1,113 +1,153 @@
-local function packer_startup_cb()
-    -- Packer can manage itself as an optional plugin
-    use({ 'wbthomason/packer.nvim', opt = true })
+-- Only required if you have packer configured as `opt`
+-- Move packer to the /site/pack/packer/start and remove this line!
+vim.cmd([[packadd packer.nvim]])
 
-    -- Theme
-    --  this is a local plugin, use 'pedropmedina/darkside' instead
-    use({ '~/code/mine/darkside', requires = { 'rktjmp/lush.nvim' } })
+local function packer_startup_cb(use)
+	-- Packer can manage itself as an optional plugin
+	use({ "wbthomason/packer.nvim", opt = true })
 
-    -- LSP
-    use(
-        {
-            'kabouzeid/nvim-lspinstall',
-            config = require('config.lsp'),
-            requires = { 'neovim/nvim-lspconfig', event = 'BufRead' }
-        }
-    )
+	-- Theme
+	--  this is a local plugin, use 'pedropmedina/darkside' instead
+	use({ "~/code/mine/darkside", requires = { "rktjmp/lush.nvim" } })
 
-    -- Completion & Snippets
-    use(
-        {
-            'hrsh7th/nvim-compe',
-            event = 'InsertEnter',
-            config = require('config.completion'),
-            requires = {
-                {
-                    'L3MON4D3/LuaSnip',
-                    requires = { 'rafamadriz/friendly-snippets' },
-                    config = require('config.snippets')
-                }
-            }
-        }
-    )
+	-- Dependencies
+	use({ "nvim-lua/plenary.nvim" })
+	use({ "nvim-lua/popup.nvim" })
 
-    -- Telescope - dependencies and extensions
-    use(
-        {
-            'nvim-telescope/telescope.nvim',
-            config = require('config.telescope'),
-            requires = {
-                { 'nvim-lua/plenary.nvim' },
-                { 'nvim-lua/popup.nvim' },
-                { 'nvim-telescope/telescope-fzy-native.nvim' },
-                { 'nvim-telescope/telescope-fzf-writer.nvim' }
-            }
-        }
-    )
+	-- Completion and sources
+	use({
+		"hrsh7th/nvim-cmp",
+		event = "BufRead",
+		config = function()
+			require("config.completion")
+		end,
+		requires = {
+			{ "onsails/lspkind-nvim" },
+			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
+		},
+	})
 
-    -- Treesitter
-    use(
-        {
-            'nvim-treesitter/nvim-treesitter',
-            event = 'BufRead',
-            config = require('config.treesitter')
-        }
-    )
-    use({ 'nvim-treesitter/playground', after = 'nvim-treesitter' })
-    use({ 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' })
-    use({ 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' })
-    use({ 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter', disable = true })
+	-- LSP
+	use({
+		"williamboman/nvim-lsp-installer",
+		event = "BufRead",
+		config = function()
+			require("config.lsp")
+		end,
+		requires = { { "neovim/nvim-lspconfig" } },
+	})
 
-    -- Status line
-    use(
-        {
-            'glepnir/galaxyline.nvim',
-            branch = 'main',
-            event = 'BufRead',
-            config = require('config.statusline')
-        }
-    )
+	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "neovim/nvim-lspconfig" } })
 
-    -- File tree
-    use(
-        {
-            'kyazdani42/nvim-tree.lua',
-            cmd = 'NvimTreeToggle',
-            event = 'BufRead',
-            config = require('config.tree')
-        }
-    )
+	-- Auto pairs for '(' '[' '{'...
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("config.autopairs")
+		end,
+	})
 
-    -- Change cwd to the project's root
-    use({ 'airblade/vim-rooter', config = require('config.rooter'), event = 'BufRead' })
+	-- Snippets
+	use({
+		{
+			"L3MON4D3/LuaSnip",
+			config = function()
+				require("config.snippets")
+			end,
+		},
+		{ "rafamadriz/friendly-snippets" },
+	})
 
-    -- Version control
-    use({ 'lewis6991/gitsigns.nvim', event = 'BufRead', config = require('config.gitsigns') })
-    use({ 'tpope/vim-fugitive', cmd = 'Git' })
+	-- Fuzzy Finder
+	use({
+		{
+			"nvim-telescope/telescope.nvim",
+			config = function()
+				require("config.telescope")
+			end,
+		},
+		{ "nvim-telescope/telescope-fzy-native.nvim" },
+		{ "nvim-telescope/telescope-fzf-writer.nvim" },
+	})
 
-    -- Comment text in and out
-    use({ 'terrortylor/nvim-comment', cmd = 'CommentToggle', config = require('config.comment') })
+	-- Treesitter
+	use({
+		{
+			"nvim-treesitter/nvim-treesitter",
+			event = "BufRead",
+			config = function()
+				require("config.treesitter")
+			end,
+		},
+		{ "nvim-treesitter/playground", after = "nvim-treesitter" },
+		{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
+		{ "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
+	})
 
-    -- Icons
-    use({ 'kyazdani42/nvim-web-devicons', config = require('config.devicons') })
+	-- Status line
+	use({
+		"glepnir/galaxyline.nvim",
+		branch = "main",
+		event = "BufRead",
+		config = function()
+			require("config.statusline")
+		end,
+	})
 
-    -- Better scrolling
-    use { 'karb94/neoscroll.nvim', event = 'WinScrolled', config = require('config.scroll') }
+	-- File Tree
+	use({
+		"kyazdani42/nvim-tree.lua",
+		cmd = "NvimTreeToggle",
+		event = "BufRead",
+		config = function()
+			require("config.tree")
+		end,
+	})
 
-    -- Auto pairs for '(' '[' '{'...
-    use({ 'windwp/nvim-autopairs', after = 'nvim-compe', config = require('config.autopairs') })
+	-- Version control
+	use({
+		{ "tpope/vim-fugitive", cmd = "Git" },
+		{
+			"lewis6991/gitsigns.nvim",
+			event = "BufRead",
+			config = function()
+				require("config.gitsigns")
+			end,
+		},
+	})
 
-    -- Surround text
-    use({ 'tpope/vim-surround', event = 'BufRead' })
+	-- Comment text in and out
+	use({
+		"terrortylor/nvim-comment",
+		cmd = "CommentToggle",
+		config = function()
+			require("config.comment")
+		end,
+	})
 
-    -- Automatically clear highlight ( :nohls )
-    use({ 'haya14busa/is.vim', event = 'BufRead' })
+	-- Icons
+	use({
+		"kyazdani42/nvim-web-devicons",
+		config = function()
+			require("config.devicons")
+		end,
+	})
 
-    -- Search highlighted text with * or # from a visual block
-    use({ 'nelstrom/vim-visual-star-search', event = 'BufRead' })
+	-- Surround text
+	use({ "tpope/vim-surround", event = "BufRead" })
 
-    -- temp support for .hbs files
-    use({ 'mustache/vim-mustache-handlebars', disable = true })
+	-- Automatically clear highlight ( :nohls )
+	use({ "haya14busa/is.vim", event = "BufRead" })
+
+	-- Search highlighted text with * or # from a visual block
+	use({ "nelstrom/vim-visual-star-search", event = "BufRead" })
+
+	-- temp support for .hbs files
+	use({ "mustache/vim-mustache-handlebars", event = "BufRead", disable = true })
 end
 
-return require('packer').startup(packer_startup_cb)
+return require("packer").startup(packer_startup_cb)
