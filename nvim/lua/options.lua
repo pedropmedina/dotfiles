@@ -45,7 +45,7 @@ vim.opt.ttimeoutlen = 0
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
-vim.opt.showmatch = false
+vim.opt.showmatch = true
 
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
@@ -87,8 +87,6 @@ vim.g.loaded_vimball = 1
 vim.g.loaded_vimballPlugin = 1
 vim.g.loaded_2html_plugin = 1
 
-vim.g.loaded_matchit = 1
-vim.g.loaded_matchparen = 1
 vim.g.loaded_logiPat = 1
 vim.g.loaded_rrhelper = 1
 
