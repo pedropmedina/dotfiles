@@ -116,8 +116,8 @@ local providers = {
 }
 
 local left = {
-	set_section("Separator"),
-	set_section("ViMode", providers.vi_mode, nil, nil, colors.gray),
+	--	set_section("Separator"),
+	--	set_section("ViMode", providers.vi_mode, nil, nil, colors.gray),
 	set_section("ViModeIcon_1", providers.vi_mode_icon_1),
 	set_section("ViModeIcon_2", providers.vi_mode_icon_2),
 	set_section("Separator_2", "    "),
