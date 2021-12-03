@@ -1,6 +1,5 @@
-local null_ls = require("null-ls")
-
 return function(config)
+    local null_ls = require("null-ls")
 	null_ls.config({
 		sources = {
 			null_ls.builtins.formatting.stylua,

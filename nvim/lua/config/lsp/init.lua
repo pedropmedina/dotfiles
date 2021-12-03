@@ -25,8 +25,8 @@ local function setup_servers(setups)
 		vim.cmd([[ do User LspAttachBuffers ]])
 	end)
 
-	-- Setup null-ls
-	require("config.lsp.setups.null_ls")(common_setup)
+	-- Setup null-ls -> Buggy - Switch back to efm for now handle formatting
+	-- require("config.lsp.setups.null_ls")(common_setup)
 end
 
 local setups = {
@@ -42,7 +42,7 @@ local setups = {
 	tsserver = require("config.lsp.setups.typescript")(common_setup),
 	dockerls = require("config.lsp.setups.dockerfile")(common_setup),
 	tailwindcss = require("config.lsp.setups.tailwindcss")(common_setup),
-	-- efm = require('config.lsp.setups.efm')(common_setup),
+	efm = require("config.lsp.setups.efm")(common_setup),
 }
 
 install_servers(vim.tbl_keys(setups))

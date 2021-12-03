@@ -1,4 +1,3 @@
-vim.opt.termguicolors = true
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
@@ -27,11 +26,13 @@ vim.opt.foldenable = false
 vim.opt.foldlevel = 2
 vim.opt.foldmethod = "indent"
 
+vim.opt.termguicolors = true
 vim.opt.syntax = "on"
 vim.opt.background = "dark"
 
 if pcall(require, "darkside") then
 	vim.g.colors_name = "darkside"
+	vim.cmd([[colorscheme darkside]])
 end
 
 vim.opt.swapfile = false

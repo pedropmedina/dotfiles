@@ -1,33 +1,21 @@
 -- Moving to null-ls.nvim to handle linting and formatting - Leave here for reference
-
 -- https://github.com/mattn/efm-langserver
 local efm = function(config)
-	-- https://github.com/Koihik/LuaFormatter
-	local luaformat = {
-		formatCommand = ([[
-        lua-format -i
-        --no-keep-simple-function-one-line
-        --column-limit=100
-        --double-quote-to-single-quote 
-        --spaces-around-equals-in-field
-        --spaces-inside-table-braces
-        --break-before-functioncall-rp
-        --break-after-functioncall-lp
-        --chop-down-table
-    ]]):gsub("\n", ""),
-		formatStdin = true,
-	}
+	-- https://github.com/johnnymorganz/stylua
+	local stylua = { formatCommand = [[ stylua -s --stdin-filepath ${INPUT} - ]], formatStdin = true }
 
 	-- https://prettier.io/
-	local prettier_bin = "./node_modules/.bin/prettier"
 	local prettier = {
-		formatCommand = prettier_bin .. ([[
-            --stdin-filepath %
+		formatCommand = ([[
+            $([ -n "$(command -v node_modules/.bin/prettier)" ] && echo "node_modules/.bin/prettier" || echo "prettier")
+            --stdin-filepath ${INPUT}
+            ${--config-precedence:configPrecedence}
             --config-precedence prefer-file
             --tab-width 2
             --single-quote
             --print-width 100
-        ]]):gsub("\n", ""),
+            ]]):gsub("\n", " "),
+		formatStdin = true,
 	}
 
 	-- https://eslint.org/
@@ -59,7 +47,7 @@ local efm = function(config)
 		settings = {
 			rootMarkers = { ".git/", "package.json" },
 			languages = {
-				lua = { luaformat },
+				lua = { stylua },
 				typescript = { prettier, eslint },
 				javascript = { prettier, eslint },
 				typescriptreact = { prettier, eslint },

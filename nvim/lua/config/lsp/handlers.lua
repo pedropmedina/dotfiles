@@ -27,9 +27,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		underline = true,
 		virtual_text = { spacing = 4, prefix = "•" },
-		signs = true,
+		signs = false,
 		update_in_insert = false,
 	})(...)
 
-	pcall(vim.lsp.diagnostic.set_loclist, { open_loclist = false })
+	pcall(vim.diagnostic.set_loclist, { open = false })
 end

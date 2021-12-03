@@ -98,15 +98,15 @@ local function packer_startup_cb(use)
 		end,
 	})
 
-	-- File Tree
-	use({
-		"kyazdani42/nvim-tree.lua",
-		cmd = "NvimTreeToggle",
-		event = "BufRead",
-		config = function()
-			require("config.tree")
-		end,
-	})
+	-- File Tree -> Slooooow - disable temporarily
+	-- use({
+	-- 	"kyazdani42/nvim-tree.lua",
+	-- 	cmd = "NvimTreeToggle",
+	-- 	event = "BufRead",
+	-- 	config = function()
+	-- 		require("config.tree")
+	-- 	end,
+	-- })
 
 	-- Version control
 	use({

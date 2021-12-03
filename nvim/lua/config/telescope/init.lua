@@ -13,7 +13,12 @@ require("telescope").setup({
 			"--smart-case",
 			"--glob=!node_modules/*",
 		},
-		mappings = { i = { ["<c-s>"] = actions.select_horizontal } },
+		mappings = {
+			i = {
+				["<c-s>"] = actions.select_horizontal,
+				["œ"] = actions.add_selected_to_qflist,
+			},
+		},
 		layout_config = { prompt_position = "top", preview_cutoff = 140 },
 		prompt_prefix = "❯ ",
 		selection_caret = "❯ ",
