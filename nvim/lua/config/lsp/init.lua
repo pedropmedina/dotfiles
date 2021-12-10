@@ -42,6 +42,7 @@ local setups = {
 	tsserver = require("config.lsp.setups.typescript")(common_setup),
 	dockerls = require("config.lsp.setups.dockerfile")(common_setup),
 	tailwindcss = require("config.lsp.setups.tailwindcss")(common_setup),
+	intelephense = require("config.lsp.setups.php")(common_setup),
 	efm = require("config.lsp.setups.efm")(common_setup),
 }
 
