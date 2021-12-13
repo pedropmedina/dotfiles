@@ -58,6 +58,7 @@ function mappings:load_vim_define()
 		-- Tabs navigation
 		["n|<TAB>"] = map_cmd(":tabnext<CR>"):with_noremap():with_silent(),
 		["n|<S-TAB>"] = map_cmd(":tabprevious<CR>"):with_noremap():with_silent(),
+		["n|<Leader>tn"] = map_cmd(":tabnew %<CR>"):with_noremap():with_silent(),
 		["n|<Leader>tl"] = map_cmd(":tabnext<CR>"):with_noremap():with_silent(),
 		["n|<Leader>th"] = map_cmd(":tabprevious<CR>"):with_noremap():with_silent(),
 		["n|<Leader>tq"] = map_cmd(":tabclose<CR>"):with_noremap():with_silent(),
@@ -69,16 +70,16 @@ function mappings:load_vim_define()
 		["n|¬"] = map_cmd(":vertical resize +2<CR>"):with_noremap():with_silent(),
 
 		-- Opening new terminal emulators
-		-- ['n|<Leader>tt'] = map_cmd(':tabnew +terminal<CR>'):with_noremap():with_silent(),
-		-- ['n|<Leader>ts'] = map_cmd(':new +terminal<CR>'):with_noremap():with_silent(),
-		-- ['n|<Leader>tv'] = map_cmd(':vnew +terminal<CR>'):with_noremap():with_silent()
+		["n|<Leader>tt"] = map_cmd(":tabnew +terminal<CR>"):with_noremap():with_silent(),
+		["n|<Leader>ts"] = map_cmd(":new +terminal<CR>"):with_noremap():with_silent(),
+		["n|<Leader>tv"] = map_cmd(":vnew +terminal<CR>"):with_noremap():with_silent(),
 	}
 end
 
 function mappings:load_plugin_define()
 	self.plugin = {
 		-- Lua tree
-		["n|<Leader>e"] = map_cmd(":NvimTreeToggle<CR>"):with_noremap():with_silent(),
+		-- ["n|<Leader>e"] = map_cmd(":NvimTreeToggle<CR>"):with_noremap():with_silent(),
 
 		--  -- Nvim comment
 		["n|gcc"] = map_cmd(":CommentToggle<CR>"):with_noremap():with_silent(),
