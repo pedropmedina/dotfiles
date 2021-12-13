@@ -1,12 +1,18 @@
 return function(config)
-    local null_ls = require("null-ls")
-	null_ls.config({
-		sources = {
-			null_ls.builtins.formatting.stylua,
-			null_ls.builtins.formatting.prettier,
-			null_ls.builtins.diagnostics.eslint,
-		},
-	})
+	local setup = require("null-ls").setup
+	local builtins = require("null-ls").builtins
 
-	require("lspconfig")["null-ls"].setup(config)
+	local null_config = {
+		sources = {
+			builtins.formatting.stylua,
+			builtins.formatting.prettier,
+			builtins.diagnostics.eslint,
+		},
+	}
+
+	for key, value in pairs(config) do
+		null_config[key] = value
+	end
+
+	setup(null_config)
 end

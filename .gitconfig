@@ -1,12 +1,13 @@
 # This is Git's per-user configuration file.
 [user]
-name = Pedro P. Medina
-	email = pedrodelilia@gmail.com
+  name = Pedro P. Medina
+  email = pedrodelilia@gmail.com
 
 [init]
-defaultBranch = master
+  defaultBranch = master
 
 [core]
 	editor = nvim
+
 [pull]
 	rebase = false
