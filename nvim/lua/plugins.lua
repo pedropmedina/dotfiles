@@ -98,26 +98,13 @@ local function packer_startup_cb(use)
 		end,
 	})
 
-	-- File Tree -> Slooooow - disable temporarily
-	-- use({
-	-- 	"kyazdani42/nvim-tree.lua",
-	-- 	cmd = "NvimTreeToggle",
-	-- 	event = "BufRead",
-	-- 	config = function()
-	-- 		require("config.tree")
-	-- 	end,
-	-- })
-
 	-- Version control
 	use({
-		{ "tpope/vim-fugitive", cmd = "Git" },
-		{
-			"lewis6991/gitsigns.nvim",
-			event = "BufRead",
-			config = function()
-				require("config.gitsigns")
-			end,
-		},
+		"lewis6991/gitsigns.nvim",
+		event = "BufRead",
+		config = function()
+			require("config.gitsigns")
+		end,
 	})
 
 	-- Comment text in and out
