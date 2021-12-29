@@ -68,4 +68,7 @@ coc/*
 .tmux/plugins
 .tmux/.tmux.conf
 
+# Ignore tmp files I'm working on
+*_tmp/
+
 # End of https://www.gitignore.io/api/vim,macos

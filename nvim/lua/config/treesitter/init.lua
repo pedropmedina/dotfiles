@@ -1,19 +1,5 @@
-require("nvim-treesitter.configs").setup({
-	-- ensure_installed = {
-	--   'html',
-	--   'css',
-	--   'json',
-	--   'jsdoc',
-	--   'graphql',
-	--   'javascript',
-	--   'typescript',
-	--   'tsx',
-	--   'vue',
-	--   'php',
-	--   'python',
-	--   'rust',
-	--   'lua'
-	-- },
+local setup = {
+	ensure_installed = "maintained",
 	highlight = { enable = true },
 	indent = { enable = false },
 	context_commentstring = { enable = true },
@@ -49,4 +35,8 @@ require("nvim-treesitter.configs").setup({
 			show_help = "?",
 		},
 	},
-})
+}
+
+if pcall(require, "nvim-treesitter") then
+	require("nvim-treesitter.configs").setup(setup)
+end

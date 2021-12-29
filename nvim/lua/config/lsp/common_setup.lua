@@ -1,3 +1,5 @@
+local opts = { noremap = true, silent = true }
+
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -10,16 +12,11 @@ local on_attach = function(client, bufnr)
 	-- required to ensure lsp completion :h lsp-buf
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	-- common keymap options
-	local opts = { noremap = true, silent = true }
-
-	-- diagnostics keymaps
 	buf_set_keymap("n", "<Leader>dl", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
 	buf_set_keymap("n", "<Leader>dk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "<Leader>dj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "<Leader>do", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 
-	-- conditinally set LSP keymappings depending on capabilities
 	if client.resolved_capabilities.type_definition then
 		buf_set_keymap("n", "<Leader>gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 	end
@@ -43,7 +40,7 @@ local on_attach = function(client, bufnr)
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd([[augroup Format]])
 		vim.cmd([[autocmd! * <buffer>]])
-		vim.cmd([[autocmd BufWritePost <buffer> lua require('config.lsp.formatting')()]])
+		vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 		vim.cmd([[augroup END]])
 
 		buf_set_keymap("n", "<Leader>gf", "<cmd>lua formatting()<CR>", opts)
@@ -74,6 +71,5 @@ end
 -- Enable (broadcasting) snippet capability for [html, css] completion - No sure if this will be needed in the future
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
--- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 return { on_attach = on_attach, capabilities = capabilities }

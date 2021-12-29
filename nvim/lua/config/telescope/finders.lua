@@ -14,8 +14,9 @@ finders.find_files = function()
 			".git",
 			"--exclude",
 			"node_modules",
+			"--exclude",
+			"dist",
 		},
-		-- previewer = false,
 	}
 	require("telescope.builtin").find_files(opts)
 end
