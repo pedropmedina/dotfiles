@@ -1,18 +1,19 @@
+local present, null_ls = pcall(require, "null-ls")
+
 return function(config)
-	local setup = require("null-ls").setup
-	local builtins = require("null-ls").builtins
+	if present then
+		local null_config = {
+			sources = {
+				null_ls.builtins.formatting.stylua,
+				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.diagnostics.eslint,
+			},
+		}
 
-	local null_config = {
-		sources = {
-			builtins.formatting.stylua,
-			builtins.formatting.prettier,
-			builtins.diagnostics.eslint,
-		},
-	}
+		for key, value in pairs(config) do
+			null_config[key] = value
+		end
 
-	for key, value in pairs(config) do
-		null_config[key] = value
+		null_ls.setup(null_config)
 	end
-
-	setup(null_config)
 end

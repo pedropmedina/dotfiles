@@ -1,3 +1,5 @@
-if pcall(require, "nvim-autopairs") then
-	require("nvim-autopairs").setup({})
+local present, pairs = pcall(require, "nvim-autopairs")
+
+if present then
+	pairs.setup({})
 end

@@ -1,7 +1,5 @@
-local colors = {}
-if pcall(require, "darkside") then
-	colors = require("darkside").colors
-end
+local present, lualine = pcall(require, "lualine")
+local colors = require("colors")
 
 local theme = {
 	normal = {
@@ -52,59 +50,57 @@ local theme = {
 	},
 }
 
-local setup = {
-	options = {
-		icons_enabled = true,
-		theme = theme,
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
-		disabled_filetypes = {},
-		always_divide_middle = true,
-		padding = 1,
-	},
-	sections = {
-		lualine_a = { {
-			"mode",
-			fmt = function()
-				return " "
-			end,
-		} },
-		lualine_b = {
-			{
-				"filename",
-				path = 1,
-				padding = 2,
-				shorting_target = 40,
-				symbols = { modified = " [+]", readonly = " [-]", unnamed = "[No Name]" },
-			},
+if present then
+	lualine.setup({
+		options = {
+			icons_enabled = true,
+			theme = theme,
+			component_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
+			disabled_filetypes = {},
+			always_divide_middle = true,
+			padding = 1,
 		},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = { { "diagnostics", sources = { "nvim_diagnostic" }, padding = 2 } },
-		lualine_z = {
-			{ "branch", icon = "" },
-			{ "diff" },
-			{
-				"location",
-				fmt = function(location)
-					return "" .. location
+		sections = {
+			lualine_a = { {
+				"mode",
+				fmt = function()
+					return " "
 				end,
+			} },
+			lualine_b = {
+				{
+					"filename",
+					path = 1,
+					padding = 2,
+					shorting_target = 40,
+					symbols = { modified = " [+]", readonly = " [-]", unnamed = "[No Name]" },
+				},
 			},
-			{ "progress" },
+			lualine_c = {},
+			lualine_x = {},
+			lualine_y = { { "diagnostics", sources = { "nvim_diagnostic" }, padding = 2 } },
+			lualine_z = {
+				{ "branch", icon = "" },
+				{ "diff" },
+				{
+					"location",
+					fmt = function(location)
+						return "" .. location
+					end,
+				},
+				{ "progress" },
+			},
 		},
-	},
-	inactive_sections = {
-		lualine_a = { "filename" },
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = { "location" },
-	},
-	tabline = {},
-	extensions = {},
-}
-
-if pcall(require, "lualine") then
-	require("lualine").setup(setup)
+		inactive_sections = {
+			lualine_a = { "filename" },
+			lualine_b = {},
+			lualine_c = {},
+			lualine_x = {},
+			lualine_y = {},
+			lualine_z = { "location" },
+		},
+		tabline = {},
+		extensions = {},
+	})
 end

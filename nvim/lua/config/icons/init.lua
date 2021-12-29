@@ -1,8 +1,8 @@
-local setup = {}
+local preset, web_icons = pcall(require, "nvim-web-devicons")
+local colors = require("colors")
 
-if pcall(require, "darkside") then
-	local colors = require("darkside").colors
-	setup = {
+if preset then
+	web_icons.setup({
 		override = {
 			html = { icon = "", color = colors.red, name = "html" },
 			css = { icon = "", color = colors.dark_yellow, name = "css" },
@@ -33,7 +33,5 @@ if pcall(require, "darkside") then
 			vimrc = { icon = "", color = colors.green, name = "vimrc" },
 			LICENSE = { icon = "", color = colors.yellow, name = "LICENSE" },
 		},
-	}
+	})
 end
-
-require("nvim-web-devicons").setup(setup)

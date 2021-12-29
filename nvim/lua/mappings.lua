@@ -15,7 +15,7 @@ map("n", "<Leader>w", ":w!<CR>", opts)
 map("n", "<Leader>wq", ":wq!<CR>", opts)
 map("n", "<Leader>q", ":confirm wqa!<CR>", opts)
 
--- Find and Replace selected words in normal/visual mode with * ['n|<Leader>fr']  = map_cmd(':%s///g<Left><Left>'):with_noremap():with_silent(),
+-- Find and Replace selected words in normal/visual mode with *
 map("x", "<Leader>fr", ":%s///g<Left><Left>", opts)
 
 -- Multiple cursors alternative. Under a word or selection replace word with 's*' and repeat instance with '.'

@@ -1,5 +1,6 @@
-if pcall(require, "cmp") then
-	local cmp = require("cmp")
+local preset, cmp = pcall(require, "cmp")
+
+if preset then
 	local lspkind = require("lspkind")
 	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 

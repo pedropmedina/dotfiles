@@ -1,6 +1,9 @@
-if pcall(require, "telescope") then
+local present, telescope = pcall(require, "telescope")
+
+if present then
 	local actions = require("telescope.actions")
 	local sorters = require("telescope.sorters")
+	local previewers = require("telescope.previewers")
 
 	local setup = {
 		defaults = {
@@ -31,9 +34,9 @@ if pcall(require, "telescope") then
 			scroll_strategy = "cycle",
 			file_sorter = sorters.get_fzy_sorter,
 			file_ignore_patterns = { "node_modules/.*", ".git/.*", "yarn.lock" },
-			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+			file_previewer = previewers.vim_buffer_cat.new,
+			grep_previewer = previewers.vim_buffer_vimgrep.new,
+			qflist_previewer = previewers.vim_buffer_qflist.new,
 			extensions = {
 				fzy_native = { override_generic_sorter = false, override_file_sorter = true },
 				fzf_writer = {
@@ -45,6 +48,6 @@ if pcall(require, "telescope") then
 		},
 	}
 
-	require("telescope").setup(setup)
+	telescope.setup(setup)
 	require("config.telescope.mappings")
 end

@@ -1,32 +1,50 @@
 return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim") --> Packer manages itself
-	use("nvim-lua/plenary.nvim") --> Neovim utils required by other pkgs
-	use("kyazdani42/nvim-web-devicons") --> Icons
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) --> Treesitter (syntax tree)
+	-- Packer manages itself
+	use("wbthomason/packer.nvim")
+	-- Neovim utils required by other pkgs
+	use("nvim-lua/plenary.nvim")
+	-- Syntax highlights
+	use("rktjmp/lush.nvim")
+	use("~/code/mine/darkside")
+	-- File Icons
+	use("kyazdani42/nvim-web-devicons")
+	-- Treesitter (syntax tree)
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-refactor")
 	use("nvim-treesitter/playground")
-	use("rktjmp/lush.nvim") --> Theme
-	use("~/code/mine/darkside")
-	use("nvim-telescope/telescope.nvim") --> Telescope (fuzzy finder)
+	-- Telescope (fuzzy finder)
+	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-fzy-native.nvim")
 	use("nvim-telescope/telescope-fzf-writer.nvim")
-	use("lewis6991/gitsigns.nvim") --> Git gutter signs
-	use("nvim-lualine/lualine.nvim") --> Statusline
-	use("neovim/nvim-lspconfig") --> Lsp
-	use("williamboman/nvim-lsp-installer") --> Lsp intaller (makes it so much easier)
-	use("onsails/lspkind-nvim") --> Cool icons on cmp
-	use("jose-elias-alvarez/null-ls.nvim") --> Formatting, linting and more ...
-	use("hrsh7th/nvim-cmp") --> Completion dropdown
-	use("saadparwaiz1/cmp_luasnip")
+	-- Git gutter signs
+	use("lewis6991/gitsigns.nvim")
+	-- Statusline
+	use("nvim-lualine/lualine.nvim")
+	-- Lsp
+	use("neovim/nvim-lspconfig")
+	-- Lsp intaller (makes it so much easier)
+	use("williamboman/nvim-lsp-installer")
+	-- Formatting, linting and more ...
+	use("jose-elias-alvarez/null-ls.nvim")
+	-- Cool icons in cmp dropdown
+	use("onsails/lspkind-nvim")
+	-- Completion dropdown
+	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("windwp/nvim-autopairs") --> Autoclosing ([{''}])
-	use("L3MON4D3/LuaSnip") --> Snippets
+	use("saadparwaiz1/cmp_luasnip")
+	-- Autoclosing ([{''}])
+	use("windwp/nvim-autopairs")
+	-- Snippets
+	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
-	use("numToStr/Comment.nvim") --> Comment code with gc, gcc ...
+	-- Comment code with gc, gcc ...
+	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("blackCauldron7/surround.nvim") --> Wrap, change, remove content with s, sr, sd
-	use("haya14busa/is.vim") --> Remove search highlight (:nohls) on cursor move
+	-- Wrap, change, remove content with s, sr, sd
+	use("blackCauldron7/surround.nvim")
+	-- Remove search highlight (:nohls) on cursor move
+	use("haya14busa/is.vim")
 end)
