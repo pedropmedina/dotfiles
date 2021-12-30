@@ -42,11 +42,6 @@ if present then
 					override_generic_sorter = false,
 					override_file_sorter = true,
 				},
-				fzf_writer = {
-					minimum_grep_characters = 2,
-					minimum_files_characters = 2,
-					use_highlighter = false,
-				},
 			},
 		},
 	}
