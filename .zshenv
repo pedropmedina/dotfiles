@@ -8,7 +8,7 @@ export KEYTIMEOUT=1
 export TERM=xterm-256color-italic
 
 # Apps
-export TERMINAL="Alacritty"
+export TERMINAL="Kitty"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"

@@ -20,12 +20,12 @@ if present then
 			mappings = {
 				i = {
 					["<c-s>"] = actions.select_horizontal,
-					["œ"] = actions.add_selected_to_qflist,
+					["œ"] = actions.send_selected_to_qflist,
 				},
 			},
 			layout_config = { prompt_position = "top", preview_cutoff = 140 },
-			prompt_prefix = "❯ ",
-			selection_caret = "❯ ",
+			prompt_prefix = "  ",
+			selection_caret = "  ",
 			selection_strategy = "reset",
 			sorting_strategy = "ascending",
 			winblend = 2,
@@ -38,7 +38,10 @@ if present then
 			grep_previewer = previewers.vim_buffer_vimgrep.new,
 			qflist_previewer = previewers.vim_buffer_qflist.new,
 			extensions = {
-				fzy_native = { override_generic_sorter = false, override_file_sorter = true },
+				fzy_native = {
+					override_generic_sorter = false,
+					override_file_sorter = true,
+				},
 				fzf_writer = {
 					minimum_grep_characters = 2,
 					minimum_files_characters = 2,
@@ -49,5 +52,7 @@ if present then
 	}
 
 	telescope.setup(setup)
+	telescope.load_extension("fzy_native")
+	telescope.load_extension("file_browser")
 	require("config.telescope.mappings")
 end

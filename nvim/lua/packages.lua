@@ -15,7 +15,7 @@ return require("packer").startup(function(use)
 	-- Telescope (fuzzy finder)
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-fzy-native.nvim")
-	use("nvim-telescope/telescope-fzf-writer.nvim")
+	use("nvim-telescope/telescope-file-browser.nvim")
 	-- Git gutter signs
 	use("lewis6991/gitsigns.nvim")
 	-- Statusline
