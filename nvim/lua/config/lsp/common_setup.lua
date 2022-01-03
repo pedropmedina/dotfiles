@@ -12,10 +12,10 @@ local on_attach = function(client, bufnr)
 	-- required to ensure lsp completion :h lsp-buf
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	buf_set_keymap("n", "<Leader>dl", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-	buf_set_keymap("n", "<Leader>dk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-	buf_set_keymap("n", "<Leader>dj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-	buf_set_keymap("n", "<Leader>do", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+	buf_set_keymap("n", "<Leader>dl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	buf_set_keymap("n", "<Leader>dk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+	buf_set_keymap("n", "<Leader>dj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+	buf_set_keymap("n", "<Leader>do", "<cmd>lua vim.diagnostic.set_loclist()<CR>", opts)
 
 	if client.resolved_capabilities.type_definition then
 		buf_set_keymap("n", "<Leader>gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
