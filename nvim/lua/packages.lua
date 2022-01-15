@@ -9,7 +9,7 @@ return require("packer").startup(function(use)
 	-- File Icons
 	use("kyazdani42/nvim-web-devicons")
 	-- Treesitter (syntax tree)
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use({ "nvim-treesitter/nvim-treesitter" })
 	use("nvim-treesitter/nvim-treesitter-refactor")
 	use("nvim-treesitter/playground")
 	-- Telescope (fuzzy finder)
