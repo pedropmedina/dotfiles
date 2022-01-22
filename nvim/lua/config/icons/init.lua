@@ -27,7 +27,7 @@ if preset then
 			zip = { icon = "", color = colors.gray, name = "zip" },
 			xz = { icon = "", color = colors.gray, name = "xz" },
 			deb = { icon = "", color = colors.gray, name = "deb" },
-			rpm = { icon = "", color = colors.gray, name = "rpm" },
+			rpm = { icon = " ", color = colors.gray, name = "rpm" },
 			lua = { icon = "", color = colors.blue, name = "lua" },
 			vim = { icon = "", color = colors.green, name = "vim" },
 			vimrc = { icon = "", color = colors.green, name = "vimrc" },
