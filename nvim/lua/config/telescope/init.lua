@@ -5,6 +5,11 @@ if present then
 	local sorters = require("telescope.sorters")
 	local previewers = require("telescope.previewers")
 
+	local function send_selected_to_qflist(prompt_bufnr, mode, target)
+		actions.send_selected_to_qflist(prompt_bufnr, mode, target)
+		actions.open_qflist()
+	end
+
 	local setup = {
 		defaults = {
 			vimgrep_arguments = {
@@ -19,8 +24,8 @@ if present then
 			},
 			mappings = {
 				i = {
-					["<c-s>"] = actions.select_horizontal,
-					["œ"] = actions.send_selected_to_qflist,
+					["<C-s>"] = actions.select_horizontal,
+					["œ"] = send_selected_to_qflist,
 				},
 			},
 			layout_config = { prompt_position = "top", preview_cutoff = 140 },
