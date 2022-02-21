@@ -44,7 +44,7 @@ return require("packer").startup(function(use)
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	-- Wrap, change, remove content with s, sr, sd
-	use("blackCauldron7/surround.nvim")
+	use("tpope/vim-surround")
 	-- Remove search highlight (:nohls) on cursor move
 	use("haya14busa/is.vim")
 end)
