@@ -5,7 +5,7 @@ return require("packer").startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	-- Syntax highlights
 	use("rktjmp/lush.nvim")
-	use("~/code/mine/darkside")
+	use("~/code/mine/neovim/themes/darkside")
 	-- File Icons
 	use("kyazdani42/nvim-web-devicons")
 	-- Treesitter (syntax tree)
@@ -47,4 +47,5 @@ return require("packer").startup(function(use)
 	use("tpope/vim-surround")
 	-- Remove search highlight (:nohls) on cursor move
 	use("haya14busa/is.vim")
+	use("mustache/vim-mustache-handlebars")
 end)

@@ -2,15 +2,15 @@ local opts = { noremap = true, silent = true }
 
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
+		vim.api.nvim_buf_set_keymap(bufnr or 0, ...)
 	end
 
-	local function buf_set_option(...)
-		vim.api.nvim_buf_set_option(bufnr, ...)
-	end
-
-	-- required to ensure lsp completion :h lsp-buf
-	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+	-- local function buf_set_option(...)
+	-- 	vim.api.nvim_buf_set_option(bufnr or 0, ...)
+	-- end
+	--
+	-- -- required to ensure lsp completion :h lsp-buf
+	-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	buf_set_keymap("n", "<Leader>dl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	buf_set_keymap("n", "<Leader>dk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
