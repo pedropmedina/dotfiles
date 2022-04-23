@@ -49,6 +49,7 @@ fi
 # alias ls="exa"
 # alias la="exa -la"
 alias lg="lazygit"
+alias wt="wezterm"
 
 # Set TERM back to xterm-256color without italics when working with ssh
 alias ssh='TERM=xterm-256color ssh'
