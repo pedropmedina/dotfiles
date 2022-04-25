@@ -55,6 +55,7 @@ if present then
 		options = {
 			icons_enabled = true,
 			theme = theme,
+			globalstatus = true,
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = {},

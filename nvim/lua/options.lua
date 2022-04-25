@@ -12,7 +12,7 @@ vim.opt.synmaxcol = 2500
 
 vim.opt.belloff = "all"
 vim.opt.ruler = true
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.showtabline = 1
 vim.opt.splitbelow = true
 vim.opt.splitright = true
