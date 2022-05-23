@@ -52,8 +52,8 @@ map("n", "<Leader>bh", ":bprevious<CR>", opts)
 map("n", "<Leader>bq", ":bdelete<CR>", opts)
 
 -- Tabs navigation
-map("n", "<TAB>", ":tabnext<CR>", opts)
-map("n", "<S-TAB>", ":tabprevious<CR>", opts)
+-- map("n", "<TAB>", ":tabnext<CR>", opts)
+-- map("n", "<S-TAB>", ":tabprevious<CR>", opts)
 map("n", "<Leader>tn", ":tabnew %<CR>", opts)
 map("n", "<Leader>tl", ":tabnext<CR>", opts)
 map("n", "<Leader>th", ":tabprevious<CR>", opts)

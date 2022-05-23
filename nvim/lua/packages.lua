@@ -49,5 +49,5 @@ return require("packer").startup(function(use)
 	use("tpope/vim-surround")
 	-- Remove search highlight (:nohls) on cursor move
 	use("haya14busa/is.vim")
-	use("mustache/vim-mustache-handlebars")
+	-- use("mustache/vim-mustache-handlebars")
 end)

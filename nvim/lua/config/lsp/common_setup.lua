@@ -42,12 +42,10 @@ local on_attach = function(client, bufnr)
 		vim.cmd([[autocmd! * <buffer>]])
 		vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 		vim.cmd([[augroup END]])
-
-		buf_set_keymap("n", "<Leader>gf", "<cmd>lua formatting()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.document_range_formatting then
-		buf_set_keymap("n", "<Leader>gf", "<cmd>lua formatting()<CR>", opts)
+		buf_set_keymap("n", "<Leader>gf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 	end
 
 	if client.resolved_capabilities.goto_definition then
