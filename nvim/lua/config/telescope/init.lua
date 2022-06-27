@@ -34,7 +34,6 @@ if present then
 			selection_strategy = "reset",
 			sorting_strategy = "ascending",
 			winblend = 2,
-			-- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 			borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 			layout_strategy = "horizontal",
 			scroll_strategy = "cycle",
