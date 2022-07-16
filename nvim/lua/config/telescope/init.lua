@@ -1,6 +1,6 @@
-local present, telescope = pcall(require, "telescope")
+local is_telescope_present, telescope = pcall(require, "telescope")
 
-if present then
+if is_telescope_present then
 	local actions = require("telescope.actions")
 	local sorters = require("telescope.sorters")
 	local previewers = require("telescope.previewers")
@@ -28,7 +28,7 @@ if present then
 					["œ"] = send_selected_to_qflist,
 				},
 			},
-			layout_config = { prompt_position = "top", preview_cutoff = 140 },
+			layout_config = { prompt_position = "top", preview_cutoff = 200 },
 			prompt_prefix = "  ",
 			selection_caret = "  ",
 			selection_strategy = "reset",

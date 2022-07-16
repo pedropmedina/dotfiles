@@ -1,6 +1,6 @@
-local preset, gitsigns = pcall(require, "gitsigns")
+local is_gitsigns_present, gitsigns = pcall(require, "gitsigns")
 
-if preset then
+if is_gitsigns_present then
 	gitsigns.setup({
 		signs = {
 			add = { text = "▎" },

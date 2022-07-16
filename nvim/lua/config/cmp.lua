@@ -1,6 +1,6 @@
-local present, cmp = pcall(require, "cmp")
+local is_cmp_present, cmp = pcall(require, "cmp")
 
-if present then
+if is_cmp_present then
 	local lspkind = require("lspkind")
 	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 

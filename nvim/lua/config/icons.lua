@@ -1,7 +1,7 @@
-local preset, web_icons = pcall(require, "nvim-web-devicons")
+local is_web_icons_present, web_icons = pcall(require, "nvim-web-devicons")
 local colors = require("colors")
 
-if preset then
+if is_web_icons_present then
 	web_icons.setup({
 		override = {
 			html = { icon = "", color = colors.red, name = "html" },

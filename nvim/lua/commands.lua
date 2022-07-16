@@ -18,9 +18,3 @@ vim.cmd([[command! TSResetHighlight write | edit | TSBufEnable highlight]])
 vim.cmd([[autocmd BufWinEnter * setlocal formatoptions-=cro]])
 vim.cmd([[autocmd BufRead * setlocal formatoptions-=cro]])
 vim.cmd([[autocmd BufNewFile * setlocal formatoptions-=cro]])
-
--- Remove diagnostics text from gutter
-vim.cmd([[sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=]])
-vim.cmd([[sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=]])
-vim.cmd([[sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=]])
-vim.cmd([[sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=]])

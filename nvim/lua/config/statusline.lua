@@ -1,4 +1,4 @@
-local present, lualine = pcall(require, "lualine")
+local is_lualine_present, lualine = pcall(require, "lualine")
 local colors = require("colors")
 
 local theme = {
@@ -52,7 +52,7 @@ local theme = {
 	},
 }
 
-if present then
+if is_lualine_present then
 	lualine.setup({
 		options = {
 			icons_enabled = true,

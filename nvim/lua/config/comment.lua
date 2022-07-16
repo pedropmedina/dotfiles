@@ -1,6 +1,6 @@
-local preset, comment = pcall(require, "Comment")
+local is_comment_preset, comment = pcall(require, "Comment")
 
-if preset then
+if is_comment_preset then
 	comment.setup({
 		pre_hook = function(ctx)
 			local U = require("Comment.utils")

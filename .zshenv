@@ -19,8 +19,8 @@ export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-i
 export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS || git ls-files --cached --others --exclude-standard"
 
 # Add php composer package manager to PATH
-export PATH="$PATH:$HOME/.composer/vendor/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+# export PATH="$PATH:$HOME/.composer/vendor/bin"
+# export PATH="$PATH:$HOME/.cargo/bin"
 
 # Bat - Alternative to cat with syntax highlighting
 # export BAT_PAGER="less -RF"
@@ -42,7 +42,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-. "$HOME/.cargo/env"
 
 # Nvm - node version manager
 export NVM_DIR="$HOME/.nvm"

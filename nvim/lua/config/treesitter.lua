@@ -1,6 +1,6 @@
-local present, _ = pcall(require, "nvim-treesitter")
+local is_treesitter_present, _ = pcall(require, "nvim-treesitter")
 
-if present then
+if is_treesitter_present then
 	require("nvim-treesitter.configs").setup({
 		-- ensure_installed = "maintained",
 		highlight = { enable = true },

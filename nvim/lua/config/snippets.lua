@@ -1,6 +1,6 @@
-local present, luasnip = pcall(require, "luasnip")
+local is_luasnip_present, luasnip = pcall(require, "luasnip")
 
-if present then
+if is_luasnip_present then
 	luasnip.config.set_config({
 		history = true,
 		updateevents = "TextChanged,TextChangedI",
