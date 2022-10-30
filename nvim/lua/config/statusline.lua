@@ -75,12 +75,13 @@ local setup_lualine = function()
 			},
 			sections = {
 				lualine_a = {
-					-- {
-					-- 	"mode",
-					-- 	fmt = function()
-					-- 		return " "
-					-- 	end,
-					-- },
+					{
+						"mode",
+						separator = { right = "" },
+						fmt = function()
+							return ""
+						end,
+					},
 				},
 				lualine_b = {
 					{
