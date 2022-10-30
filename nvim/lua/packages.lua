@@ -22,11 +22,10 @@ return require("packer").startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	-- Statusline
 	use("nvim-lualine/lualine.nvim")
-	-- Lsp
+	-- Lsp, DAP, linters, formatters intaller (makes it so much easier)
+	use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
-	-- Lsp intaller (makes it so much easier)
-	use("williamboman/nvim-lsp-installer")
-	-- Formatting, linting and more ...
 	use("jose-elias-alvarez/null-ls.nvim")
 	-- Cool icons in cmp dropdown
 	use("onsails/lspkind-nvim")

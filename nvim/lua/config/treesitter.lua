@@ -1,8 +1,35 @@
 local is_treesitter_present, _ = pcall(require, "nvim-treesitter")
 
+local ensured_installed_parsers = {
+	"astro",
+	"bash",
+	"c",
+	"css",
+	"cmake",
+	"comment",
+	"dockerfile",
+	"diff",
+	"dot",
+	"elixir",
+	"go",
+	"graphql",
+	"html",
+	"json",
+	"javascript",
+	"markdown",
+	"prisma",
+	"python",
+	"rust",
+	"tsx",
+	"typescript",
+	"vim",
+	"vue",
+	"yaml",
+}
+
 if is_treesitter_present then
 	require("nvim-treesitter.configs").setup({
-		-- ensure_installed = "maintained",
+		ensure_installed = ensured_installed_parsers,
 		highlight = { enable = true },
 		indent = { enable = false },
 		context_commentstring = { enable = true },
