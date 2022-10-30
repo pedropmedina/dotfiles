@@ -30,7 +30,7 @@ local ensured_installed_parsers = {
 if is_treesitter_present then
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = ensured_installed_parsers,
-		highlight = { enable = true },
+		highlight = { enable = true, additional_vim_regex_highlighting = false },
 		indent = { enable = false },
 		context_commentstring = { enable = true },
 		rainbow = { enable = false },

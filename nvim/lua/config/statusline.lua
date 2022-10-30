@@ -93,7 +93,8 @@ local setup_lualine = function()
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = { { "diagnostics", sources = { "nvim_diagnostic" }, padding = 2 } },
-				lualine_z = { { "branch", icon = "" }, { "diff" }, { "location" }, { "progress" } },
+				lualine_z = { { "branch", icon = "" }, { "diff" }, { "location" }, { "progress" } },
+				-- lualine_z = { { "branch", icon = "" }, { "diff" }, { "location" }, { "progress" } },
 			},
 			inactive_sections = {
 				lualine_a = { "filename" },
