@@ -6,7 +6,7 @@ finders.find_files = function()
 		find_command = {
 			"fd",
 			"--hidden",
-			"--no-ignore",
+			-- "--no-ignore",
 			"--follow",
 			"--type",
 			"file",

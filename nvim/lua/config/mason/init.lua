@@ -18,6 +18,7 @@ local ensure_installed_servers = {
 	"vimls",
 	"vuels",
 	"yamlls",
+	"intelephense",
 }
 
 require("mason").setup()
