@@ -69,3 +69,6 @@ map("n", "¬", ":vertical resize +2<CR>")
 map("n", "<Leader>tt", ":tabnew +terminal<CR>")
 map("n", "<Leader>ts", ":new +terminal<CR>")
 map("n", "<Leader>tv", ":vnew +terminal<CR>")
+
+map("n", "<leader>+", "<C-a>")
+map("n", "<leader>-", "<C-x>")

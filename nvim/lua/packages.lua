@@ -27,6 +27,7 @@ return require("packer").startup(function(use)
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("jayp0521/mason-null-ls.nvim")
 	-- Cool icons in cmp dropdown
 	use("onsails/lspkind-nvim")
 	-- Completion dropdown
