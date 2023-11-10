@@ -71,4 +71,8 @@ coc/*
 # Ignore tmp files I'm working on
 *_tmp/
 
+# Ignore catppuccin for alacritty.
+# Run git clone https://github.com/catppuccin/alacritty.git ~/.config/alacritty/catppuccin to reinstall
+alacritty/catppuccin
+
 # End of https://www.gitignore.io/api/vim,macos

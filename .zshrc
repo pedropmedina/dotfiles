@@ -56,3 +56,11 @@ alias ssh='TERM=xterm-256color ssh'
 
 # Initiate starship prompt
 eval "$(starship init zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/pedropmedina/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+# air https://github.com/cosmtrek/air
+export PATH=$PATH:$(go env GOPATH)/bin
