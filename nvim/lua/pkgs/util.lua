@@ -7,7 +7,6 @@ Reusable plugins.
 
 Plugins:
   1. nvim-lua/plenary.nvim 
-
 --]]
 
 return {

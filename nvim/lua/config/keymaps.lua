@@ -16,19 +16,19 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
 -- Resize window using <ctrl> arrow keys
-map("n", "∆", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-map("n", "˚", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "˚", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "∆", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "˙", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 map("n", "¬", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 map("n", "<Leader>=", "<C-w>=", { desc = "Set all window to same size." })
 
 -- Move Lines
-map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+map("n", "Ô", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "Ô", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "Ô", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
@@ -111,7 +111,6 @@ map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 -- stylua: ignore start
-
 -- toggle options
 map("n", "<leader>uf", function() Util.format.toggle() end, { desc = "Toggle auto format (global)" })
 map("n", "<leader>uF", function() Util.format.toggle(true) end, { desc = "Toggle auto format (buffer)" })
@@ -122,12 +121,6 @@ map("n", "<leader>ul", function() Util.toggle.number() end, { desc = "Toggle Lin
 map("n", "<leader>ud", function() Util.toggle.diagnostics() end, { desc = "Toggle Diagnostics" })
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 map("n", "<leader>uc", function() Util.toggle("conceallevel", false, {0, conceallevel}) end, { desc = "Toggle Conceal" })
-
--- This one makes the init screen go away
--- if vim.lsp.inlay_hint then
---   map("n", "<leader>uh", function() vim.lsp.inlay_hint(0, nil) end, { desc = "Toggle Inlay Hints" })
--- end
---
 map("n", "<leader>uT", function() if vim.b.ts_highlight then vim.treesitter.stop() else vim.treesitter.start() end end, { desc = "Toggle Treesitter Highlight" })
 
  -- lazygit

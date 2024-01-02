@@ -109,3 +109,15 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "BufRead", "BufNewFile" }, {
     vim.cmd("setlocal formatoptions-=cro")
   end,
 })
+
+-- Register some filetypes
+vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+  group = augroup("file_types"),
+  callback = function()
+    vim.filetype.add({
+      extension = {
+        templ = "templ",
+      },
+    })
+  end,
+})

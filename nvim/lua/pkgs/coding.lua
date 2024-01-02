@@ -117,13 +117,6 @@ return {
     },
     -- stylua: ignore
     keys = {
-      {
-        "<tab>",
-        function()
-          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-        end,
-        expr = true, silent = true, mode = "i",
-      },
       { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
@@ -219,7 +212,7 @@ return {
   -- nvim-ts-autotag
   -- https://github.com/windwp/nvim-ts-autotag
   --
-  -- Automatically add closing tags for HTML and JSX
+  -- Automatically add closing tags for HTML, ...
   --------------------------------------------------
   {
     "windwp/nvim-ts-autotag",

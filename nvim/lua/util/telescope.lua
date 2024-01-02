@@ -3,6 +3,7 @@ local Util = require("util")
 ---@class util.telescope.opts
 ---@field cwd? string|boolean
 ---@field show_untracked? boolean
+---@field hidden? boolean
 
 ---@class util.telescope
 ---@overload fun(builtin:string, opts?:util.telescope.opts)
@@ -13,7 +14,8 @@ local M = setmetatable({}, {
 })
 
 -- this will return a function that calls telescope.
--- cwd will default to util.get_root for `files`, git_files or find_files will be chosen depending on .git @param builtin string @param opts? util.telescope.opts
+-- cwd will default to util.get_root for `files`, git_files or find_files will be chosen
+-- depending on .git @param builtin string @param opts? util.telescope.opts
 function M.telescope(builtin, opts)
   local params = { builtin = builtin, opts = opts }
 

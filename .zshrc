@@ -62,5 +62,8 @@ export PNPM_HOME="/Users/pedropmedina/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-# air https://github.com/cosmtrek/air
+# Golang
 export PATH=$PATH:$(go env GOPATH)/bin
+
+# Cargo/rust
+. "$HOME/.cargo/env"

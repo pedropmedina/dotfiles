@@ -11,7 +11,6 @@ the setup to mason-lspconfig.
 Plugins:
   1. neovim/nvim-lspconfig 
   2. williamboman/mason.nvim
-
 --]]
 
 local Util = require("util")
@@ -28,52 +27,27 @@ Keymaps._keys = nil
 
 ---@return LazyKeysLspSpec[]
 function Keymaps.get()
+  -- No need to go over everything again
   if Keymaps._keys then
     return Keymaps._keys
   end
-    -- stylua: ignore
-    Keymaps._keys =  {
-      { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
-      { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition", has = "definition" },
-      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-      { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-      { "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Goto Implementation" },
-      { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
-      { "K", vim.lsp.buf.hover, desc = "Hover" },
-      { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
-      { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
-      {
-        "<leader>cA",
-        function()
-          vim.lsp.buf.code_action({
-            context = {
-              only = {
-                "source",
-              },
-              diagnostics = {},
-            },
-          })
-        end,
-        desc = "Source Action",
-        has = "codeAction",
-      }
-    }
 
-  if require("util").has("inc-rename.nvim") then
-    Keymaps._keys[#Keymaps._keys + 1] = {
-      "<leader>cr",
-      function()
-        local inc_rename = require("inc_rename")
-        return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
-      end,
-      expr = true,
-      desc = "Rename",
-      has = "rename",
-    }
-  else
-    Keymaps._keys[#Keymaps._keys + 1] = { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
-  end
+  -- stylua: ignore
+  Keymaps._keys =  {
+    { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+    { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition", has = "definition" },
+    { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+    { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+    { "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Goto Implementation" },
+    { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
+    { "K", vim.lsp.buf.hover, desc = "Hover" },
+    { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
+    { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
+    { "<leader>cA", function() vim.lsp.buf.code_action({ context = { only = { "source", }, diagnostics = {}, }, }) end, desc = "Source Action", has = "codeAction" },
+    { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
+  }
+
   return Keymaps._keys
 end
 
@@ -105,6 +79,7 @@ function Keymaps.resolve(buffer)
     local maps = opts.servers[client.name] and opts.servers[client.name].keys or {}
     vim.list_extend(spec, maps)
   end
+
   return Keys.resolve(spec)
 end
 
@@ -245,7 +220,16 @@ return {
         -- HTML
         ------------------------------------------
         html = {
-          filetypes = { "html", "tsx", "jsx", "vue" },
+          filetypes = { "html", "tsx", "jsx", "vue", "blade", "templ" },
+          init_options = {
+            provideFormatter = false,
+          },
+        },
+        ------------------------------------------
+        -- HTMX
+        ------------------------------------------
+        htmx = {
+          filetypes = { "html", "templ" },
         },
         ------------------------------------------
         -- CSS
@@ -256,9 +240,27 @@ return {
           },
         },
         ------------------------------------------
-        -- CSS
+        -- Tailwindcss
         ------------------------------------------
         tailwindcss = {
+          filetypes = {
+            "astro",
+            "templ",
+            "hbs",
+            "html",
+            "mdx",
+            "php",
+            "css",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+          },
+          init_options = {
+            userLanguages = {
+              templ = "html",
+            },
+          },
           settings = {
             tailwindCSS = {
               experimental = {
@@ -302,7 +304,7 @@ return {
         require("neoconf").setup(require("lazy.core.plugin").values(plugin, "opts", false))
       end
 
-      -- Setup  autoformat included with lsp
+      -- Setup autoformat included with lsp
       Util.format.register(Util.lsp.formatter())
 
       -- Setup keymaps per active client

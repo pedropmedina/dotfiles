@@ -5,13 +5,12 @@
 
 In this file we hosts plugins responsible to enhancing
 the editor. This encompasses things such as fuzzy finding,
-find and replace, git gutters, ...
+git gutters, todos list ...
 
 Plugins:
   1. nvim-telescope/telescope.nvim
   2. lewis6991/gitsigns.nvim 
-  3. nvim-pack/nvim-spectre
-  4. folke/todo-comments.nvim
+  3. folke/todo-comments.nvim
 
 --]]
 
@@ -55,15 +54,16 @@ return {
       { "<leader>,", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Switch Buffer" },
       { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
+      { "<leader><space>", Util.telescope("fd", { hidden = true }), desc = "Find Files (root dir)" },
       -- file browser
       { "<leader>fE", ":Telescope file_browser<CR>" },
       { "<leader>fe", ":Telescope file_browser path=%:p:h select_buffer=true<CR>" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
       { "<leader>fc", Util.telescope.config_files(), desc = "Find Config File" },
-      { "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
-      { "<leader>fF", Util.telescope("files", { cwd = true }), desc = "Find Files (cwd)" },
+      { "<leader>ff", Util.telescope("fd", { hidden = true }), desc = "Find Files (root dir)" },
+      -- TODO: Fix issue when 'cwd'
+      -- { "<leader>fF", Util.telescope("files", { cwd = true }), desc = "Find Files (cwd)" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       { "<leader>fR", Util.telescope("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
       -- git
@@ -214,23 +214,6 @@ return {
         map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
-    },
-  },
-
-  -----------------------------------------------------
-  -- nvim-pack/nvim-spectre
-  -- https://github.com/nvim-pack/nvim-spectre
-  --
-  -- Search/replace in multiple files. Makes
-  -- it a lot easier than using vimgrep + quickfix list
-  -----------------------------------------------------
-  {
-    "nvim-pack/nvim-spectre",
-    cmd = "Spectre",
-    opts = { open_cmd = "noswapfile vnew" },
-    -- stylua: ignore
-    keys = {
-      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
     },
   },
 
