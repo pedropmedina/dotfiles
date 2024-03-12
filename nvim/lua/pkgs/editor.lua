@@ -54,14 +54,14 @@ return {
       { "<leader>,", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Switch Buffer" },
       { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader><space>", Util.telescope("fd", { hidden = true }), desc = "Find Files (root dir)" },
+      { "<leader><space>", Util.telescope("fd", { cwd = false, hidden = true }), desc = "Find Files (root dir)" },
       -- file browser
       { "<leader>fE", ":Telescope file_browser<CR>" },
       { "<leader>fe", ":Telescope file_browser path=%:p:h select_buffer=true<CR>" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
       { "<leader>fc", Util.telescope.config_files(), desc = "Find Config File" },
-      { "<leader>ff", Util.telescope("fd", { hidden = true }), desc = "Find Files (root dir)" },
+      { "<leader>ff", Util.telescope("fd", { cwd = false, hidden = true }), desc = "Find Files (root dir)" },
       -- TODO: Fix issue when 'cwd'
       -- { "<leader>fF", Util.telescope("files", { cwd = true }), desc = "Find Files (cwd)" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },

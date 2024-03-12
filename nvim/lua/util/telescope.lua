@@ -33,7 +33,7 @@ function M.telescope(builtin, opts)
       end
     end
 
-    if opts.cwd and opts.cwd ~= vim.uv.cwd() then
+    if opts and opts.cwd and opts.cwd ~= vim.uv.cwd() then
       ---@diagnostic disable-next-line: inject-field
       opts.attach_mappings = function(_, map)
         map("i", "<a-c>", function()
