@@ -67,3 +67,5 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 # Cargo/rust
 . "$HOME/.cargo/env"
+
+. "$HOME/.local/bin/env"

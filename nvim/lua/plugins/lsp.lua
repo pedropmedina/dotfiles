@@ -165,7 +165,7 @@ return {
         },
       },
       -- Javascript [*.js, *.ts, *.tsx, *.json, ...]
-      tsserver = {
+      ts_ls = {
         commands = {
           OrganizeImports = {
             function()
@@ -273,6 +273,8 @@ return {
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
+      ensure_installed = {},
+      automatic_installation = false,
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
