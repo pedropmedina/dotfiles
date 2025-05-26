@@ -65,7 +65,13 @@ export PATH="$PNPM_HOME:$PATH"
 # Golang
 export PATH=$PATH:$(go env GOPATH)/bin
 
+# Postgresql
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
 # Cargo/rust
 . "$HOME/.cargo/env"
 
 . "$HOME/.local/bin/env"
+
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home)

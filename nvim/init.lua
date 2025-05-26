@@ -27,6 +27,9 @@ require('lazy').setup({
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'BufRead', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
+  -- Java jdtls extra tools e.g. linting, formatting, debuggin, ...
+  { 'mfussenegger/nvim-jdtls', ft = 'java' },
+
   --  Keep plugins' config that require a bit more work in `lua/pkgs/*.lua`.
   --  For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'plugins' },

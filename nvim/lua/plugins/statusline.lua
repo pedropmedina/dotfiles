@@ -100,7 +100,7 @@ end
 
 -- (/path/to/file.{ext} + <size>)
 M.get_file_info = function()
-  if M.is_empty_buffer() == true then
+  if M.is_empty_buffer() == true or vim.bo.buftype == 'nofile' then
     return ''
   end
   return M.get_file_path() .. string.rep(' ', 2) .. M.get_file_size()

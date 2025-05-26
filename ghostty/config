@@ -1,0 +1,78 @@
+# ghostty +list-fonts
+font-family = JetBrainsMono Nerd Font
+font-family-italic = JetBrainsMono Nerd Font Italic
+font-family-bold-italic = JetBrainsMono Nerd Font Bold Italic
+font-family-bold = JetBrainsMono Nerd Font Bold
+font-size = 16
+
+# ghostty +list-themes
+theme = rose-pine
+
+shell-integration-features = no-cursor,sudo,no-title
+
+# Cursor settings
+cursor-style = block
+cursor-invert-fg-bg
+adjust-cursor-height = 7
+
+# Add a bit more spacing between lines
+adjust-cell-height = 35%
+
+# Hide the mouse using the keyboard 
+mouse-hide-while-typing = true
+
+# Scroll every two lines
+mouse-scroll-multiplier = 2
+
+# Look and feel
+window-padding-balance = true 
+window-save-state = always
+macos-titlebar-style=transparent
+macos-option-as-alt = right
+window-colorspace = "display-p3"
+
+# Selection
+# copy-on-select = clipboard
+copy-on-select = false
+selection-invert-fg-bg
+
+# Reload config
+keybind = ctrl+a>r=reload_config
+
+# Close pane
+keybind = ctrl+a>x=close_surface
+keybind = ctrl+a>w=close_surface
+
+# Open new instance
+keybind = ctrl+a>n=new_window
+
+# Tabs 
+keybind = ctrl+a>t=new_tab
+keybind = ctrl+a>shift+l=next_tab
+keybind = ctrl+a>shift+h=previous_tab
+keybind = ctrl+a>comma=move_tab:-1
+keybind = ctrl+a>period=move_tab:1
+
+# Switch tabs by #
+keybind = ctrl+a>1=goto_tab:1
+keybind = ctrl+a>2=goto_tab:2
+keybind = ctrl+a>3=goto_tab:5
+keybind = ctrl+a>4=goto_tab:4
+keybind = ctrl+a>5=goto_tab:5
+keybind = ctrl+a>6=goto_tab:6
+keybind = ctrl+a>7=goto_tab:7
+keybind = ctrl+a>8=goto_tab:8
+keybind = ctrl+a>9=goto_tab:9
+
+# Split right/bottom
+keybind = ctrl+a>shift+\=new_split:right
+keybind = ctrl+a>shift+-=new_split:down
+
+# Move around splits
+keybind = ctrl+a>j=goto_split:bottom
+keybind = ctrl+a>k=goto_split:top
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>l=goto_split:right
+
+# Toggle maximize split
+keybind = ctrl+a>z=toggle_split_zoom
