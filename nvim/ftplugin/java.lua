@@ -6,14 +6,6 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = home .. '/jdtls-workspace/' .. project_name
 local system_os = 'mac'
 
--- Needed for debugging
--- local bundles = {
---   vim.fn.glob(home .. '/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar'),
--- }
-
--- Needed for running/debugging unit tests
--- vim.list_extend(bundles, vim.split(vim.fn.glob(home .. '/.local/share/nvim/mason/share/java-test/*.jar', 1), '\n'))
-
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
   -- The command that starts the language server
@@ -41,6 +33,9 @@ local config = {
     '-data',
     workspace_dir,
   },
+
+  -- For some reason this doesn't get added automagically
+  filetypes = { 'java' },
 
   -- This is the default if not provided, you can remove it. Or adjust as needed.
   -- One dedicated LSP server & client will be started per unique root_dir
@@ -116,7 +111,8 @@ local config = {
       },
     },
   },
-  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  -- capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  capabilities = require('blink.cmp').get_lsp_capabilities(),
   flags = {
     allow_incremental_sync = true,
   },
@@ -124,12 +120,6 @@ local config = {
     extendedClientCapabilities = jdtls.extendedClientCapabilities,
   },
 }
-
--- Needed for debugging
--- config['on_attach'] = function(client, bufnr)
---   jdtls.setup_dap { hotcodereplace = 'auto' }
---   require('jdtls.dap').setup_dap_main_class_configs()
--- end
 
 -- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.
 jdtls.start_or_attach(config)
