@@ -1,0 +1,102 @@
+" References:
+" https://github.com/JetBrains/ideavim/wiki/set-commands#ideavim-only-options
+
+
+let mapleader=' '                   " Set <space> as the leader key
+
+" Vim options
+" -------------------------------------------------------------------------------------------------
+set clipboard^=unnamedplus,unnamed  " ALWAYS use the clipboard for ALL operations
+set history=100                     " Number of command-lines that are remembered
+set hlsearch                        " Highlight matches with the last search pattern
+set ignorecase                      " Ignore case in search patterns
+set incsearch                       " Show where search pattern typed so far matches
+set matchpairs                      " Pairs of characters that "%" can match
+set nrformats-=octal                " Number formats recognized for CTRL-A command
+set showcmd                         " Show (partial) command in the status bar
+set showmode                        " Show the current mode in the status bar
+set smartcase                       " Use case sensitive search if any character in the
+set timeout                         " Use timeout for mapped key sequences
+set timeoutlen=500                  " Timeout duration for a mapped key sequence
+set ttimeoutlen=0                   " Time in milliseconds to wait for a key code sequence to complete
+set virtualedit=block               " Allow cursor to move where there is no text in visual block mode
+set visualbell                      " When on, prevents beeping on error
+set scrolloff=5                     " Vim-sensible overrides to 1 if not set, but set in defaults.vim
+set sidescrolloff=5                 " Minimal number of screen columns to keep to the left and to the right of the cursor
+set number                          " Show number in gutter
+set relativenumber                  " Show the line number relative to the line with the cursor
+set breakindent                     " Same amount of space as the beginning of that line
+set splitright                      " Splitting a window will put the new window right of the current one
+set splitbelow                      " Splitting a window will put the new window below the current one
+set cursorline                      " Highlight the text line of the cursor with CursorLine
+set expandtab                       " Use the appropriate number of spaces to insert a <Tab>
+set smartindent                     " Smart autoindenting when starting a new line
+
+" IdeaVim (ONLY) options
+" -------------------------------------------------------------------------------------------------
+set ideajoin                        " Smart join for <C-J>
+set ideamarks                       " Map vim marks to IDEA global marks
+
+" Keymaps
+" -------------------------------------------------------------------------------------------------
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [c <Action>(VcsShowPrevChangeMarker)
+
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+
+nmap gb <Action>(Back)
+nmap gf <Action>(Forward)
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gh <Action>(ShowHoverInfo)
+nmap K  <Action>(ShowHoverInfo)
+nmap gI <Action>(QuickImplementations)
+
+" Remove highlights with escape
+nmap <Esc> :nohlsearch<CR>
+
+" Move lines up and down
+nmap <C-j> <Action>(MoveLineDown)
+xmap <C-j> <Action>(MoveLineDown)
+nmap <C-k> <Action>(MoveLineUp)
+xmap <C-k> <Action>(MoveLineUp)
+
+" Move back and forth among tabs
+nnoremap <leader><tab>] :tabnext<CR>
+nnoremap <leader><tab>[ :tabprev<CR>
+
+" Current window split horizontally, vertically, equal size
+nnoremap <Leader>_ <C-w>s
+nnoremap <Leader>\| <C-w>v
+nnoremap <Leader>= <C-w>=
+
+" Better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Better indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" Popup navigation
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+" File navigation
+map <leader>ff <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>fc <action>(FindInPath)
+map <leader><leader> <Action>(RecentFiles)
+map <leader>fl <action>(RecentLocations)
+map <leader>fs <action>(NewScratchFile)
+"
+" " ----------------------------------------------------------------------------
+" " Plugins
+" " https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
+" " ----------------------------------------------------------------------------
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'

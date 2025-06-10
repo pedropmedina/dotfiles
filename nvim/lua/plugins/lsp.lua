@@ -135,8 +135,24 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
+      -- Kotlin
+      -- kotlin_language_server = {},
+
       -- Java [*.java]
-      jdtls = {},
+      jdtls = {
+        capabilities = {
+          workspace = {
+            configuration = true,
+          },
+          textDocument = {
+            completion = {
+              completionItem = {
+                snippetSupport = true,
+              },
+            },
+          },
+        },
+      },
       -- SQL [*.sql]
       sqls = {
         on_attach = function(client, bufnr)
