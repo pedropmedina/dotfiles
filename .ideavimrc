@@ -56,10 +56,11 @@ nmap gI <Action>(QuickImplementations)
 " Remove highlights with escape
 nmap <Esc> :nohlsearch<CR>
 
+" Redo with 'U' instead of <C-r>
+nmap U <C-r>
+
 " Move lines up and down
-nmap <C-j> <Action>(MoveLineDown)
 xmap <C-j> <Action>(MoveLineDown)
-nmap <C-k> <Action>(MoveLineUp)
 xmap <C-k> <Action>(MoveLineUp)
 
 " Move back and forth among tabs
@@ -71,11 +72,14 @@ nnoremap <Leader>_ <C-w>s
 nnoremap <Leader>\| <C-w>v
 nnoremap <Leader>= <C-w>=
 
-" Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" Keybinds to make split navigation easier.
+"  Use CTRL+<hjkl> to switch between windows
+"
+" See `:help wincmd` for a list of all window commands
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
 
 " Better indenting
 vnoremap < <gv
@@ -86,17 +90,24 @@ inoremap <C-j> <Action>(PopupMenu-selectNext)
 inoremap <C-k> <Action>(PopupMenu-selectPrev)
 
 " File navigation
-map <leader>ff <action>(GotoFile)
-map <leader>fr <action>(RecentFiles)
-map <leader>fc <action>(FindInPath)
-map <leader><leader> <Action>(RecentFiles)
-map <leader>fl <action>(RecentLocations)
-map <leader>fs <action>(NewScratchFile)
-"
-" " ----------------------------------------------------------------------------
-" " Plugins
-" " https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
-" " ----------------------------------------------------------------------------
+map <leader><leader> <Action>(GotoFile)
+map <leader>sf <Action>(GotoFile)
+map <leader>sa <Action>(GotoAction)
+map <leader>se <Action>(GotoClass)
+map <leader>ss <Action>(GotoSymbol)
+map <leader>se <Action>(SearchEverywhere)
+map <leader>sg <Action>(FindInPath)
+map <leader>sr <Action>(RecentFiles)
+map <leader>sl <Action>(RecentLocations)
+
+nmap <leader>\ <Action>(ActivateProjectToolWindow)
+
+" ----------------------------------------------------------------------------
+" Plugins
+" https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
+" ----------------------------------------------------------------------------
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'vim-scripts/argtextobj.vim'
