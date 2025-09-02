@@ -65,7 +65,7 @@ local function setup_jdtls()
   local workspace_dir = get_workspace()
 
   -- Determine the root directory of the project by looking for these specific markers
-  local root_dir = jdtls.setup.find_root { '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle', 'build.gradle.kts' }
+  local root_dir = jdtls.setup.find_root { '.git', 'mvnw', 'gradlew', 'pom.xml' }
 
   -- Bring in blink cmp features
   -- local capabilities = vim.tbl_extend('force', { workspace = { configuration = true } }, require('blink.cmp').get_lsp_capabilities())
@@ -103,19 +103,26 @@ local function setup_jdtls()
   -- Configure settings in the JDTLS server
   local settings = {
     java = {
-      classPath = {
-        -- Add paths to your desired classpath entries here
-        -- vim.fn.getcwd() .. '/libs/mwave_sdk.jar',
-        '/libs/mwave_sdk.jar',
-      },
+      home = '/usr/libexec/java_home',
+      -- classPath = {
+      --   -- Add paths to your desired classpath entries here
+      --   -- vim.fn.getcwd() .. '/libs/mwave_sdk.jar',
+      --   '/libs/mwave_sdk.jar',
+      -- },
       -- Enable code formatting
       format = {
         enabled = true,
-        -- Use the Google Style guide for code formattingh
         -- settings = {
-        --   url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
-        --   profile = "GoogleStyle",
+        --   url = '',
+        --   profile = '',
+        --   ['org.eclipse.jdt.core.formatter.tabulation.char'] = 'space',
+        --   ['org.eclipse.jdt.core.formatter.tabulation.size'] = 2,
         -- },
+        -- Use the Google Style guide for code formatting
+        settings = {
+          url = 'https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml',
+          profile = 'GoogleStyle',
+        },
       },
       -- Enable downloading archives from eclipse automatically
       eclipse = {

@@ -73,6 +73,7 @@ return {
       ['markdown.mdx']    = { 'prettier' },
       ['python']          = { 'ruff_format' },
       ['sql']             = { 'sqlfluff' },
+      ['java']            = { 'google-java-format' },
     },
     -- stylua: ignore end
   },
