@@ -6,7 +6,7 @@ font-family-bold = JetBrainsMono Nerd Font Bold
 font-size = 16
 
 # ghostty +list-themes
-theme = rose-pine
+theme = Rose Pine
 
 shell-integration-features = no-cursor,sudo,no-title
 

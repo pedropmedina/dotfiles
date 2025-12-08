@@ -75,3 +75,8 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Ngrok
+if command -v ngrok &>/dev/null; then
+    eval "$(ngrok completion)"
+  fi

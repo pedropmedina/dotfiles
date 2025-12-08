@@ -254,6 +254,7 @@ return {
           yaml = { keyOrdering = false },
         },
       },
+      basedpyright = {},
     }
 
     vim.keymap.set('n', '<leader>mm', '<cmd>Mason<cr>', { desc = '[M]ason [O]pen' })

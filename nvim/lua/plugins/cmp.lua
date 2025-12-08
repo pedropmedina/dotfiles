@@ -46,7 +46,7 @@
 -- }, {})
 
 local sort_source = function(a, b)
-  local order = { lsp = 6, snippets = 5, git = 4, path = 3, buffer = 2, lazydev = 1 }
+  local order = { supermaven = 7, lsp = 6, snippets = 5, git = 4, path = 3, buffer = 2, lazydev = 1 }
   local a_order_id = order[a.source_id]
   local b_order_id = order[b.source_id]
   if a_order_id ~= b_order_id then
@@ -62,7 +62,7 @@ return {
     -- Snippet Engine
     {
       'L3MON4D3/LuaSnip',
-      version = '2.*',
+      version = 'v2.*',
       build = (function()
         -- Build Step is needed for regex support in snippets.
         -- This step is not supported in many windows environments.
