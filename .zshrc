@@ -80,3 +80,6 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 if command -v ngrok &>/dev/null; then
     eval "$(ngrok completion)"
   fi
+
+# opencode
+export PATH=/Users/pedropmedina/.opencode/bin:$PATH

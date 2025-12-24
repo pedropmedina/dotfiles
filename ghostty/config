@@ -27,8 +27,9 @@ mouse-scroll-multiplier = 2
 # Look and feel
 window-padding-balance = true 
 window-save-state = always
-macos-titlebar-style=transparent
+macos-titlebar-style = tabs
 macos-option-as-alt = right
+macos-icon-frame = beige
 window-colorspace = "display-p3"
 
 # Selection
