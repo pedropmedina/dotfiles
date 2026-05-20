@@ -43,9 +43,9 @@ return {
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
-      local disabled_filetypes = { c = true, cpp = true, sql = true }
+      local disabled_filetypes = { c = true, cpp = true, sql = true, java = true }
       return {
-        timeout_ms = 500,
+        timeout_ms = 2000,
         lsp_fallback = not disabled_filetypes[vim.bo[bufnr].filetype],
       }
     end,
@@ -73,7 +73,9 @@ return {
       ['markdown.mdx']    = { 'prettier' },
       ['python']          = { 'ruff_format' },
       ['sql']             = { 'sqlfluff' },
-      ['java']            = { 'google-java-format' },
+      ['java']            = { 'prettier' },
+      -- ['java']            = { 'palantir-java-format' },
+      -- ['java']            = { 'google-java-format' },
     },
     -- stylua: ignore end
   },

@@ -81,4 +81,3 @@ keybind = ctrl+a>l=goto_split:right
 
 # Toggle maximize split
 keybind = ctrl+a>z=toggle_split_zoom
-keybind = shift+enter=text:\x1b\r

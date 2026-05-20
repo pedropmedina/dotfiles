@@ -49,7 +49,8 @@ fi
 # alias ls="exa"
 # alias la="exa -la"
 alias lg="lazygit"
-alias wt="wezterm"
+alias gh="ghostty"
+alias cc="codex"
 
 # Set TERM back to xterm-256color without italics when working with ssh
 alias ssh='TERM=xterm-256color ssh'
@@ -80,6 +81,3 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 if command -v ngrok &>/dev/null; then
     eval "$(ngrok completion)"
   fi
-
-# opencode
-export PATH=/Users/pedropmedina/.opencode/bin:$PATH

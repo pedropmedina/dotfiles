@@ -8,7 +8,7 @@ export KEYTIMEOUT=1
 export TERM=xterm-256color-italic
 
 # Apps
-export TERMINAL="Kitty"
+export TERMINAL="Ghostty"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
@@ -21,10 +21,6 @@ export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS || git ls-files --c
 # Add php composer package manager to PATH
 # export PATH="$PATH:$HOME/.composer/vendor/bin"
 # export PATH="$PATH:$HOME/.cargo/bin"
-
-# Bat - Alternative to cat with syntax highlighting
-# export BAT_PAGER="less -RF"
-export BAT_THEME="Nord"
 
 # Files and Directories colors
 export CLICOLOR=1
@@ -44,6 +40,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Nvm - node version manager
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
