@@ -105,6 +105,14 @@ return {
           end, '[T]oggle Inlay [H]ints')
         end
 
+        -- Show codelenses. Placement varies by language server so making it a toggle we can enable/disable
+        -- whenever the display is not optimal.
+        if client and client.server_capabilities.codeLensProvider and vim.lsp.codelens then
+          map('<leader>tc', function()
+            vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
+          end, '[T]oggle Codelens')
+        end
+
         -- Organize imports for *.ts files
         if client ~= nil and client.name == 'ts_ls' then
           map('<leader>co', function()

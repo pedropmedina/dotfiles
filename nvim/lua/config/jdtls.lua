@@ -248,18 +248,6 @@ local function setup_jdtls()
 
     -- Enable jdtls commands to be used in Neovim
     -- require('jdtls.setup').add_commands()
-
-    -- Refresh the codelens
-    -- Code lens enables features such as code reference counts, implemenation counts, and more.
-    vim.lsp.codelens.refresh()
-
-    -- Setup a function that automatically runs every time a java file is saved to refresh the code lens
-    vim.api.nvim_create_autocmd('BufWritePost', {
-      pattern = { '*.java' },
-      callback = function()
-        local _, _ = pcall(vim.lsp.codelens.refresh)
-      end,
-    })
   end
 
   local on_init = function(client, _)
