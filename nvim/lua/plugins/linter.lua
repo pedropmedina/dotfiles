@@ -15,6 +15,7 @@ return {
         ['typescriptreact'] = { 'eslint' },
         ['json'] =            { 'eslint' },
         ['python'] =          { 'ruff' },
+        -- ['kotlin'] =          { 'ktlint' },
         -- Use the "*" filetype to run linters on all filetypes.
         -- ['*'] = { 'global linter' },
         -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.

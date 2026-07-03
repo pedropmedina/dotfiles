@@ -125,6 +125,18 @@ return {
             }, { bufnr = args.buf })
           end, '[O]rganize [i]mports')
         end
+
+        -- Origanize imports for *.kt files
+        if client and client.name == 'kotlin_lsp' then
+          map('<leader>co', function()
+            vim.lsp.buf.code_action {
+              apply = true,
+              context = {
+                only = { 'source.organizeImports' },
+              },
+            }
+          end, '[O]rganize [i]mports')
+        end
       end,
     })
 
@@ -136,6 +148,31 @@ return {
     -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
     capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
 
+    -- Check if the buffer is a Kotlin file
+    local function is_kotlin_buffer(bufnr)
+      return vim.bo[bufnr].filetype == 'kotlin'
+    end
+
+    -- Get rid of the "FunctionName should start with a lowercase letter" diagnostics that comes
+    -- up when working with @Composable functions in Kotlin. We could use the @Suppress("FunctionName")
+    -- annotation, but that would require us to add it to every function we want to suppress.
+    local function is_ignored_kotlin_diagnostic(diagnostic)
+      return diagnostic
+        and diagnostic.code == 'FunctionName'
+        and diagnostic.message
+        and diagnostic.message:match 'should start with a lowercase letter'
+        and diagnostic.data
+        and diagnostic.data.diagnosticSource
+        and diagnostic.data.diagnosticSource.name == 'inspection'
+    end
+
+    -- Leave everything but the 'FunctionName' in the diagnostics for kotlin files
+    local function filter_kotlin_diagnostics(diagnostics)
+      return vim.tbl_filter(function(diagnostic)
+        return not is_ignored_kotlin_diagnostic(diagnostic)
+      end, diagnostics or {})
+    end
+
     --  Add any additional override configuration in the following tables. Available keys are:
     --  - cmd (table): Override the default command used to start the server
     --  - filetypes (table): Override the default list of associated filetypes for the server
@@ -144,7 +181,78 @@ return {
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
       -- Kotlin
-      -- kotlin_language_server = {},
+      kotlin_lsp = {
+        -- cmd = { 'kotlin-lsp', '--stdio' },
+        filetypes = { 'kotlin', 'java' },
+        single_file_support = false,
+        root_markers = {
+          'settings.gradle',
+          'settings.gradle.kts',
+          'pom.xml',
+          'build.gradle',
+          'build.gradle.kts',
+          'workspace.json',
+        },
+        capabilities = {
+          workspace = {
+            configuration = true,
+          },
+        },
+        init_options = {
+          -- Path to JDK used for symbol resolution. Optional.
+          -- defaultSdk = vim.fn.expand('~/.sdkman/candidates/java/current'),
+
+          -- VS Code passes this as a map from workspace folder URI to build tool.
+          -- Values: nil/absent = auto, "" = none, "gradle" or "maven" when you want to force one.
+          buildTools = {},
+        },
+        settings = {
+          -- These mirror VS Code extension settings. Some are client-side in VS Code,
+          -- so not all are guaranteed to affect Neovim.
+          intellij = {
+            trace = {
+              server = 'off', -- 'off' | 'messages' | 'verbose'
+            },
+          },
+          jetbrains = {
+            kotlin = {
+              hints = {
+                parameters = true,
+              },
+            },
+          },
+        },
+        before_init = function(_, config)
+          local root = config.root_dir
+          if root then
+            config.init_options = vim.tbl_deep_extend('force', config.init_options or {}, {
+              buildTools = {
+                [vim.uri_from_fname(root)] = nil, -- auto-detect Gradle/Maven
+              },
+              -- defaultSdk = vim.fn.expand('~/.sdkman/candidates/java/current'),
+            })
+          end
+        end,
+        handlers = {
+          ['textDocument/publishDiagnostics'] = function(err, result, ctx)
+            local bufnr = result and vim.uri_to_bufnr(result.uri)
+
+            if bufnr and is_kotlin_buffer(bufnr) then
+              result.diagnostics = filter_kotlin_diagnostics(result.diagnostics)
+            end
+
+            return vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
+          end,
+
+          ['textDocument/diagnostic'] = function(err, result, ctx)
+            if ctx.bufnr and is_kotlin_buffer(ctx.bufnr) and result and result.kind == 'full' then
+              result.items = filter_kotlin_diagnostics(result.items)
+            end
+
+            return vim.lsp.diagnostic.on_diagnostic(err, result, ctx)
+          end,
+        },
+      },
 
       -- Java [*.java]
       jdtls = {

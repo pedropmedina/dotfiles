@@ -74,8 +74,7 @@ return {
       ['python']          = { 'ruff_format' },
       ['sql']             = { 'sqlfluff' },
       ['java']            = { 'prettier' },
-      -- ['java']            = { 'palantir-java-format' },
-      -- ['java']            = { 'google-java-format' },
+      -- ['kotlin']          = { 'ktfmt' },
     },
     -- stylua: ignore end
   },

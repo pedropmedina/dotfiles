@@ -11,14 +11,12 @@ set history=100                     " Number of command-lines that are remembere
 set hlsearch                        " Highlight matches with the last search pattern
 set ignorecase                      " Ignore case in search patterns
 set incsearch                       " Show where search pattern typed so far matches
-set matchpairs                      " Pairs of characters that "%" can match
 set nrformats-=octal                " Number formats recognized for CTRL-A command
 set showcmd                         " Show (partial) command in the status bar
 set showmode                        " Show the current mode in the status bar
 set smartcase                       " Use case sensitive search if any character in the
 set timeout                         " Use timeout for mapped key sequences
 set timeoutlen=500                  " Timeout duration for a mapped key sequence
-set ttimeoutlen=0                   " Time in milliseconds to wait for a key code sequence to complete
 set virtualedit=block               " Allow cursor to move where there is no text in visual block mode
 set visualbell                      " When on, prevents beeping on error
 set scrolloff=5                     " Vim-sensible overrides to 1 if not set, but set in defaults.vim
@@ -26,11 +24,9 @@ set sidescrolloff=5                 " Minimal number of screen columns to keep t
 set number                          " Show number in gutter
 set relativenumber                  " Show the line number relative to the line with the cursor
 set breakindent                     " Same amount of space as the beginning of that line
-set splitright                      " Splitting a window will put the new window right of the current one
-set splitbelow                      " Splitting a window will put the new window below the current one
 set cursorline                      " Highlight the text line of the cursor with CursorLine
-set expandtab                       " Use the appropriate number of spaces to insert a <Tab>
-set smartindent                     " Smart autoindenting when starting a new line
+set matchpairs+=<:>                 " Jump between angle brackets
+
 
 " IdeaVim (ONLY) options
 " -------------------------------------------------------------------------------------------------
@@ -39,19 +35,11 @@ set ideamarks                       " Map vim marks to IDEA global marks
 
 " Keymaps
 " -------------------------------------------------------------------------------------------------
-nmap ]c <Action>(VcsShowNextChangeMarker)
-nmap [c <Action>(VcsShowPrevChangeMarker)
+" Don't override default register while pasting
+xnoremap p P
 
-nmap ]d <Action>(GotoNextError)
-nmap [d <Action>(GotoPreviousError)
-
-nmap gb <Action>(Back)
-nmap gf <Action>(Forward)
-nmap gd <Action>(GotoDeclaration)
-nmap gD <Action>(GotoTypeDeclaration)
-nmap gh <Action>(ShowHoverInfo)
-nmap K  <Action>(ShowHoverInfo)
-nmap gI <Action>(QuickImplementations)
+" Open .ideavimrc
+noremap <leader>cc :edit ~/.ideavimrc<CR>
 
 " Remove highlights with escape
 nmap <Esc> :nohlsearch<CR>
@@ -85,29 +73,66 @@ nnoremap <C-l> <C-w><C-l>
 vnoremap < <gv
 vnoremap > >gv
 
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [c <Action>(VcsShowPrevChangeMarker)
+
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+
+" Go around
+nmap gb <Action>(Back)
+nmap gf <Action>(Forward)
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gh <Action>(ShowHoverInfo)
+nmap K  <Action>(ShowHoverInfo)
+nmap gI <Action>(QuickImplementations)
+nmap gi <Action>(GotoImplementation)
+nmap gt <Action>(GotoTest)
+nmap gm <Action>(GotoSuperMethod)
+
+" Usage
+map <leader>ug <Action>(FindUsages)
+map <leader>uu <Action>(ShowUsages)
+
+" File structure
+map <leader>oo <Action>(FileStructurePopup)
+
 " Popup navigation
 inoremap <C-j> <Action>(PopupMenu-selectNext)
 inoremap <C-k> <Action>(PopupMenu-selectPrev)
 
-" File navigation
-map <leader><leader> <Action>(GotoFile)
+" File navigation, find, move, replace ...
+map <S-f> <Action>(Find)
+map <S-r> <Action>(Replace)
+map <leader><leader> <Action>(SearchEverywhere)
+map <leader>se <Action>(SearchEverywhere)
 map <leader>sf <Action>(GotoFile)
 map <leader>sa <Action>(GotoAction)
-map <leader>se <Action>(GotoClass)
+map <leader>sc <Action>(GotoClass)
 map <leader>ss <Action>(GotoSymbol)
-map <leader>se <Action>(SearchEverywhere)
 map <leader>sg <Action>(FindInPath)
-map <leader>sr <Action>(RecentFiles)
+map <leader>sb <Action>(RecentFiles)
 map <leader>sl <Action>(RecentLocations)
+map <leader>sr <Action>(ReplaceInPath)
 
-nmap <leader>\ <Action>(ActivateProjectToolWindow)
+" Code actions
+map <leader>ca <Action>(ShowIntentionActions)
 
-" ----------------------------------------------------------------------------
+" Organize imports
+map <leader>co <Action>(OptimizeImports)
+
+" Format code
+map <leader>cf <Action>(ReformatCode)
+
 " Plugins
-" https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
-" ----------------------------------------------------------------------------
-Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-commentary'
+" -------------------------------------------------------------------------------------------------
 Plug 'tpope/vim-surround'
+
 Plug 'preservim/nerdtree'
-Plug 'vim-scripts/argtextobj.vim'
+let g:NERDTreeQuitOnOpen = 1
+nnoremap <leader>e :NERDTreeToggle<CR>
+
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_color = 'rgba(69, 48, 43, 255)'
+let g:highlightedyank_highlight_foreground_color = 'rgba(100, 100, 100, 255)'

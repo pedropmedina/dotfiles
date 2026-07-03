@@ -31,11 +31,13 @@ return {
         'python',
         'go',
         'java',
+        'kotlin',
       }
 
       vim.treesitter.language.register('json', 'jsonc')
       vim.treesitter.language.register('tsx', 'typescriptreact')
       vim.treesitter.language.register('javascript', 'javascriptreact')
+      vim.treesitter.language.register('kt', 'kotlin')
 
       vim.api.nvim_create_autocmd('FileType', {
         group = vim.api.nvim_create_augroup('treesitter-start', { clear = true }),
@@ -59,6 +61,7 @@ return {
           'python',
           'go',
           'java',
+          'kotlin',
         },
         callback = function(args)
           local bufnr = args.buf
