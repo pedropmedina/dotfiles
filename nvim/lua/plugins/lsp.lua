@@ -95,13 +95,14 @@ return {
           })
         end
 
-        -- The following autocommand is used to enable inlay hints in your
-        -- code, if the language server you are using supports them
+        -- Enable and toggle inlay hints if the language server you are using supports them
         --
         -- This may be unwanted, since they displace some of your code
         if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+          vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+
           map('<leader>th', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = args.buf }, { bufnr = args.buf })
           end, '[T]oggle Inlay [H]ints')
         end
 
