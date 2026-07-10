@@ -184,7 +184,7 @@ return {
       -- Kotlin
       kotlin_lsp = {
         -- cmd = { 'kotlin-lsp', '--stdio' },
-        filetypes = { 'kotlin', 'java' },
+        filetypes = { 'kotlin', 'java', 'kt', 'kts' },
         single_file_support = false,
         root_markers = {
           'settings.gradle',
