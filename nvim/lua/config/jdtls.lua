@@ -251,7 +251,7 @@ local function setup_jdtls()
   end
 
   local on_init = function(client, _)
-    client.notify('workspace/didChangeConfiguration', { settings = settings })
+    client:notify('workspace/didChangeConfiguration', { settings = settings })
   end
 
   -- Create the configuration table for the start or attach function
